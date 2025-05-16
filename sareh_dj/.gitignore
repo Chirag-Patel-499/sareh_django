@@ -1,0 +1,6 @@
+sarehenv/
+db.sqlite
+migrations/
+__pycache__/
+media/
+static/
