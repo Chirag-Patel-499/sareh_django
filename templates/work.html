@@ -1,0 +1,403 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <main>
+        <!-- BREADCRUMB SECTION START -->
+        <section class="jo-breadcrumb">
+            <div class="container">
+                <h1 class="jo-page-title jo-section-title">My Work Profile</h1>
+                <ul class="jo-breadcrumb-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><span>/</span></li>
+                    <li class="current-page">Work Profile</li>
+                </ul>
+
+                <div class="jo-circle-box">
+                    <span class="circle-1"><img src="{% static 'assets/img/social-icon-1.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-2"><img src="{% static 'assets/img/social-icon-2.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-3"><img src="{% static 'assets/img/social-icon-3.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-4"><img src="{% static 'assets/img/social-icon-4.png' %}" alt="Social Media Icon"></span>
+                </div>
+            </div>
+        </section>
+        <!-- BREADCRUMB SECTION END -->
+
+
+<!--     
+        <section class="jo-inner-about">
+            <div class="jo-container">
+                <div class="top-wrapper">
+                    <div class="row gx-xl-0 gx-4 align-items-center">
+                        
+                        <div class="col-xl-5 col-lg-5 align-self-stretch">
+                            <div class="jo-inner-about-left">
+                                <div class="img">
+                                    <img src="{% static 'assets/img/sa1.jpg' %}" alt="Image">
+                                    <div class="follower-tag">85.5M Followers</div>
+                                </div>
+                                <h2 class="title">Sareh Far</h2>
+                                <a href="contact.html" class="jo-btn ">Get in Touch</a>
+                                <h3 class="sub-title">typically response within 24 hours</h3>
+                            </div>
+                        </div> 
+
+                         
+                        <div class="col-xl-7 col-lg-7">
+                            <div class="jo-inner-about-txt">
+                                <h2 class="jo-section-title">I'm a Social Media influencer&nbsp;&amp; digital content creator</h2>
+                                <p class="jo-intro__descr">consectetur adipiscing elit. Donec non mattis nulla, in ultrices diam. Curabitur nec pharetra nunc. Nunc nec pellentesque nisl. Ut non mauris bibendum nunc pharetra laoreet sed eget mauris. Donec eget fermentum libero, ac aliquet lectus.</p>
+
+                                <ul class="jo-intro__list">
+                                    <li>Non mattis nulla, in ultrices diam</li>
+                                    <li>Web design done Delightful Visualization</li>
+                                    <li>Alienum phaedrum torquatos nec eu, vis detraxit periculis</li>
+                                    <li>Software Makes Your Profit Double if You Scale Properly.</li>
+                                </ul>
+
+                                <div><img src="{% static 'assets/img/signature.jpg' %}" alt="signature Image"></div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <p class="jo-inner-about-second-title">Jio helps agencies like yours operate at a much larger scale <span class="txt-gold">with a vital</span> <span class="txt-pink">Platform to Effectively Manage</span> and grow your network</p>
+            </div>
+        </section>
+        <!-- ABOUT SECTION END -->
+
+
+        <!-- VIDEOS SECTION START -->
+        <section class="jo-videos jo-inner-videos">
+            <div class="jo-container">
+                <!-- heading -->
+                <div class="jo-videos__heading">
+                    <h2 class="jo-section-title">My Latest Videos</h2>
+                    <a href="videos-1.html" class="jo-btn jo-videos__btn"><i class="flaticon-premium-quality"></i> View All Videos</a>
+                </div>
+            </div>
+
+            <!-- video cards -->
+            <div class="jo-videos-slider splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="jo-video-card">
+                                <img src="{% static 'assets/img/Sareh-Far-wiki.webp' %}" alt="Video Thumbnail" class="jo-video-card__img" width="690" height="497">
+
+                                <div class="jo-video-card__txt">
+                                    <div class="d-flex justify-content-between">
+                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
+                                        <a href="https://www.youtube.com/embed/0ShecoIJ5jc" target="_blank" class="jo-video-card__btn">
+                                            <i class="flaticon-play"></i>
+                                           </a>
+                                    </div>
+
+                                    <div class="bottom">
+                                        <h5><a href="video-details.html" class="jo-video-card__title">Whatsapp love</a></h5>
+                                        <div class="tt-video__infos jo-video-card__infos">
+                                            <span>16M views</span>
+                                            <span>49 minutes ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="jo-video-card">
+                                <!-- <img src="{% static 'assets/img/jo-video-2.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
+                                <img src="{% static 'assets/img/sar2.png' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+
+                                <div class="jo-video-card__txt">
+                                    <div class="d-flex justify-content-between">
+                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
+                                        <a href="https://www.youtube.com/embed/JIzkQGPMT9E" target="_blank" class="jo-video-card__btn">
+                                            <i class="flaticon-play"></i>
+                                           </a>
+                                    </div>
+
+                                    <div class="bottom">
+                                        <h5><a href="video-details.html" class="jo-video-card__title">Shona Re शोना रे</a></h5>
+                                        <div class="tt-video__infos jo-video-card__infos">
+                                            <span>16M views</span>
+                                            <span>49 minutes ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="jo-video-card">
+                                <!-- <img src="{% static 'assets/img/jo-video-3.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
+                                <img src="{% static 'assets/img/sar3.jpeg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+
+                                <div class="jo-video-card__txt">
+                                    <div class="d-flex justify-content-between">
+                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
+                                        <a href="https://www.youtube.com/embed/lxypV_kVito?si=yIoqaDuvtIEXG7Hi" target="_blank" class="jo-video-card__btn">
+                                            <i class="flaticon-play"></i>
+                                           </a>
+                                    </div>
+
+                                    <div class="bottom">
+                                        <h5><a href="video-details.html" class="jo-video-card__title">Hai apna dil toh awara with MJM production</a></h5>
+                                        <div class="tt-video__infos jo-video-card__infos">
+                                            <span>16M views</span>
+                                            <span>49 minutes ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="jo-videos-slider-2 splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="jo-video-card">
+                                <!-- <img src="{% static 'assets/img/jo-video-4.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
+                                <img src="{% static 'assets/img/sar7.jpg' %}" style="object-position: top;" alt="Video Thumbnail" class="jo-video-card__img">
+
+
+                                <div class="jo-video-card__txt">
+                                    <div class="d-flex justify-content-between">
+                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
+                                        <a href="https://youtu.be/IOMFNHebwIo?si=pRcnh8-p6Ilb46NV" target="_blank" class="jo-video-card__btn">
+                                            <i class="flaticon-play"></i>
+                                           </a>
+                                    </div>
+
+                                    <div class="bottom">
+                                        <span class="price">Free</span>
+                                        <h5><a href="video-details.html" class="jo-video-card__title">A Scandall directed by Ishan trivedi.</a></h5>
+                                        <div class="tt-video__infos jo-video-card__infos">
+                                            <span>16M views</span>
+                                            <span>49 minutes ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="jo-video-card">
+                                <!-- <img src="{% static 'assets/img/jo-video-5.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
+                                <img src="{% static 'assets/img/sar5.heic' %}" style="object-position: top;" alt="Video Thumbnail" class="jo-video-card__img">
+
+
+                                <div class="jo-video-card__txt">
+                                    <div class="d-flex justify-content-between">
+                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
+                                        <a href="https://www.youtube.com/embed/bWZPJQmL_NA?si=nfDaxKqJ76pdQ5TA" target="_blank" class="jo-video-card__btn">
+                                            <i class="flaticon-play"></i>
+                                           </a>
+                                    </div>
+
+                                    <div class="bottom">
+                                        <h5><a href="video-details.html" class="jo-video-card__title">"sab theek hai" directed by raja mukerji</a></h5>
+                                        <div class="tt-video__infos jo-video-card__infos">
+                                            <span>16M views</span>
+                                            <span>49 minutes ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="jo-video-card">
+                                <!-- <img src="{% static 'assets/img/jo-video-6.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
+                                <img src="{% static 'assets/img/sar6.heic' %}" style="object-position: top;" alt="Video Thumbnail" class="jo-video-card__img">
+
+
+                                <div class="jo-video-card__txt">
+                                    <div class="d-flex justify-content-between">
+                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
+                                        <a href="https://www.instagram.com/sarehfar/reel/DJUKASAM8rv/" target="_blank" class="jo-video-card__btn">
+                                            <i class="flaticon-play"></i>
+                                           </a>
+                                        <span class="jo-video-card__premium-tag"><i class="flaticon-premium-quality"></i></span>
+                                    </div>
+
+                                    <div class="bottom">
+                                        <span class="price">$5.00</span>
+                                        <h5><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                        <div class="tt-video__infos jo-video-card__infos">
+                                            <span>16M views</span>
+                                            <span>49 minutes ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- VIDEOS SECTION END -->
+
+
+        <!-- CONTACT SECTION START -->
+        <section class="jo-contact">
+            <div class="top">
+                <div class="jo-container">
+                    <div class="row align-items-end">
+                        <!-- contact form -->
+                        <div class="col-lg-6">
+                            <div class="jo-contact-form-wrapper">
+                                <img src="{% static 'assets/img/contact-form-icon.svg' %}" alt="icon" class="icon">
+                                <h2 class="jo-section-title">Let’s Work Together on your next Project</h2>
+                                <p>consectetur adipiscing elit. Donec non mattis nulla, in ultrices diam. Curabitur nec pharetra nunc. Nunc nec pellentesque nisl. Ut non mauris bibendum</p>
+                                <form action="#" class="jo-contact-form">
+                                    <div>
+                                        <label for="jo-contact-name">Your Name</label>
+                                        <input type="text" name="name" id="jo-contact-name" placeholder="Your Name">
+                                    </div>
+
+                                    <div>
+                                        <label for="jo-contact-email">Your Email Address</label>
+                                        <input type="email" name="email" id="jo-contact-email" placeholder="Your Email">
+                                    </div>
+
+                                    <div>
+                                        <label for="jo-contact-message">Write Message</label>
+                                        <textarea name="message" id="jo-contact-message" placeholder="Write Message..."></textarea>
+                                    </div>
+
+                                    <button type="submit" class="jo-btn">Send Message</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- img -->
+                        <div class="col-lg-6 d-lg-block d-none">
+                            <div class="jo-contact__img">
+                                <img src="{% static 'assets/img/sa2 (2).webp' %}" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <div class="jo-container overflow-hidden">
+                    <div class="row gx-5">
+                        <div class="col-lg-6 blank-space d-none d-lg-block"></div>
+
+                        <div class="col-lg-6">
+                            <h5 class="jo-partners-title">Trusted Partners</h5>
+                            <div class="jo-partners-slider swiper">
+                                <div class="swiper-wrapper align-items-center">
+                                    <!-- single partner -->
+                                    <div class="swiper-slide">
+                                        <img src="{% static 'assets/img/partner-1.png' %}" alt="Partner Image">
+                                    </div>
+
+                                    <!-- single partner -->
+                                    <div class="swiper-slide">
+                                        <img src="{% static 'assets/img/partner-2.png' %}" alt="Partner Image">
+                                    </div>
+
+                                    <!-- single partner -->
+                                    <div class="swiper-slide">
+                                        <img src="{% static 'assets/img/partner-3.png' %}" alt="Partner Image">
+                                    </div>
+
+                                    <!-- single partner -->
+                                    <div class="swiper-slide">
+                                        <img src="{% static 'assets/img/partner-4.png' %}" alt="Partner Image">
+                                    </div>
+
+                                    <!-- single partner -->
+                                    <div class="swiper-slide">
+                                        <img src="{% static 'assets/img/partner-1.png' %}" alt="Partner Image">
+                                    </div>
+
+                                    <!-- single partner -->
+                                    <div class="swiper-slide">
+                                        <img src="{% static 'assets/img/partner-1.png' %}" alt="Partner Image">
+                                    </div>
+                                </div>
+
+                                <div class="jo-partners-slider-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CONTACT SECTION END -->
+
+
+        <!-- SOCIAL LINKS SECTION START -->
+        <section class="jo-social-links jo-inner-social-links">
+            <div class="jo-container">
+                <div class="row g-sm-4 g-3">
+                    <!-- single social -->
+                    <div class="col-md-3 col-6 col-xxs-12">
+                        <div class="jo-social-link">
+                            <div class="icon"><img src="{% static 'assets/img/social-icon-1.png' %}" alt="Social Media Icon"></div>
+                            <div class="txt">
+                                <h5>Facebook</h5>
+                                <span>20.5K followers</span>
+                            </div>
+                            <a href="#" class="jo-btn">Follow Me</a>
+                        </div>
+                    </div>
+
+                    <!-- single social -->
+                    <div class="col-md-3 col-6 col-xxs-12">
+                        <div class="jo-social-link">
+                            <div class="icon"><img src="{% static 'assets/img/social-icon-2.png' %}" alt="Social Media Icon"></div>
+                            <div class="txt">
+                                <h5>Instagram</h5>
+                                <span>30.9K followers</span>
+                            </div>
+                            <a href="#" class="jo-btn">Follow Me</a>
+                        </div>
+                    </div>
+
+                    <!-- single social -->
+                    <div class="col-md-3 col-6 col-xxs-12">
+                        <div class="jo-social-link">
+                            <div class="icon"><img src="{% static 'assets/img/social-icon-3.png' %}" alt="Social Media Icon"></div>
+                            <div class="txt">
+                                <h5>Tiktok</h5>
+                                <span>2.5M followers</span>
+                            </div>
+                            <a href="#" class="jo-btn">Follow Me</a>
+                        </div>
+                    </div>
+
+                    <!-- single social -->
+                    <div class="col-md-3 col-6 col-xxs-12">
+                        <div class="jo-social-link">
+                            <div class="icon"><img src="{% static 'assets/img/social-icon-4.png' %}" alt="Social Media Icon"></div>
+                            <div class="txt">
+                                <h5>YouTube</h5>
+                                <span>1.69M Sbscribers</span>
+                            </div>
+                            <a href="#" class="jo-btn">Subscribe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SOCIAL LINKS SECTION END -->
+    </main>
+
+
+    
+    <!-- custom js -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+{% endblock %}
+
+</html>

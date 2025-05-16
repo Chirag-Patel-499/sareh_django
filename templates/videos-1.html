@@ -1,0 +1,909 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <main>
+        <!-- BREADCRUMB SECTION START -->
+        <section class="jo-breadcrumb">
+            <div class="container">
+                <h1 class="jo-page-title jo-section-title">Streaming Videos</h1>
+                <ul class="jo-breadcrumb-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><span>/</span></li>
+                    <li class="current-page">Streaming Videos</li>
+                </ul>
+
+                <div class="jo-circle-box">
+                    <span class="circle-1"><img src="{% static 'assets/img/social-icon-1.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-2"><img src="{% static 'assets/img/social-icon-2.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-3"><img src="{% static 'assets/img/social-icon-3.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-4"><img src="{% static 'assets/img/social-icon-4.png' %}" alt="Social Media Icon"></span>
+                </div>
+            </div>
+        </section>
+        <!-- BREADCRUMB SECTION END -->
+
+
+        <!-- VIDEOS SECTION START -->
+        <div class="jo-inner-main-content">
+            <div class="jo-container">
+                <!-- switch toggler -->
+                <div class="jo-videos-filter-toggle">
+                    <!-- Rounded switch -->
+                    <label class="jo-videos-toggle-switch">
+                        <input type="checkbox" hidden>
+                        <span class="toggle-label free"><i class="flaticon-play"></i> Free Videos</span>
+                        <span class="slider"></span>
+                        <span class="toggle-label premium"><i class="flaticon-premium-quality"></i> Premium Videos</span>
+                    </label>
+                </div>
+
+                <div class="jo-inner-videos-filter-nav d-flex justify-content-center flex-wrap">
+                    <button data-tab="all" class="tab-nav active">All Videos</button>
+                    <button data-tab="lifestyle" class="tab-nav">Lifestyle</button>
+                    <button data-tab="fashion" class="tab-nav">Fashion</button>
+                    <button data-tab="beauty" class="tab-nav">Beauty</button>
+                    <button data-tab="fitness-health" class="tab-nav">Fitness & Health</button>
+                    <button data-tab="recipe-videos" class="tab-nav">Recipe Videos</button>
+                    <button data-tab="travel" class="tab-nav">Travel</button>
+                </div>
+
+                <!-- video cards -->
+                <div class="jo-videos-tab-container">
+                    <!-- single tab -->
+                    <div class="jo-tab active" id="all">
+                        <div class="jo-inner-videos-row row row-cols-2 row-cols-xs-1">
+                            <div class="col-12">
+                                <div class="jo-video-card jo-inner-video-card jo-inner-video-card--big">
+                                    <img src="{% static 'assets/img/f50.png' %}" alt="Video Thumbnail" class="jo-video-card__img w-100 h-100" style="object-fit: cover;">
+
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f4.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f3.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f5.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f6.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f7.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f8.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- single tab -->
+                    <div class="jo-tab" id="lifestyle">
+                        <div class="jo-inner-videos-row row row-cols-2 row-cols-xs-1">
+                            <div class="col-12">
+                                <div class="jo-video-card jo-inner-video-card jo-inner-video-card--big">
+                                    <img src="{% static 'assets/img/f58.png' %}" alt="Video Thumbnail" class="jo-video-card__img w-100 h-100" style="object-fit: cover;">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f10.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f11.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f12 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f13 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f14 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f15.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- single tab -->
+                    <div class="jo-tab" id="fashion">
+                        <div class="jo-inner-videos-row row row-cols-2 row-cols-xs-1">
+                            <div class="col-12">
+                                <div class="jo-video-card jo-inner-video-card jo-inner-video-card--big">
+                                    <img src="{% static 'assets/img/f60.png' %}" alt="Video Thumbnail" class="jo-video-card__img w-100 h-100" style="object-fit: cover;">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f16 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f17.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f18.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f19.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f20 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f21 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- single tab -->
+                    <div class="jo-tab" id="beauty">
+                        <div class="jo-inner-videos-row row row-cols-2 row-cols-xs-1">
+                            <div class="col-12">
+                                <div class="jo-video-card jo-inner-video-card jo-inner-video-card--big">
+                                    <img src="{% static 'assets/img/f61.png' %}" alt="Video Thumbnail" class="jo-video-card__img w-100 h-100" style="object-fit: cover;">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f22 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f23.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f24 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f25 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f26.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f27.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- single tab -->
+                    <div class="jo-tab" id="fitness-health">
+                        <div class="jo-inner-videos-row row row-cols-2 row-cols-xs-1">
+                            <div class="col-12">
+                                <div class="jo-video-card jo-inner-video-card jo-inner-video-card--big">
+                                    <img src="{% static 'assets/img/f62.png' %}" alt="Video Thumbnail" class="jo-video-card__img w-100 h-100" style="object-fit: cover;">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f28.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f29 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f30 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f31 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f32 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f33.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- single tab -->
+                    <div class="jo-tab" id="recipe-videos">
+                        <div class="jo-inner-videos-row row row-cols-2 row-cols-xs-1">
+                            <div class="col-12">
+                                <div class="jo-video-card jo-inner-video-card jo-inner-video-card--big">
+                                    <img src="{% static 'assets/img/f63.png' %}" alt="Video Thumbnail" class="jo-video-card__img w-100 h-100" style="object-fit: cover;">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f34 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f35 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f36.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f37.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f38.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f39 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- single tab -->
+                    <div class="jo-tab" id="travel">
+                        <div class="jo-inner-videos-row row row-cols-2 row-cols-xs-1">
+                            <div class="col-12">
+                                <div class="jo-video-card jo-inner-video-card jo-inner-video-card--big">
+                                    <img src="{% static 'assets/img/f64.png' %}" alt="Video Thumbnail" class="jo-video-card__img w-100 h-100" style="object-fit: cover;">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f40 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f41 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f42.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f43 (1).jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f44.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="jo-video-card jo-inner-video-card">
+                                    <img src="{% static 'assets/img/f45.heic' %}" alt="Video Thumbnail" class="jo-video-card__img">
+
+                                    <div class="jo-video-card__txt">
+                                        <div class="bottom">
+                                            <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a>
+                                            <h5 class="mb-0"><a href="video-details.html" class="jo-video-card__title">Smiley woman pop party studio medium shot</a></h5>
+                                            <div class="tt-video__infos jo-video-card__infos">
+                                                <span>@facebook</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- pagination -->
+                <div class="tt-channel-content-pagination d-flex justify-content-center align-items-center gap-2 mt-5">
+                    <button><i class="flaticon-left-arrow"></i></button>
+                    <div class="pages">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                    </div>
+                    <button><i class="flaticon-right-arrow"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- VIDEOS SECTION END -->
+    </main>
+
+
+    <!-- libraries JS 
+    <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/splide/splide.min.js"></script>
+    <script src="assets/vendor/splide/splide-extension-auto-scroll.min.js"></script>
+    <script src="assets/vendor/slim-select/slimselect.min.js"></script>
+    <script src="assets/vendor/plyr/plyr.polyfilled.js"></script>
+    <script src="assets/vendor/no-ui-slider/nouislider.min.js"></script>
+    <script src="assets/vendor/fs-lightbox/fslightbox.js"></script>    -->
+
+    <!-- custom js -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/accordion.js' %}"></script>
+    <script src="{% static 'assets/js/tab.js' %}"></script>
+
+
+{% endblock %}
