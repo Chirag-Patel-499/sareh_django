@@ -710,10 +710,10 @@
 <section class="jo-contact">
     <div class="top">
         <div class="jo-container">
-            <div class="row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <div class="row" style="display: flex; align-items: center; justify-content: space-between; min-height: 100vh; flex-wrap: wrap;">
                 <!-- contact form -->
-                <div class="col-lg-6" style="flex: 1 1 48%; max-width: 48%;">
-                    <div class="jo-contact-form-wrapper">
+                <div class="col-lg-6" style="flex: 1 1 48%; max-width: 48%; display: flex; align-items: center;">
+                    <div class="jo-contact-form-wrapper" style="width: 100%;">
                         <img src="{% static 'assets/img/contact-form-icon.svg' %}" alt="icon" class="icon">
                         <h2 class="jo-section-title">Let’s Work Together on your next Project</h2>
                         <p>consectetur adipiscing elit. Donec non mattis nulla, in ultrices diam. Curabitur nec pharetra nunc. Nunc nec pellentesque nisl. Ut non mauris bibendum</p>
@@ -739,7 +739,7 @@
                 </div>
 
                 <!-- img -->
-                <div class="col-lg-6 d-lg-block d-none" style="flex: 1 1 48%; max-width: 48%; text-align: center;">
+                <div class="col-lg-6 d-lg-block d-none" style="flex: 1 1 48%; max-width: 48%; display: flex; align-items: center; justify-content: center;">
                     <div class="jo-contact__img">
                         <img src="{% static 'assets/img/team.jpeg' %}" alt="Image" style="max-width: 100%; height: auto; border-radius: 16px;">
                     </div>
@@ -757,32 +757,25 @@
                     <h5 class="jo-partners-title">Trusted Partners</h5>
                     <div class="jo-partners-slider swiper">
                         <div class="swiper-wrapper">
-                            <!-- single partner -->
                             <div class="swiper-slide">
                                 <img src="{% static 'assets/img/partner-1.png' %}" alt="Partner Image">
                             </div>
-
                             <div class="swiper-slide">
                                 <img src="{% static 'assets/img/partner-2.png' %}" alt="Partner Image">
                             </div>
-
                             <div class="swiper-slide">
                                 <img src="{% static 'assets/img/partner-3.png' %}" alt="Partner Image">
                             </div>
-
                             <div class="swiper-slide">
                                 <img src="{% static 'assets/img/partner-4.png' %}" alt="Partner Image">
                             </div>
-
                             <div class="swiper-slide">
                                 <img src="{% static 'assets/img/partner-1.png' %}" alt="Partner Image">
                             </div>
-
                             <div class="swiper-slide">
                                 <img src="{% static 'assets/img/partner-2.png' %}" alt="Partner Image">
                             </div>
                         </div>
-
                         <div class="jo-partners-slider-pagination"></div>
                     </div>
                 </div>
@@ -790,6 +783,7 @@
         </div>
     </div>
 </section>
+
 
         <!-- CONTACT SECTION END -->
 
