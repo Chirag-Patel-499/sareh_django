@@ -709,7 +709,7 @@
         <!-- CONTACT SECTION START -->
             <section class="jo-contact py-5">
                 <div class="jo-container">
-                    <!-- Top: Contact form + Image -->
+                    <!-- Top: Contact form + Image + Logos -->
                     <div class="row align-items-start">
                         <!-- Contact Form -->
                         <div class="col-lg-6 mb-4 mb-lg-0 d-flex justify-content-center">
@@ -738,46 +738,44 @@
                             </div>
                         </div>
 
-                        <!-- Image -->
-                        <div class="col-lg-6 d-flex justify-content-center align-items-start">
-                            <div class="jo-contact__img" style="max-width: 500px;">
+                        <!-- Image + Logos -->
+                        <div class="col-lg-6 d-flex flex-column align-items-center">
+                            <div class="jo-contact__img mb-4" style="max-width: 500px;">
                                 <img src="{% static 'assets/img/team_1.jpeg' %}" alt="Image" style="width: 100%; border-radius: 16px;">
                             </div>
-                        </div>
-                         
-                    </div>
 
-                    <!-- Bottom: Company Logos -->
-                    <div class="row mt-5 justify-content-center text-center">
-                            <div class="col-12">
-                            <h5 class="jo-partners-title mb-4">Trusted Partners</h5>
-                            <div class="jo-partners-slider swiper">
-                                <div class="swiper-wrapper d-flex justify-content-center align-items-center flex-wrap gap-4">
-                                    <div class="swiper-slide">
-                                        <img src="{% static 'assets/img/partner-1.png' %}" alt="Partner Image">
+                            <!-- Company Logos under image -->
+                            <div class="w-100 text-center">
+                                <h5 class="jo-partners-title mb-4">Trusted Partners</h5>
+                                <div class="jo-partners-slider swiper">
+                                    <div class="swiper-wrapper d-flex justify-content-center align-items-center flex-wrap gap-4">
+                                        <div class="swiper-slide">
+                                            <img src="{% static 'assets/img/partner-1.png' %}" alt="Partner Image">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{% static 'assets/img/partner-2.png' %}" alt="Partner Image">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{% static 'assets/img/partner-3.png' %}" alt="Partner Image">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{% static 'assets/img/partner-4.png' %}" alt="Partner Image">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{% static 'assets/img/partner-1.png' %}" alt="Partner Image">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{% static 'assets/img/partner-2.png' %}" alt="Partner Image">
+                                        </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="{% static 'assets/img/partner-2.png' %}" alt="Partner Image">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{% static 'assets/img/partner-3.png' %}" alt="Partner Image">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{% static 'assets/img/partner-4.png' %}" alt="Partner Image">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{% static 'assets/img/partner-1.png' %}" alt="Partner Image">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="{% static 'assets/img/partner-2.png' %}" alt="Partner Image">
-                                    </div>
+                                    <div class="jo-partners-slider-pagination mt-3"></div>
                                 </div>
-                                <div class="jo-partners-slider-pagination mt-3"></div>
                             </div>
                         </div>
-                     </div>
+                    </div>
                 </div>
             </section>
+
 
         <!-- CONTACT SECTION END -->
 
