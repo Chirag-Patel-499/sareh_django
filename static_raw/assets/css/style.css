@@ -1779,9 +1779,11 @@ input {
 }
 @media screen and (max-width: 479px) {
   .jo-intro__img {
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
   }
 }
 .jo-intro__img .play-btn {
