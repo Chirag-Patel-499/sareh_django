@@ -1779,7 +1779,9 @@ input {
 }
 @media screen and (max-width: 479px) {
   .jo-intro__img {
-    margin-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
   }
 }
 .jo-intro__img .play-btn {
@@ -1808,7 +1810,7 @@ input {
 @media screen and (max-width: 479px) {
   .jo-intro__img .play-btn {
     left: 10px;
-    width: 200px;
+    width: 70px;
     font-size: 20px;
   }
 }
