@@ -1808,7 +1808,7 @@ input {
 @media screen and (max-width: 479px) {
   .jo-intro__img .play-btn {
     left: 10px;
-    width: 70px;
+    width: 200px;
     font-size: 20px;
   }
 }
