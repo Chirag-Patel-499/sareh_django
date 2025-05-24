@@ -14,7 +14,7 @@ urlpatterns = [
     path('videos-2/', VideoView.as_view(), name='videos-2'),
     path('videos-3/', VideoView.as_view(), name='videos-3'),
     path('video-details/', VideoView.as_view(), name='video-details'),
-    path('work/', WorkView.as_view(), name='work')
+    path('work/', WorkView.as_view(), name='work'),
     path('blog/', BlogView.as_view(), name='blog')
 
 ]
