@@ -27,5 +27,5 @@ class VideoView(TemplateView):
 class WorkView(TemplateView):
     template_name = 'work.html'        
 
-class Blogview(TemplateView):
+class BlogView(TemplateView):
     template_name = 'blog.html'    
