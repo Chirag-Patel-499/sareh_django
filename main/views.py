@@ -28,4 +28,10 @@ class WorkView(TemplateView):
     template_name = 'work.html'        
 
 class BlogView(TemplateView):
-    template_name = 'blog.html'    
+    template_name = 'blog.html' 
+
+class BlogDetailsView(TemplateView):
+    template_name = 'blog-details.html'     
+
+
+

@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from main.views import HomeView, AboutView, ContactView, VideoView, WorkView, BlogView
+from main.views import HomeView, AboutView, ContactView, VideoView, WorkView, BlogView, BlogDetailsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,7 +15,9 @@ urlpatterns = [
     path('videos-3/', VideoView.as_view(), name='videos-3'),
     path('video-details/', VideoView.as_view(), name='video-details'),
     path('work/', WorkView.as_view(), name='work'),
-    path('blog/', BlogView.as_view(), name='blog')
+    path('blog/', BlogView.as_view(), name='blog'),
+    path('blog-details/', BlogDetailsView.as_view(), name='blog-details')
+
 
 ]
 

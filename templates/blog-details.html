@@ -1,0 +1,261 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <main>
+        <!-- BREADCRUMB SECTION START -->
+        <section class="jo-breadcrumb">
+            <div class="container">
+                <h1 class="jo-page-title jo-section-title">Blog Details</h1>
+                <ul class="jo-breadcrumb-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><span>/</span></li>
+                    <li class="current-page">Blog Details</li>
+                </ul>
+
+                <div class="jo-circle-box">
+                    <span class="circle-1"><img src="{% static 'assets/img/social-icon-1.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-2"><img src="{% static 'assets/img/social-icon-2.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-3"><img src="{% static 'assets/img/social-icon-3.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-4"><img src="{% static 'assets/img/social-icon-4.png' %}" alt="Social Media Icon"></span>
+                </div>
+            </div>
+        </section>
+        <!-- BREADCRUMB SECTION END -->
+
+
+        <!-- MAIN CONTENT START -->
+        <div class="jo-inner-blogs">
+            <div class="jo-container">
+                <div class="row gy-4">
+                    <div class="col-lg-8">
+                        <!-- single blog -->
+                        <div class="jo-blog-details">
+                            <div class="jo-inner-blog-img jo-blog-details-img">
+                                <img src="{% static 'assets/img/blog-1.jpg' %}" alt="">
+                            </div>
+                            <!-- txt -->
+                            <div class="jo-blog-details-txt">
+                                <div class="jo-inner-blog-infos">
+                                    <div class="author">Written by: <span class="name">Marry biden</span></div>
+                                    <div class="date">14/03/2024</div>
+                                </div>
+                                <h3 class="jo-inner-blog-title"><a href="#">Life won's one Beast air Over above all</a></h3>
+                                <p class="jo-inner-blog-descr">Consectetur adipisicing elit, sed do eiusmod tempor is incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi.
+                                    <br>
+                                    <br>
+                                    Vivamus condimentum a sem nec vehicula. In congue feugiat molestie. Aliquam nec nulla neque. Donec ac ipsum in neque efficitur pulvinar vitae sagittis tortor. Mauris ut fringilla quam, sit amet tempus lacus. Aliquam vitae tellus auctor, laoreet turpis commodo, condimentum neque. Maecenas congue accumsan eros non faucibus. Fusce dignissim mi eget magna ornare porttitor. Donec velit ligula, dignissim ut tortor vitae, viverra blandit turpis. Nunc vel dictum massa. Nam ut massa at metus placerat sagittis a semper elit.
+                                </p>
+                                <ul>
+                                    <li>Technology Support Allows Erie non-profit to Serve.</li>
+                                    <li>Web design done Delightful Visualization</li>
+                                    <li>Software Makes Your Profit Double if You Scale Properly.</li>
+                                </ul>
+                                <p>Consectetur adipisicing elit, sed do eiusmod tempor is incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi.</p>
+
+                                <div class="jo-blog-details-inner-imgs">
+                                    <img src="{% static 'assets/img/blog-3.jpg' %}" alt="Inner Image">
+                                    <img src="{% static 'assets/img/blog-2.jpg' %}" alt="Inner Image">
+                                </div>
+
+                                <p>The is ipsum dolor sit amet consectetur adipiscing elit. Fusce eleifend porta arcu In hac habitasse the is platea augue thelorem turpoi dictumst. In lacus libero faucibus at malesuada sagittis placerat eros sed istincidunt augue ac ante rutrum sed the is sodales augue consequat.</p>
+
+                                <blockquote>Pellentesque sollicitudin congue dolor non aliquam. Morbi volutpat, nisi vel ultricies urnacondimentum, sapien neque lobortis tortor, quis efficitur mi ipsum eu metus. Praesent eleifend orci sit amet est vehicula.
+
+                                    <!-- icon -->
+                                    <img src="{% static 'assets/img/quotation-icon-2.svg' %}" alt="quotation icon" class="quotation-icon">
+                                </blockquote>
+
+                                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat. Duis aute irure and dolor in reprehenderit.</p>
+                            </div>
+
+                            <!-- actions -->
+                            <div class="jo-blog-details-actions">
+                                <!-- tags -->
+                                <div class="tags-wrapper">
+                                    <h4 class="title">Tags:</h4>
+                                    <div class="tags">
+                                        <a href="#">Reseller</a>
+                                        <a href="#">Hosting</a>
+                                        <a href="#">WP Hosting</a>
+                                    </div>
+                                </div>
+
+                                <!-- share -->
+                                <div class="share">
+                                    <h4 class="title">Share:</h4>
+                                    <div class="share-options">
+                                        <a href="#"><i class="flaticon-facebook-1"></i></a>
+                                        <a href="#"><i class="flaticon-twitter"></i></a>
+                                        <a href="#"><i class="flaticon-social-media"></i></a>
+                                        <a href="#"><i class="flaticon-youtube-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- comments -->
+                            <div class="jo-blog-comments">
+                                <h4 class="jo-blog-comments-title">02 Comments</h4>
+
+                                <div class="comments">
+                                    <!-- single comment -->
+                                    <div class="jo-blog-comment">
+                                        <div class="jo-blog-comment-user-img">
+                                            <img src="{% static 'assets/img/user-5.png' %}" alt="commenter Image">
+                                        </div>
+                                        <div class="jo-blog-comment-txt">
+                                            <div class="heading">
+                                                <h5 class="name">Ralph edwards</h5>
+                                                <span class="date">March 20, 2023 at 2:37 pm</span>
+                                            </div>
+                                            <p class="descr">Neque porro est qui dolorem ipsum quia quaed inventor veritatis et quasi architecto var sed efficitur turpis gilla sed sit amet finibus eros. Lorem Ipsum is simply dummy</p>
+                                            <button class="reply-btn">Reply</button>
+                                        </div>
+                                    </div>
+                                    <!-- single comment -->
+                                    <div class="jo-blog-comment">
+                                        <div class="jo-blog-comment-user-img">
+                                            <img src="{% static 'assets/img/user-6.png' %}" alt="commenter Image">
+                                        </div>
+                                        <div class="jo-blog-comment-txt">
+                                            <div class="heading">
+                                                <h5 class="name">Ralph edwards</h5>
+                                                <span class="date">March 20, 2023 at 2:37 pm</span>
+                                            </div>
+                                            <p class="descr">Neque porro est qui dolorem ipsum quia quaed inventor veritatis et quasi architecto var sed efficitur turpis gilla sed sit amet finibus eros. Lorem Ipsum is simply dummy</p>
+                                            <button class="reply-btn">Reply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- comment form -->
+                            <div class="jo-blog-comment-form-wrapper">
+                                <h3 class="jo-blog-comment-form-title">Leave a Comment</h3>
+
+                                <form action="#" class="jo-blog-comment-form">
+                                    <div class="row g-4 row-cols-sm-2">
+                                        <div>
+                                            <label for="jo-blog-comment-name">Your Name*</label>
+                                            <input type="text" name="name" id="jo-blog-comment-name" placeholder="Your Name">
+                                        </div>
+                                        <div>
+                                            <label for="jo-blog-comment-email">Your Email*</label>
+                                            <input type="email" name="email" id="jo-blog-comment-email" placeholder="Your Email">
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <label for="jo-blog-comment-comment">Write Comment*</label>
+                                            <textarea name="comment" id="jo-blog-comment-comment" placeholder="Write Comment"></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="jo-comment-form-submit-btn">Post Comment <i class="flaticon-arrow-right-1"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- right sidebar -->
+                    <div class="col-lg-4">
+                        <div class="jo-inner-blogs-sidebar">
+                            <!-- single widget / search -->
+                            <div class="jo-inner-blogs-sidebar-widget">
+                                <h2 class="jo-inner-blogs-sidebar-widget-title">Search</h2>
+
+                                <form action="#" class="jo-inner-blogs-search-form">
+                                    <input type="search" name="search" id="wm-search" placeholder="Search Here">
+                                    <button type="submit" title="Search Form Button"><i class="flaticon-search"></i></button>
+                                </form>
+                            </div>
+
+                            <!-- single widget / categories -->
+                            <div class="jo-inner-blogs-sidebar-widget">
+                                <h2 class="jo-inner-blogs-sidebar-widget-title">Categories</h2>
+
+                                <div class="jo-inner-blogs-categories">
+                                    <a href="{% url 'blog.html' %}">Product Presentation <span>(08)</span></a>
+                                    <a href="{% url 'blog.html' %}">Dedicated Video Call <span>(11)</span></a>
+                                    <a href="{% url 'blog.html' %}">Trending Challenge <span>(18)</span></a>
+                                    <a href="{% url 'blog.html' %}">Dance Awarness <span>(11)</span></a>
+                                    <a href="{% url 'blog.html' %}">Photography <span>(07)</span></a>
+                                </div>
+                            </div>
+
+                            <!-- single widget / posts -->
+                            <div class="jo-inner-blogs-sidebar-widget">
+                                <h2 class="jo-inner-blogs-sidebar-widget-title">Popular Posts</h2>
+
+                                <div class="jo-inner-blogs-sidebar-posts">
+                                    <!-- single post -->
+                                    <div class="jo-inner-blogs-sidebar-post">
+                                        <div class="img">
+                                            <img src="{% static 'assets/img/jo-article-2.jpg' %}" alt="Post Image">
+                                        </div>
+
+                                        <div class="txt">
+                                            <span class="date">
+                                                <span class="icon"><i class="flaticon-calendar-1"></i></span>
+                                                <span>14/03/2024</span>
+                                            </span>
+
+                                            <h3 class="title"><a href="{% url 'blog-details.html' %}">How to get the first 100 customers for your business</a></h3>
+                                        </div>
+                                    </div>
+
+                                    <!-- single post -->
+                                    <div class="jo-inner-blogs-sidebar-post">
+                                        <div class="img">
+                                            <img src="{% static 'assets/img/jo-article-1.jpg' %}" alt="Post Image">
+                                        </div>
+
+                                        <div class="txt">
+                                            <span class="date">
+                                                <span class="icon"><i class="flaticon-calendar-1"></i></span>
+                                                <span>14/03/2024</span>
+                                            </span>
+
+                                            <h3 class="title"><a href="{% url 'blog-details.html' %}">How to get the first 100 customers for your business</a></h3>
+                                        </div>
+                                    </div>
+
+                                    <!-- single post -->
+                                    <div class="jo-inner-blogs-sidebar-post">
+                                        <div class="img">
+                                            <img src="{% static 'assets/img/jo-article-3.jpg' %}" alt="Post Image">
+                                        </div>
+
+                                        <div class="txt">
+                                            <span class="date">
+                                                <span class="icon"><i class="flaticon-calendar-1"></i></span>
+                                                <span>14/03/2024</span>
+                                            </span>
+
+                                            <h3 class="title"><a href="{% url 'blog-details.html' %}">How to get the first 100 customers for your business</a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- single widget / tags -->
+                            <div class="jo-inner-blogs-sidebar-widget">
+                                <h2 class="jo-inner-blogs-sidebar-widget-title">Tags</h2>
+
+                                <div class="jo-inner-blogs-tags">
+                                    <a href="{% url 'blog.html' %}">Marketing</a>
+                                    <a href="{% url 'blog.html' %}">Agency</a>
+                                    <a href="{% url 'blog.html' %}">Search Engine</a>
+                                    <a href="{% url 'blog.html' %}">Tech</a>
+                                    <a href="{% url 'blog.html' %}">Influencer</a>
+                                    <a href="{% url 'blog.html' %}">Advertising</a>
+                                    <a href="{% url 'blog.html' %}">Branding</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MAIN CONTENT END -->
+    </main>
+
+{% endblock %}
