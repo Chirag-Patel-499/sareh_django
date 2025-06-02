@@ -5,7 +5,7 @@ from .forms import ContactForm
 
 # HomeView for homepage
 class HomeView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'rajil.html'
 
 # AboutView for about page
 class AboutView(TemplateView):
