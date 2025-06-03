@@ -165,6 +165,50 @@
       .side-nav li a.active {
         color: #90707D;
       }
+
+      /* Hamburger Button */
+      .hamburger {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        z-index: 1100;
+        display: none;
+      }
+
+      /* Mobile View Styling */
+      @media (max-width: 767px) {
+        .hamburger {
+          display: block;
+        }
+
+        .side-nav {
+          display: none;
+          flex-direction: column;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background: rgba(30, 30, 30, 0.95);
+          width: 200px;
+          height: 100vh;
+          padding-top: 60px;
+          gap: 20px;
+          z-index: 1050;
+        }
+
+        .side-nav.active {
+          display: flex;
+        }
+
+        .side-nav li a {
+          font-size: 1.2rem;
+          padding: 10px 20px;
+        }
+      }
+
+
       .carousel-item img {
         object-fit: cover;
         height: 60vh;
@@ -175,6 +219,8 @@
   </style>
 </head>
 <body>
+
+  <div class="hamburger d-md-none" onclick="toggleMenu()">☰</div>
 
 <!-- Side Navigation -->
 <ul class="side-nav d-none d-md-flex">
@@ -438,6 +484,11 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", activateNav);
   activateNav();
 });
+
+function toggleMenu() {
+      const nav = document.getElementById('sideNav');
+      nav.classList.toggle('active');
+}
 </script>
 
 
