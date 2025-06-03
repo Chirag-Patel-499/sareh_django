@@ -165,48 +165,6 @@
       .side-nav li a.active {
         color: #90707D;
       }
-/* Mobile View */
-    @media (max-width: 767px) {
-      .hamburger {
-        display: block;
-      }
-
-      .side-nav {
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: -220px; /* hidden */
-        width: 200px;
-        height: 100vh;
-        background: #111;
-        padding-top: 80px;
-        padding-left: 20px;
-        gap: 20px;
-        z-index: 1050;
-        transition: left 0.3s ease;
-      }
-
-      .side-nav.active {
-        left: 0;
-      }
-
-      .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100vw;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 1040;
-      }
-
-      .overlay.active {
-        display: block;
-      }
-      }
-
-
       .carousel-item img {
         object-fit: cover;
         height: 60vh;
@@ -217,10 +175,6 @@
   </style>
 </head>
 <body>
-
-  <div class="hamburger d-md-none" onclick="toggleMenu()">☰</div>
-  <div class="overlay" id="overlay" onclick="closeMenu()"></div>
-
 
 <!-- Side Navigation -->
 <ul class="side-nav d-none d-md-flex">
@@ -484,19 +438,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", activateNav);
   activateNav();
 });
-
-  const nav = document.getElementById('sideNav');
-    const overlay = document.getElementById('overlay');
-
-    function toggleMenu() {
-      nav.classList.toggle('active');
-      overlay.classList.toggle('active');
-    }
-
-    function closeMenu() {
-      nav.classList.remove('active');
-      overlay.classList.remove('active');
-    }
 </script>
 
 
