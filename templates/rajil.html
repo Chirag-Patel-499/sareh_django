@@ -187,11 +187,6 @@
       color: white; /* 👈 White icon now */
       cursor: pointer;
       z-index: 1101;
-
-      position: fixed;      /* Add this */
-      top: 1rem;            /* Adjust top distance */
-      left: 50%;            /* Center horizontally */
-      transform: translateX(-50%); /* Perfect center */
     }
 
     .mobile-menu {
@@ -222,6 +217,43 @@
     }
   }
 
+  .hamburger {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white; /* 👈 White icon now */
+    cursor: pointer;
+    z-index: 1101;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+  }
+
+  .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active .top-bar {
+    transform: rotate(45deg) translateY(6px);
+  }
+
+  .hamburger.active .middle-bar {
+    opacity: 0;
+  }
+
+  .hamburger.active .bottom-bar {
+    transform: rotate(-45deg) translateY(-6px);
+  }
+
 
     
   </style>
@@ -239,9 +271,12 @@
 
 <div class="mobile-nav d-flex d-md-none">
   <button class="hamburger" id="hamburger-btn">
-    ☰
+    <span class="bar top-bar"></span>
+    <span class="bar middle-bar"></span>
+    <span class="bar bottom-bar"></span>
   </button>
 </div>
+
 
 <!-- Mobile Nav Menu (initially hidden) -->
 <ul class="mobile-menu d-md-none" id="mobile-menu">
@@ -506,13 +541,14 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", activateNav);
   activateNav();
 });
-
-const hamburgerBtn = document.getElementById('hamburger-btn');
+  const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
   hamburgerBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
+    hamburgerBtn.classList.toggle('active');  // icon ne X ma ane X ne icon ma badlevu
   });
+
 </script>
 
 
