@@ -187,6 +187,11 @@
       color: white; /* 👈 White icon now */
       cursor: pointer;
       z-index: 1101;
+
+      position: fixed;      /* Add this */
+      top: 1rem;            /* Adjust top distance */
+      left: 50%;            /* Center horizontally */
+      transform: translateX(-50%); /* Perfect center */
     }
 
     .mobile-menu {
@@ -276,7 +281,6 @@
   <div class="col-12">
     <img src="{% static '/images/portsec_start.webp' %}" class="d-none d-md-block" style="width: 100%;" alt="">
     <img src="{% static '/images/portsec_mob_f_1_final.webp' %}" class="d-block d-md-none" style="width: 100%;" alt="">
-    <div id="mobile-ugc-scroll-point" class="d-block d-md-none" style="height: 1px;"></div>
   </div>
 </div>
 
@@ -477,14 +481,6 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       const targetId = this.getAttribute("href").substring(1);
       const targetEl = document.getElementById(targetId);
-
-       if (window.innerWidth <= 767 && targetId === "ugc") {
-      const mobilePoint = document.getElementById("mobile-ugc-scroll-point");
-      if (mobilePoint) {
-        targetEl = mobilePoint;
-      }
-    }
-
       if (!targetEl) return;
 
       const targetY = targetEl.offsetTop;
