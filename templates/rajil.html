@@ -174,10 +174,11 @@
 
     @media (max-width: 767px) {
     .mobile-nav {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      z-index: 1100;
+       position: fixed;
+       top: 1rem;
+       left: 50%;
+       transform: translateX(-50%);
+       z-index: 1100;
     }
 
     .hamburger {
@@ -269,7 +270,7 @@
   <li><a href="#home" >Home</a></li>
 </ul>
 
-<div class="mobile-nav d-flex d-md-none">
+<div class="mobile-nav d-flex d-md-none justify-content-center">
   <button class="hamburger" id="hamburger-btn">
     <span class="bar top-bar"></span>
     <span class="bar middle-bar"></span>
