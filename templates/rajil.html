@@ -475,6 +475,11 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("href").substring(1);
+
+       let scrollTargetId = targetId;
+      if (window.innerWidth <= 767 && targetId === "ugc") {
+        scrollTargetId = "my-ad-films"; 
+      }
       const targetEl = document.getElementById(targetId);
       if (!targetEl) return;
 
