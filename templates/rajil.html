@@ -192,24 +192,26 @@
 
     .mobile-menu {
       position: fixed;
-      top: 4rem; /* 👈 Down a bit so it doesn't overlap icon */
-      right: 1rem;
-      width: auto; /* 👈 No wide white box */
-      background: rgba(0, 0, 0, 0.85); /* 👈 Dark transparent background */
+      top: 4rem; /* Down a bit so it doesn't overlap icon */
+      left: 50%; /* 👈 Center horizontally */
+      transform: translateX(-50%) translateY(-200%); /* 👈 Hide above initially */
+      width: auto;
+      background: rgba(0, 0, 0, 0.85);
       list-style: none;
       padding: 1rem 1.5rem;
       border-radius: 8px;
       display: flex;
-      flex-direction: column-reverse; /* 👈 Proper order */
+      flex-direction: column-reverse;
       gap: 1rem;
       z-index: 1050;
-      transform: translateX(200%);
       transition: transform 0.3s ease;
     }
 
+
     .mobile-menu.active {
-      transform: translateX(0);
+      transform: translateX(-50%) translateY(0);
     }
+
 
     .mobile-menu li a {
       color: white; /* 👈 White links */
