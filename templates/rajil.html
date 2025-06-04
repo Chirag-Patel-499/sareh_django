@@ -184,25 +184,25 @@
       font-size: 2rem;
       background: none;
       border: none;
-      color: #333;
+      color: white; /* 👈 White icon now */
       cursor: pointer;
+      z-index: 1101;
     }
 
     .mobile-menu {
       position: fixed;
-      top: 0;
-      right: 0;
-      width: 70%;
-      height: 100vh;
-      background-color: #fff;
+      top: 4rem; /* 👈 Down a bit so it doesn't overlap icon */
+      right: 1rem;
+      width: auto; /* 👈 No wide white box */
+      background: rgba(0, 0, 0, 0.85); /* 👈 Dark transparent background */
       list-style: none;
-      padding: 2rem;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+      flex-direction: column; /* 👈 Proper order */
+      gap: 1rem;
       z-index: 1050;
-      transform: translateX(100%);
+      transform: translateX(200%);
       transition: transform 0.3s ease;
     }
 
@@ -211,11 +211,12 @@
     }
 
     .mobile-menu li a {
-      color: #333;
-      font-size: 1.2rem;
+      color: white; /* 👈 White links */
+      font-size: 1.1rem;
       text-decoration: none;
     }
   }
+
 
     
   </style>
