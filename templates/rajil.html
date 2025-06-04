@@ -171,6 +171,52 @@
         width: 100%;
       }
     }
+
+    @media (max-width: 767px) {
+    .mobile-nav {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1100;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70%;
+      height: 100vh;
+      background-color: #fff;
+      list-style: none;
+      padding: 2rem;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 1050;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+
+    .mobile-menu li a {
+      color: #333;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+  }
+
     
   </style>
 </head>
@@ -183,6 +229,21 @@
   <li><a href="#ugc">UGC Ads</a></li>
   <li><a href="#portfolio-start">Portfolio</a></li>
   <li><a href="#home" >Home</a></li>
+</ul>
+
+<div class="mobile-nav d-flex d-md-none">
+  <button class="hamburger" id="hamburger-btn">
+    ☰
+  </button>
+</div>
+
+<!-- Mobile Nav Menu (initially hidden) -->
+<ul class="mobile-menu d-md-none" id="mobile-menu">
+  <li><a href="#movies">Movies</a></li>
+  <li><a href="#book">My Book</a></li>
+  <li><a href="#ugc">UGC Ads</a></li>
+  <li><a href="#portfolio-start">Portfolio</a></li>
+  <li><a href="#home">Home</a></li>
 </ul>
 
 <!-- Hero Section -->
@@ -438,6 +499,13 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", activateNav);
   activateNav();
 });
+
+const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
 </script>
 
 
