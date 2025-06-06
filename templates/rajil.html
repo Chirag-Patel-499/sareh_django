@@ -174,7 +174,7 @@
 
     @media (max-width: 767px) {
     .mobile-nav {
-       position: static;
+       position: fixed;
        top: 1rem;
        left: 50%;
        transform: translateX(-50%);
@@ -552,32 +552,9 @@ document.addEventListener("DOMContentLoaded", function () {
     hamburgerBtn.classList.toggle('active');  // icon ne X ma ane X ne icon ma badlevu
   });
 
-
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-
-    if (mobileMenu.classList.contains('active')) {
-      // Menu khule etle scroll karo menu sudhi
-      mobileMenu.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      // Menu bandh thay to upar scroll karo
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  });
-
-  // Je link par click kare etle menu close & upar aavi javu
-  document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburgerBtn.classList.remove('active');
-      mobileMenu.classList.remove('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
 </script>
+
+
 
 </body>
 </html>
