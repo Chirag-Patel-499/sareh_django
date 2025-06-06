@@ -212,6 +212,11 @@
       transform: translateX(-50%) translateY(0);
     }
 
+        
+    .main-content.shifted {
+      margin-top: 150px; /* menu height jya sudhi content niche javu joiye */
+      transition: margin-top 0.3s ease;
+    }
 
     .mobile-menu li a {
       color: white; /* 👈 White links */
@@ -554,7 +559,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const mainContent = document.querySelector('.main-content');
 
+  hamburger.addEventListener('click', () => {
+    const isActive = mobileMenu.classList.toggle('active');
+
+    if (isActive) {
+      mainContent.classList.add('shifted');
+      document.body.style.overflow = 'hidden';
+    } else {
+      mainContent.classList.remove('shifted');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+</script>
 
 </body>
 </html>
