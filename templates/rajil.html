@@ -555,6 +555,24 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    const isActive = mobileMenu.classList.toggle('active');
+
+    if (isActive) {
+      document.body.style.overflow = 'auto';
+      hamburger.style.position = 'fixed';
+      hamburger.style.top = '4rem'; // adjust karo jei rite joiye
+    } else {
+      window.scrollTo(0, 0);
+      hamburger.style.top = '1rem';
+    }
+  });
+</script>
+
 
 </body>
 </html>
