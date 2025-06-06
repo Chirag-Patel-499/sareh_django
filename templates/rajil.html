@@ -174,7 +174,7 @@
 
     @media (max-width: 767px) {
     .mobile-nav {
-       position: static;
+       position: fixed;
        top: 1rem;
        left: 50%;
        transform: translateX(-50%);
@@ -552,10 +552,8 @@ document.addEventListener("DOMContentLoaded", function () {
     hamburgerBtn.classList.toggle('active');  // icon ne X ma ane X ne icon ma badlevu
   });
 
-</script>
 
-<script>
-  const hamburgerBtn = document.getElementById('hamburger-btn');
+    const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
   hamburgerBtn.addEventListener('click', () => {
@@ -580,7 +578,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 </script>
-
 
 </body>
 </html>
