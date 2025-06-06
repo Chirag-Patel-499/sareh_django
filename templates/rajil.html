@@ -554,39 +554,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
-<script>
-  const hamburger = document.getElementById('hamburger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  let menuOpen = false;
-
-  hamburger.addEventListener('click', () => {
-    menuOpen = !menuOpen;
-
-    if (menuOpen) {
-      // Show the mobile menu
-      mobileMenu.style.display = 'block';
-      // Allow scrolling
-      document.body.style.overflow = 'auto';
-    } else {
-      // Hide the mobile menu
-      mobileMenu.style.display = 'none';
-      // Scroll back to top smoothly
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-  });
-
-  // Optional: Hide mobile menu when a link is clicked
-  document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuOpen = false;
-      mobileMenu.style.display = 'none';
-    });
-  });
-</script>
 
 
 </body>
