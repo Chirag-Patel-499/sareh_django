@@ -212,6 +212,7 @@
       transform: translateX(-50%) translateY(0);
     }
 
+
     .mobile-menu li a {
       color: white; /* 👈 White links */
       font-size: 1.1rem;
@@ -551,23 +552,9 @@ document.addEventListener("DOMContentLoaded", function () {
     hamburgerBtn.classList.toggle('active');  // icon ne X ma ane X ne icon ma badlevu
   });
 
-  
-  const hamburger = document.querySelector('.hamburger');
-  const mainContent = document.querySelector('.main-content');
-
-  hamburger.addEventListener('click', () => {
-    const isActive = mobileMenu.classList.toggle('active');
-
-    if (isActive) {
-      mainContent.classList.add('shifted');
-      document.body.style.overflow = 'hidden';
-    } else {
-      mainContent.classList.remove('shifted');
-      document.body.style.overflow = 'auto';
-    }
-  });
-
 </script>
+
+
 
 </body>
 </html>
