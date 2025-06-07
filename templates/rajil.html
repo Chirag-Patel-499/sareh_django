@@ -544,6 +544,35 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", activateNav);
   activateNav();
 });
+
+ document.querySelectorAll('.side-nav a').forEach(link => {
+    if (link.textContent.trim() === "UGC Ads") {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById('ugc-target');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+  });
+
+  // Mobile menu
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    if (link.textContent.trim() === "UGC Ads") {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById('ugc-target');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Close the hamburger menu after click (optional)
+        document.getElementById('mobile-menu').classList.remove('active');
+        document.getElementById('hamburger-btn').classList.remove('active');
+      });
+    }
+
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
