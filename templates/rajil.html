@@ -327,7 +327,7 @@
   <!-- Invisible end marker: 1 screen height down -->
 
   <div class="col-12 d-none mb-0 d-md-block">
-    <img src="{% static '/images/portsec_end.webp' %}" class="d-none d-md-block" style="width: 100%;" alt="">
+    <img src="{% static '/images/portsec_end.webp' %}" id="ugc-target" class="d-none d-md-block" style="width: 100%;" alt="">
   </div>
 </div>
 
@@ -532,7 +532,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (arrow) {
     arrow.addEventListener("click", function (e) {
       e.preventDefault();
-      const targetEl = document.getElementById("ugc");
+      const targetEl = document.getElementById("ugc-target");
       if (!targetEl) return;
 
       const targetY = targetEl.offsetTop;
