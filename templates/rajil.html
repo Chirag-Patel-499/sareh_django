@@ -32,6 +32,85 @@
       margin-left: 1%;
       width: auto;
     }
+
+    
+    .quote-slider-container {
+      position: relative;
+      background-color: #111;
+      color: white;
+      padding: 40px 30px 30px 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .quote-slider-container .image-wrapper {
+      position: absolute;
+      top: 20px;
+      right: -40px;
+      width: 320px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .quote-slider-container .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .quote-slider-container .quote-icon {
+      font-size: 32px;
+      color: #ccc;
+      margin-top: 10px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 2;
+    }
+
+    .quote-slider-container .quote-text {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-right: 270px;
+      transition: opacity 0.3s ease;
+      min-height: 100px;
+    }
+
+    .quote-slider-container .signature {
+      font-family: 'Signature', cursive;
+      font-size: 36px;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .quote-slider-container {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .quote-slider-container .image-wrapper {
+        position: static;
+        margin: 0 auto 20px auto;
+        width: 100%;
+      }
+
+      .quote-slider-container .quote-text {
+        padding-right: 0;
+      }
+
+      .quote-slider-container .quote-icon {
+        font-size: 28px;
+      }
+
+      .quote-slider-container .signature {
+        font-size: 30px;
+      }
+    }
+
     @media (max-width: 1200px) and (min-width: 768px) {
       .hero-box {
         top: -14%;
@@ -335,25 +414,52 @@
 </div>
 
 
-
 <!-- Quote + Image Section -->
 <section id="book" class="py-5 bg-dark text-white">
   <div class="container">
     <div class="row align-items-center">
+      <!-- Left Side Text -->
       <div class="col-md-6 mb-4 mb-md-0 text-center text-md-start px-4">
         <p class="fs-1 mb-3">«</p>
         <p class="lead">
-  This collection of poems is a journey through the highs and lows of life, born from the depths of my heart. <br>
-   It's a reflection of moments I've experienced - love, heartbreak, joy, sorrow, and every emotion in between. Through these words, I share a part of myself, hoping to touch your soul and remind you that no matter what life brings, there is always hope.
-</p>
-
-<a href="https://www.amazon.in/dp/9370925740/ref=sr" target="_blank" class="btn btn-outline-light mt-3">
-  Get the Book on Amazon →
-</a>
+          This collection of poems is a journey through the highs and lows of life, born from the depths of my heart. <br>
+          It's a reflection of moments I've experienced - love, heartbreak, joy, sorrow, and every emotion in between.
+          Through these words, I share a part of myself, hoping to touch your soul and remind you that no matter what life brings, there is always hope.
+        </p>
+        <a href="https://www.amazon.in/dp/9370925740/ref=sr" target="_blank" class="btn btn-outline-light mt-3">
+          Get the Book on Amazon →
+        </a>
         <p class="mt-3" style="font-family: 'Malvinas Signature', cursive; font-size: 2rem;">Sareeh Far</p>
       </div>
-      <div class="col-md-6 text-center">
-        <img src="{% static '/images/f33.heic' %}" class="img-fluid rounded" alt="Portrait">
+
+      <!-- Right Side: Quote Slider -->
+      <div class="col-md-6">
+        <div class="quote-slider-container position-relative bg-black text-white p-4 rounded" style="min-height: 340px;">
+          <!-- Constant Image -->
+          <div class="image-wrapper mb-3" style="position: relative;">
+            <img src="{% static 'images/f33.heic' %}" alt="Model Photo" class="img-fluid rounded" />
+          </div>
+
+          <!-- Arrows -->
+          <div class="quote-icon text-center mb-2">
+            <span id="left-arrow" style="cursor: pointer; font-size: 24px;">&#8249;</span>
+            &nbsp;&nbsp;
+            <span id="right-arrow" style="cursor: pointer; font-size: 24px;">&#8250;</span>
+          </div>
+
+          <!-- Quote Text -->
+          <div class="quote-text text-center" id="quote-text">
+            I have drive and freedom.<br>
+            This is the internal energy,<br>
+            that moves me forward<br>
+            and everything I touch !
+          </div>
+
+          <!-- Signature -->
+          <div class="signature text-end mt-3" style="font-family: 'Malvinas Signature', cursive; font-size: 2rem;">
+            Sareh Far
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -558,6 +664,50 @@ document.addEventListener("DOMContentLoaded", function () {
     hamburgerBtn.classList.toggle('active');  // icon ne X ma ane X ne icon ma badlevu
   });
 
+</script>
+<script>
+  const quotes = [
+    `I have drive and freedom.<br>
+     This is the internal energy,<br>
+     that moves me forward<br>
+     and everything I touch !`,
+
+    `Confidence is my companion.<br>
+     Every step is a decision,<br>
+     and every glance<br>
+     speaks volumes.`,
+
+    `Elegance is not just appearance,<br>
+     it is presence.<br>
+     The energy you walk in<br>
+     defines you.`,
+
+    `My strength lies in my calm.<br>
+     I don’t chase, I attract.<br>
+     What belongs to me<br>
+     will find me.`
+  ];
+
+  let currentIndex = 0;
+  const quoteElem = document.getElementById('quote-text');
+
+  function updateQuote(index) {
+    quoteElem.style.opacity = 0;
+    setTimeout(() => {
+      quoteElem.innerHTML = quotes[index];
+      quoteElem.style.opacity = 1;
+    }, 200);
+  }
+
+  document.getElementById('left-arrow').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + quotes.length) % quotes.length;
+    updateQuote(currentIndex);
+  });
+
+  document.getElementById('right-arrow').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % quotes.length;
+    updateQuote(currentIndex);
+  });
 </script>
 
 
