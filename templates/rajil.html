@@ -516,20 +516,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Side nav link smooth scroll (with UGC Ads special case)
+  // Side nav link smooth scroll (clean version)
   navLinks.forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("href").substring(1);
-
-      let targetEl;
-
-      // Special case for UGC Ads
-      if (targetId === "ugc") {
-        targetEl = document.getElementById("ugc-target");
-      } else {
-        targetEl = document.getElementById(targetId);
-      }
+      const targetEl = document.getElementById(targetId); // 👈 No special case
 
       if (!targetEl) return;
 
