@@ -513,12 +513,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Side nav link smooth scroll
+  // Side nav link smooth scroll (with UGC Ads special case)
   navLinks.forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("href").substring(1);
-      const targetEl = document.getElementById(targetId);
+
+      let targetEl;
+
+      // Special case for UGC Ads
+      if (targetId === "ugc") {
+        targetEl = document.getElementById("ugc-target");
+      } else {
+        targetEl = document.getElementById(targetId);
+      }
+
       if (!targetEl) return;
 
       const targetY = targetEl.offsetTop;
@@ -526,6 +535,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(activateNav, 1000);
     });
   });
+
 
   // 🔽 Arrow smooth scroll
   const arrow = document.querySelector(".scroll-arrow");
@@ -544,34 +554,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", activateNav);
   activateNav();
 });
-
- document.querySelectorAll('.side-nav a').forEach(link => {
-    if (link.textContent.trim() === "UGC Ads") {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.getElementById('ugc-target');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    }
-  });
-
-  // Mobile menu
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    if (link.textContent.trim() === "UGC Ads") {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.getElementById('ugc-target');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Close the hamburger menu after click (optional)
-        document.getElementById('mobile-menu').classList.remove('active');
-        document.getElementById('hamburger-btn').classList.remove('active');
-      });
-    }
 
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileMenu = document.getElementById('mobile-menu');
