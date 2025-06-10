@@ -4,8 +4,25 @@ from django.urls import reverse_lazy
 from .forms import ContactForm
 
 # HomeView for homepage
+from .models import (
+    Hero, InstagramPost, Video,
+    PortfolioItem, BookSection,
+    Stat, Testimonial
+)
+
 class HomeView(TemplateView):
-    template_name = 'edited_chi_final_rajil copy.html'
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['hero']        = Hero.objects.first()
+        ctx['insta_posts'] = InstagramPost.objects.all()
+        ctx['videos']      = Video.objects.all()
+        ctx['portfolio']   = PortfolioItem.objects.all()
+        ctx['booksec']     = BookSection.objects.first()
+        ctx['stats']       = Stat.objects.all()
+        ctx['testis']      = Testimonial.objects.all()
+        return ctx
 
 # AboutView for about page
 class AboutView(TemplateView):
