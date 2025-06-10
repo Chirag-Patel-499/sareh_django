@@ -1,0 +1,650 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sareeh Portfolio</title>
+
+  <!-- Bootstrap, AOS, Swiper & Typed.js -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <style>
+    /* ─── Variables & Theme ───────────────────────────────────────────────────── */
+    :root {
+      --clr-bg: #fff; --clr-text: #222;
+      --clr-primary: #8e2121; --clr-accent: #90707D;
+      --clr-glass: rgba(255,255,255,0.12);
+      --trans: 0.3s ease;
+    }
+    [data-theme="dark"] {
+      --clr-bg: #111; --clr-text: #eee; --clr-glass: rgba(0,0,0,0.25);
+    }
+    body {
+      margin:0; padding:0;
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      font-family: 'Roboto', sans-serif;
+      opacity:0; transition: opacity .6s;
+    }
+    body.visible { opacity:1; }
+
+    /* ─── Scroll-Progress Bar ─────────────────────────────────────────────────── */
+    #progressBar {
+      position: fixed; top:0; left:0; height:4px;
+      background: var(--clr-primary); width:0; z-index:2000;
+      transition: width .1s ease-out;
+    }
+
+    /* ─── Dark-Mode Toggle ───────────────────────────────────────────────────── */
+    .theme-toggle {
+      position: fixed; top:1rem; right:1rem;
+      background: var(--clr-glass); border:none;
+      padding:.5rem; border-radius:50%; cursor:pointer;
+      z-index:1001; font-size:1.2rem;
+    }
+
+    /* ─── Side-Nav & Micro-Interactions ───────────────────────────────────────── */
+    .side-nav {
+      position:fixed; top:50%; left:-10rem;
+      transform:translateY(-50%) rotate(-90deg);
+      display:flex; flex-direction: row-reverse; gap:2rem; list-style:none; padding:0; margin:0;
+      z-index:1000;
+    }
+    .side-nav a {
+      color:var(--clr-text); text-decoration:none;
+      text-transform:uppercase; font-size:.9rem;
+      letter-spacing:1px; position:relative;
+      transition: color var(--trans), transform var(--trans);
+    }
+    .side-nav a:hover {
+      transform:translateY(-2px);
+      color:var(--clr-primary);
+    }
+    .side-nav a.active::after {
+      content:''; position:absolute; bottom:-4px; left:0;
+      height:2px; width:100%; background:var(--clr-primary);
+    }
+    /* invert nav when white section shows */
+    .invert-nav .side-nav a {
+      color: #222 !important;
+    }
+
+    /* ─── Hero Split + Parallax + Typed Intro ───────────────────────────────── */
+    .hero {
+      display:flex; min-height:100vh; overflow:hidden;
+    }
+    .hero-left {
+      flex:1; display:flex; align-items:center; justify-content:center;
+      padding:2rem; background: var(--clr-bg);
+    }
+    .hero-left h1 {
+      font-size:3rem; margin-bottom:.5rem;
+      background:linear-gradient(45deg,var(--clr-primary),var(--clr-accent));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .hero-left p { font-size:1.2rem; margin-bottom:1.5rem; }
+    .typed-cursor { opacity:1; animation: blink 1s infinite; }
+    @keyframes blink { 0%,100%{opacity:1;}50%{opacity:0;} }
+
+    .hero-right {
+      flex:1; position:relative; overflow:hidden;
+    }
+    .hero-img {
+      position:absolute; top:0; left:0;
+      width:100%; height:100%;
+      object-fit:cover; object-position:center center;
+    }
+
+    /* ─── Instagram Gallery ──────────────────────────────────────────────────── */
+    blockquote.instagram-media { margin:0 auto 1rem; }
+
+    /* ─── Videos Section ─────────────────────────────────────────────────────── */
+    #videos iframe {
+      border:0; border-radius:.5rem; overflow:hidden;
+    }
+
+    /* ─── Glassmorphism Card ─────────────────────────────────────────────────── */
+    .glass-card {
+      background: var(--clr-glass); backdrop-filter:blur(8px);
+      padding:2rem; border-radius:1rem;
+      transition: transform var(--trans);
+    }
+    .glass-card:hover { transform:translateY(-5px); }
+
+    /* ─── Clip-Path Separator ─────────────────────────────────────────────────── */
+    .separator {
+      height:5rem; background:var(--clr-bg);
+      clip-path: polygon(0 100%,100% 0,100% 100%);
+    }
+
+    /* ─── Portfolio Items ─────────────────────────────────────────────────────── */
+    .portfolio-item {
+      position:relative; overflow:hidden; border-radius:.5rem;
+      cursor:pointer; transition: transform var(--trans);
+    }
+    .portfolio-item img {
+      width:100%; display:block;
+      transition: transform var(--trans);
+    }
+    .portfolio-item:hover img { transform:scale(1.05); }
+    .portfolio-item .overlay {
+      position:absolute; inset:0; background:rgba(0,0,0,0.5);
+      color:#fff; display:flex; align-items:center;
+      justify-content:center; opacity:0;
+      transition: opacity var(--trans);
+    }
+    .portfolio-item:hover .overlay { opacity:1; }
+
+    /* ─── Counters ───────────────────────────────────────────────────────────── */
+    .counters {
+      display:flex; gap:2rem; justify-content:center; padding:4rem 0;
+      background:var(--clr-accent); color:#fff;
+    }
+    .counter { text-align:center; }
+    .counter h3 { font-size:2.5rem; margin:0; }
+    .counter p { margin:.5rem 0 0; }
+
+    /* ─── Testimonials Carousel ──────────────────────────────────────────────── */
+    .swiper { width:100%; padding:2rem 0; }
+    .swiper-slide {
+      background: var(--clr-glass); backdrop-filter:blur(6px);
+      border-radius:1rem; padding:2rem; min-height: 40vh;
+      display:flex; flex-direction:column; align-items:center;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    .swiper-slide-shadow-left,
+    .swiper-slide-shadow-right {
+      opacity:0.2;
+    }
+
+    /* ─── FLIP-CARD ──────────────────────────────────────────────────────────── */
+    .flip-card { perspective:1000px; width:100%; height:100%; }
+    .flip-card-inner {
+      position:relative; width:100%; height:100%;
+      text-align:center; transition:transform .6s;
+      transform-style:preserve-3d;
+    }
+  
+    .flip-card-front,
+    .flip-card-back {
+      position:absolute; inset:0;
+      backface-visibility:hidden;
+    }
+    .flip-card-back {
+      transform:rotateY(180deg);
+      background:var(--clr-glass); color:var(--clr-text);
+      display:flex; align-items:center; justify-content:center;
+      padding:1rem; border-radius:1rem;
+    }
+
+
+    /* Only when a .flip‐card has .hovered, we rotate it */
+.flip-card.hovered .flip-card-inner {
+  transform: rotateY(180deg) !important;
+  transition: transform 0.6s ease;
+}
+    /* ─── STAR RATINGS ───────────────────────────────────────────────────────── */
+    .rating i {
+      font-size:1.2rem; margin-right:.2rem;
+      color:var(--clr-primary);
+    }
+
+    /* ─── LAZY-LOAD BLUR-UP ──────────────────────────────────────────────────── */
+    .blur-up {
+      filter:blur(20px); transform:scale(1.02);
+      transition:filter .5s,transform .5s;
+    }
+    .blur-up.lazyloaded {
+      filter:blur(0); transform:scale(1);
+    }
+
+    /* ─── FIX: kill Swiper coverflow while flipping ───────────────────────────── */
+    .swiper-slide.flip-active {
+      transform: none !important;
+      transform-style: flat !important;
+    }
+
+    /* avatar circle */
+.testimonial-avatar {
+   width: 60px; 
+   height: 60px; 
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+    /* Show side-nav only on laptops and larger */
+    @media (min-width:1024px) { .side-nav { display:flex; } }
+    @media (max-width:1023px) { .side-nav { display:none; } }
+
+  </style>
+</head>
+
+<body>
+  <div id="progressBar"></div>
+  <button class="theme-toggle" onclick="
+    const html=document.documentElement;
+    html.setAttribute('data-theme',
+      html.getAttribute('data-theme')==='light'?'dark':'light');
+  ">🌓</button>
+
+  <ul class="side-nav d-none d-md-flex">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#book">Book</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#testimonials">Praise</a></li>
+  </ul>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-left" data-aos="fade-right">
+      <div>
+        <h1>Hi, I’m Sareeh Far</h1>
+        <p><span id="typed"></span></p>
+        <a href="#portfolio" class="btn btn-outline-primary">Explore ↓</a>
+      </div>
+    </div>
+    <div class="hero-right">
+
+          <!-- use an <img> for perfect scaling & positioning -->
+    <img src="{% static './images/1.jpg' %}" 
+         class="hero-img d-none d-md-block" 
+         alt="Sareeh Far banner">
+    <img src="{% static './images/2.jpg' %}" 
+         class="hero-img d-block d-md-none" 
+         alt="Sareeh Far mobile banner">
+
+
+    </div>
+  </section>
+
+  <div class="separator"></div>
+
+    <section class="container py-5" data-aos="fade-up">
+    <h2 class="text-center mb-4">Moments from Instagram</h2>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <blockquote class="instagram-media" 
+          data-instgrm-permalink="https://www.instagram.com/p/DKCY8Dzslld/" 
+          data-instgrm-version="14" 
+          style="width:100%; "></blockquote>
+      </div>
+      <div class="col-md-4 mb-3">
+        <blockquote class="instagram-media" 
+          data-instgrm-permalink="https://www.instagram.com/p/DGN6AU8M8Pg/" 
+          data-instgrm-version="14" 
+          style="width:100%; "></blockquote>
+      </div>
+      <div class="col-md-4 mb-3">
+        <blockquote class="instagram-media" 
+          data-instgrm-permalink="https://www.instagram.com/reel/DIGfijGsqM0/" 
+          data-instgrm-version="14" 
+          style="width:100%; "></blockquote>
+      </div>
+    </div>
+
+    <!-- 📌 Important: Load script at the END -->
+    <script async defer src="https://www.instagram.com/embed.js"></script>
+  </section>
+
+
+  <div class="separator"></div>
+
+  <!-- Videos Section -->
+  <section id="videos" class="" style="padding-top: 8%; padding-bottom: 8%; background-color: var(--clr-accent);">
+    <div class="container">
+      <h2 class="mb-4 text-center" data-aos="fade-up">Videos</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="zoom-in">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/JIzkQGPMT9E" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/0ShecoIJ5jc" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/bWZPJQmL_NA" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="separator"></div>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="container py-5">
+    <h2 class="mb-4" data-aos="fade-up">Portfolio</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="zoom-in">
+        <div class="portfolio-item" data-tilt data-tilt-max="10">
+          <img src="{% static './images/3.jpg' %}" loading="lazy" class="blur-up" alt="Sareeh">
+          <div class="overlay"><h3>Dynamic Portrait</h3></div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="portfolio-item" data-tilt data-tilt-max="10">
+          <img src="{% static './images/4.jpg' %}" loading="lazy" class="blur-up" alt="Sareeh">
+          <div class="overlay"><h3>Flowing Motion</h3></div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="portfolio-item" data-tilt data-tilt-max="10">
+          <img src="{% static './images/5.heic' %}" loading="lazy" class="blur-up" alt="Sareeh">
+          <div class="overlay"><h3>Stare & Poise</h3></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="separator"></div>
+
+  <!-- Book -->
+  <section id="book" class="py-5 text-center">
+    <div class="container">
+      <div class="glass-card mx-auto" style="max-width:800px;" data-aos="fade-up">
+        <blockquote class="fs-4 mb-4">“Every choice we make shapes our path.”</blockquote>
+        <p class="mb-3">Dive into decisions, destiny, and self-awareness in my debut book.</p>
+        <a href="https://www.amazon.in/dp/9370925740" target="_blank" class="btn btn-outline-light">Get the Book →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="separator"></div>
+
+  <!-- Stats -->
+  <section id="stats" class="dynamic-bg text-white">
+    <div class="counters">
+      <div class="counter" data-target="1744">
+        <h3>0</h3><p>Posts</p>
+      </div>
+      <div class="counter" data-target="33">
+        <h3>0</h3><p>k Followers</p>
+      </div>
+      <div class="counter" data-target="8">
+        <h3>0</h3><p>Years Active</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="separator"></div>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-5 bg-light text-dark">
+    <div class="container">
+      <h2 class="mb-4" data-aos="fade-up">Praise</h2>
+      <div class="swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+          <!-- Example Slide -->
+          <div class="swiper-slide">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <!-- front -->
+                <div class="flip-card-front">
+                  <img src="{% static './images/6.heic' %}" class="testimonial-avatar" alt="Film Critic">
+                  <div class="rating mb-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <p class="fst-italic">“Mesmerizing performance!”</p>
+                  <strong>– Film Critic</strong>
+                </div>
+                <!-- back -->
+                <div class="flip-card-back">
+                  <p class="small mb-0">
+                    “Saw the private screening—her emotional depth is unforgettable.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- … your other slides … -->
+          <!-- Example Slide -->
+          <div class="swiper-slide">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <!-- front -->
+                <div class="flip-card-front">
+                  <img src="{% static './images/7.heic' %}" class="testimonial-avatar" alt="Film Critic">
+                  <div class="rating mb-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <p class="fst-italic">“Mesmerizing performance!”</p>
+                  <strong>– Film Critic</strong>
+                </div>
+                <!-- back -->
+                <div class="flip-card-back">
+                  <p class="small mb-0">
+                    “Saw the private screening—her emotional depth is unforgettable.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- … your other slides … -->
+
+          <!-- Example Slide -->
+          <div class="swiper-slide">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <!-- front -->
+                <div class="flip-card-front">
+                  <img src="{% static './images/8.heic' %}" class="testimonial-avatar" alt="Film Critic">
+                  <div class="rating mb-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <p class="fst-italic">“Mesmerizing performance!”</p>
+                  <strong>– Film Critic</strong>
+                </div>
+                <!-- back -->
+                <div class="flip-card-back">
+                  <p class="small mb-0">
+                    “Saw the private screening—her emotional depth is unforgettable.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- … your other slides … -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 text-center">
+    <p>© 2025 Sareeh Far · All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    // Page fade-in
+    window.addEventListener('DOMContentLoaded', ()=> document.body.classList.add('visible'));
+
+    // Scroll-Progress Bar
+    window.addEventListener('scroll', ()=>{
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+    });
+
+    // AOS
+    AOS.init({ once:true, duration:800 });
+
+    // Typed.js Intro
+    new Typed('#typed',{
+      strings:[
+        'Actress. Author. Dancer.',
+        'Painting the world with words.',
+        'Let’s create something magical.'
+      ],
+      typeSpeed:50, backSpeed:30, loop:true
+    });
+
+    // Lazy-load blur-up
+    document.querySelectorAll('img.blur-up').forEach(img=>{
+      if (img.complete) img.classList.add('lazyloaded');
+      else img.addEventListener('load', ()=> img.classList.add('lazyloaded'));
+    });
+
+    // Counters
+    document.querySelectorAll('.counter').forEach(el=>{
+      const target = +el.dataset.target, num = el.querySelector('h3');
+      const obs = new IntersectionObserver((entries,o)=>{
+        if(entries[0].isIntersecting){
+          let count=0, step=Math.ceil(target/200);
+          const iv = setInterval(()=>{
+            count += step;
+            num.textContent = count>=target ? (clearInterval(iv), target) : count;
+          },10);
+          o.unobserve(el);
+        }
+      }, { threshold: 0.6 });
+      obs.observe(el);
+    });
+
+
+    // Smooth scrolling with nav-color inversion
+    document.addEventListener("DOMContentLoaded", () => {
+      const sectionIds = ["home","videos","portfolio","book","stats","testimonials"];
+      const navLinks   = document.querySelectorAll(".side-nav li a");
+      const lightBg   = new Set(["videos","book","testimonials"]);
+
+      function activateNav() {
+        const scrollY = window.pageYOffset, buffer = window.innerHeight * 0.3;
+        let activeId = sectionIds[0];
+        sectionIds.forEach(id => {
+          const sec = document.getElementById(id);
+          if (!sec) return;
+          const top = sec.offsetTop - buffer;
+          if (scrollY >= top && scrollY < top + sec.offsetHeight) activeId = id;
+        });
+        navLinks.forEach(link => {
+          link.classList.toggle("active", link.getAttribute("href")==="#" + activeId);
+        });
+        const isDark = document.documentElement.getAttribute("data-theme")==="dark";
+        document.body.classList.toggle("invert-nav", isDark && lightBg.has(activeId));
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute("href"));
+          window.scrollTo({ top: target.offsetTop - 60, behavior: "smooth" });
+          setTimeout(activateNav, 600);
+        });
+      });
+      window.addEventListener("scroll", activateNav);
+      activateNav();
+    });
+  </script>
+
+
+
+<script>
+  // 1) Init Swiper in “slide” mode with autoplay that never stops:
+  const swiper = new Swiper('.swiper', {
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    spaceBetween: 40,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,  // keeps autoplay running no matter what
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+
+  // 2) Confetti on each slide change (optional fun):
+
+
+  // 3) Flip‐card only on click (avoid hover/touchstart noise):
+  document.querySelectorAll('.flip-card').forEach(card => {
+    const inner = card.querySelector('.flip-card-inner');
+    let flipped = false;
+
+    card.addEventListener('click', (e) => {
+      // Prevent the slide itself from sliding if clicking the card
+      e.stopPropagation();
+
+      flipped = !flipped;
+      inner.style.transform = flipped
+        ? 'rotateY(180deg)'
+        : 'rotateY(0deg)';
+    });
+  });
+
+  // 4) Smooth scroll + nav highlighting (unchanged)…
+  //    [your existing activateNav() code here]
+</script>
+
+<script>
+  document.querySelectorAll('.flip-card').forEach(card => {
+    function onEnter() {
+      // flip once
+      card.classList.add('hovered');
+      // clean up so it never fires again
+      card.removeEventListener('mouseenter', onEnter);
+      // optional: revert after it's flipped back to front
+      setTimeout(()=> card.classList.remove('hovered'), 3400);
+    }
+    card.addEventListener('mouseenter', onEnter);
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const testimonials = document.getElementById('testimonials');
+    if (!testimonials) return;
+
+    // Fire confetti each time the section scrolls into view
+    const confettiObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          confetti({
+            particleCount: 50,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+        }
+      });
+    }, {
+      threshold: 0.5 // adjust how much of it needs to be visible
+    });
+
+    confettiObserver.observe(testimonials);
+  });
+</script>
+</body>
+</html>
+
