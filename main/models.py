@@ -1,4 +1,9 @@
 from django.db import models
+from django.db.models.signals import post_delete, pre_save, pre_delete
+from django.dispatch import receiver
+import os
+
+
 
 class Hero(models.Model):
     title        = models.CharField(max_length=200, default="Hi, I’m Sareeh Far")
@@ -7,8 +12,41 @@ class Hero(models.Model):
     desktop_img  = models.ImageField(upload_to="hero/", blank=True)
     mobile_img   = models.ImageField(upload_to="hero/", blank=True)
 
-    def _str_(self):
+    def __str__(self):
         return "Hero Section"
+
+
+# --- IMAGE DELETE HELPERS ---
+
+def delete_file_if_exists(file_field):
+    if file_field and file_field.name:
+        file_path = file_field.path
+        if os.path.isfile(file_path):
+            file_field.delete(save=False)
+
+# --- SIGNALS ---
+
+@receiver(post_delete, sender=Hero)
+def delete_hero_images(sender, instance, **kwargs):
+    delete_file_if_exists(instance.desktop_img)
+    delete_file_if_exists(instance.mobile_img)
+
+@receiver(pre_save, sender=Hero)
+def delete_old_hero_images_on_update(sender, instance, **kwargs):
+    if not instance.pk:
+        return  # New object; nothing to delete
+
+    try:
+        old_instance = Hero.objects.get(pk=instance.pk)
+    except Hero.DoesNotExist:
+        return
+
+    if old_instance.desktop_img and old_instance.desktop_img != instance.desktop_img:
+        delete_file_if_exists(old_instance.desktop_img)
+
+    if old_instance.mobile_img and old_instance.mobile_img != instance.mobile_img:
+        delete_file_if_exists(old_instance.mobile_img)
+
 
 class InstagramPost(models.Model):
     permalink = models.URLField()
