@@ -42,6 +42,34 @@ INSTALLED_APPS = [
     'main',
 ]
 
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Sareeh Admin",
+    "site_header": "Sareeh Admin Panel",
+    "site_brand": "Sareeh",
+    "welcome_sign": "Welcome to Sareeh Admin",
+    "copyright": "Sareeh",
+
+    # Top menu links
+    "topmenu_links": [
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "View Site", "url": "/", "new_window": True},
+    ],
+
+    # Custom icons
+    "icons": {
+        "auth.User": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "main.Hero": "fas fa-star",
+        "main.PortfolioItem": "fas fa-image",
+        "main.Testimonial": "fas fa-comment",
+    },
+
+    # Related models shown as inline tabs
+    "related_modal_active": True,
+}
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
