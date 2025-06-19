@@ -333,109 +333,45 @@
   <div class="separator"></div>
 
 
-<!-- Instagram Section -->
-<section class="container mx-auto py-10 px-4" data-aos="fade-up">
+  <!-- Instagram -->
+<section class="container py-5" data-aos="fade-up">
   <h2 class="text-center text-2xl md:text-3xl font-semibold mb-6">Moments from Instagram</h2>
-
-  <div class="relative overflow-hidden">
-    <!-- Swiper container -->
-    <div class="swiper instagram-swiper">
-      <div class="swiper-wrapper">
-        {% for post in insta_posts %}
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="{{ post.permalink }}"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-        {% empty %}
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DKCY8Dzslld/"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DGN6AU8M8Pg/"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/reel/DIGfijGsqM0/"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DKXUibWsXEn/?hl=en"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DKhNMYFI7Z3/?hl=en"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DKUVza2svLF/?hl=en"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-        {% endfor %}
+  <div class="row">
+    {% for post in insta_posts %}
+      <div class="col-md-4 mb-3">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="{{ post.permalink }}"
+          data-instgrm-version="14"
+          style="width:100%;"></blockquote>
       </div>
-
-      <!-- Navigation arrows -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
+    {% empty %}
+      <!-- fall back to your original static posts -->
+      <div class="col-md-4 mb-3">
+        <blockquote class="instagram-media"
+                   data-instgrm-permalink="https://www.instagram.com/p/DKCY8Dzslld/"
+                   data-instgrm-version="14"
+                   style="width:100%;"></blockquote>
+      </div>
+            <div class="col-md-4 mb-3">
+        <blockquote class="instagram-media" 
+          data-instgrm-permalink="https://www.instagram.com/p/DGN6AU8M8Pg/" 
+          data-instgrm-version="14" 
+          style="width:100%; "></blockquote>
+      </div>
+      <div class="col-md-4 mb-3">
+        <blockquote class="instagram-media" 
+          data-instgrm-permalink="https://www.instagram.com/reel/DIGfijGsqM0/" 
+          data-instgrm-version="14" 
+          style="width:100%; "></blockquote>
+      </div>
+      
+      <!-- …repeat the other two… -->
+    {% endfor %}
   </div>
-
-  <!-- Instagram Embed JS -->
   <script async defer src="https://www.instagram.com/embed.js"></script>
 </section>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-<!-- Swiper Init -->
-<script>
-  const swiper = new Swiper('.instagram-swiper', {
-    loop: true,  // 🔁 Enables infinite looping
-    slidesPerView: 1,
-    spaceBetween: 20,
-    autoHeight: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      640: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 }
-    },
-    on: {
-      slideChangeTransitionEnd: () => {
-        if (window.instgrm) instgrm.Embeds.process();
-      }
-    }
-  });
-
-  // Ensure embeds render properly
-  window.addEventListener('load', function () {
-    if (window.instgrm) instgrm.Embeds.process();
-  });
-</script>
 
   <div class="separator"></div>
 
