@@ -477,30 +477,61 @@
 
   <div class="separator"></div>
 
-  <!-- Portfolio -->
-  <section id="portfolio" class="container py-5">
+<!-- Portfolio -->
+<section id="portfolio" class="container py-10 px-4" data-aos="fade-up">
   <h2 class="text-center text-2xl md:text-3xl font-semibold mb-6">Portfolio</h2>
-    <div class="row g-4">
-      <div class="col-md-4" data-aos="zoom-in">
-        <div class="portfolio-item" data-tilt data-tilt-max="10">
-          <img src="{% static './images/3.jpg' %}" loading="lazy" class="blur-up" alt="Sareeh">
-          <div class="overlay"><h3>Dynamic Portrait</h3></div>
-        </div>
+
+  <div class="relative overflow-hidden">
+    <!-- Swiper container -->
+    <div class="swiper portfolio-swiper">
+      <div class="swiper-wrapper">
+        {% for item in portfolio %}
+          <div class="swiper-slide">
+            <div class="portfolio-item" data-tilt data-tilt-max="10" onclick="window.location.href='{% url 'portfolio_detail' slug=item.slug %}'">
+              <img src="{{ item.image.url }}" loading="lazy" alt="{{ item.title }}" class="blur-up">
+              <div class="overlay"><h3>{{ item.title }}</h3></div>
+            </div>
+          </div>
+        {% empty %}
+          <div class="swiper-slide">
+            <div class="portfolio-item" data-tilt data-tilt-max="10">
+              <img src="{% static './images/3.jpg' %}" loading="lazy" alt="Fallback" class="blur-up">
+              <div class="overlay"><h3>Sample Work</h3></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="portfolio-item" data-tilt data-tilt-max="10">
+              <img src="{% static './images/4-1.jpg' %}" loading="lazy" alt="Fallback" class="blur-up">
+              <div class="overlay"><h3>Sample Work</h3></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="portfolio-item" data-tilt data-tilt-max="10">
+              <img src="{% static './images/5 (1).jpg' %}" loading="lazy" alt="Fallback" class="blur-up">
+              <div class="overlay"><h3>Sample Work</h3></div>
+            </div>
+          </div>
+                    <div class="swiper-slide">
+            <div class="portfolio-item" data-tilt data-tilt-max="10">
+              <img src="{% static './images/4-1.jpg' %}" loading="lazy" alt="Fallback" class="blur-up">
+              <div class="overlay"><h3>Sample Work</h3></div>
+            </div>
+          </div>
+                    <div class="swiper-slide">
+            <div class="portfolio-item" data-tilt data-tilt-max="10">
+              <img src="{% static './images/5 (1).jpg' %}" loading="lazy" alt="Fallback" class="blur-up">
+              <div class="overlay"><h3>Sample Work</h3></div>
+            </div>
+          </div>
+        {% endfor %}
       </div>
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="portfolio-item" data-tilt data-tilt-max="10">
-          <img src="{% static './images/4-1.jpg' %}" loading="lazy" class="blur-up" alt="Sareeh">
-          <div class="overlay"><h3>Flowing Motion</h3></div>
-        </div>
-      </div>
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-        <div class="portfolio-item" data-tilt data-tilt-max="10">
-          <img src="{% static './images/5 (1).jpg' %}" loading="lazy" class="blur-up" alt="Sareeh">
-          <div class="overlay"><h3>Stare & Poise</h3></div>
-        </div>
-      </div>
+
+      <!-- Navigation arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
-  </section>
+  </div>
+</section>
 
   <div class="separator"></div>
 
