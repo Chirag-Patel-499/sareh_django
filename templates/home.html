@@ -121,13 +121,14 @@
       clip-path: polygon(0 100%,100% 0,100% 100%);
     }
 
+    
     /* ─── Portfolio Items ─────────────────────────────────────────────────────── */
     .portfolio-item {
       position:relative; overflow:hidden; border-radius:.5rem;
       cursor:pointer; transition: transform var(--trans);
     }
     .portfolio-item img {
-      width:100%; display:block;
+      width:420px; display:block;  object-fit: cover; height: 525px;
       transition: transform var(--trans);
     }
     .portfolio-item:hover img { transform:scale(1.05); }
@@ -371,6 +372,27 @@
               data-instgrm-version="14"
               style="width:100%; min-height: 400px;"></blockquote>
           </div>
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/p/DKXUibWsXEn/?hl=en"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/p/DKhNMYFI7Z3/?hl=en"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/p/DKUVza2svLF/?hl=en"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
         {% endfor %}
       </div>
 
@@ -383,6 +405,7 @@
   <!-- Instagram Embed JS -->
   <script async defer src="https://www.instagram.com/embed.js"></script>
 </section>
+
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
