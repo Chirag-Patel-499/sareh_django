@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models.signals import post_delete, pre_save, pre_delete
 from django.dispatch import receiver
 import os
+from tinymce.models import HTMLField
+from django.utils.text import slugify
 
 
 
@@ -63,9 +65,17 @@ class Video(models.Model):
 class PortfolioItem(models.Model):
     image = models.ImageField(upload_to="portfolio/")
     title = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, blank=True)
+    content = HTMLField()
 
-    def _str_(self):
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
         return self.title
+
 
 class BookSection(models.Model):
     quote       = models.TextField(default="“Every choice we make shapes our path.”")

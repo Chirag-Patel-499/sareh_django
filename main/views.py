@@ -2,6 +2,8 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from .forms import ContactForm
+from django.views.generic.detail import DetailView
+
 
 # HomeView for homepage
 from .models import (
@@ -53,3 +55,7 @@ class BlogDetailsView(TemplateView):
 
 
 
+class PortfolioDetailView(DetailView):
+    model = PortfolioItem
+    template_name = 'portfolio_detail.html'
+    context_object_name = 'item'
