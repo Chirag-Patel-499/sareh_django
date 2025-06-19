@@ -585,32 +585,25 @@
   </div>
 </section>
 <script>
-  function initializeSwiper(selector) {
-    return new Swiper(selector, {
+  document.addEventListener('DOMContentLoaded', () => {
+    new Swiper('.portfolio-swiper', {
       loop: true,
       slidesPerView: 1,
       spaceBetween: 20,
       autoHeight: true,
       navigation: {
-        nextEl: `${selector} .swiper-button-next`,
-        prevEl: `${selector} .swiper-button-prev`,
+        nextEl: '.portfolio-swiper .swiper-button-next',
+        prevEl: '.portfolio-swiper .swiper-button-prev',
       },
       breakpoints: {
         640: { slidesPerView: 1 },
         768: { slidesPerView: 2 },
         1024: { slidesPerView: 3 }
-      },
+      }
     });
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    // initializeSwiper('.instagram-swiper');
-    initializeSwiper('.portfolio-swiper');
-   
   });
-
-  
 </script>
+
   <div class="separator"></div>
 
   <!-- Book -->
