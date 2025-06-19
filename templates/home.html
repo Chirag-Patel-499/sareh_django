@@ -121,13 +121,14 @@
       clip-path: polygon(0 100%,100% 0,100% 100%);
     }
 
+
     /* ─── Portfolio Items ─────────────────────────────────────────────────────── */
     .portfolio-item {
       position:relative; overflow:hidden; border-radius:.5rem;
       cursor:pointer; transition: transform var(--trans);
     }
     .portfolio-item img {
-      width:100%; display:block;
+      width:420px; display:block;  object-fit: cover; height: 525px;
       transition: transform var(--trans);
     }
     .portfolio-item:hover img { transform:scale(1.05); }
@@ -138,7 +139,7 @@
       transition: opacity var(--trans);
     }
     .portfolio-item:hover .overlay { opacity:1; }
-
+    
     /* ─── Counters ───────────────────────────────────────────────────────────── */
     .counters {
       display:flex; gap:2rem; justify-content:center; padding:4rem 0;
