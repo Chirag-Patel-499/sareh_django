@@ -316,6 +316,20 @@
   color: var(--clr-bg);
 }
 </style>
+
+<style>
+  .swiper-slide {
+  min-height: 300px;
+  height: 100%; /* ✅ ensure height stretch */
+}
+
+.flip-card,
+.flip-card-inner,
+.flip-card-back {
+  height: 100%; /* ✅ absolutely required */
+}
+
+</style>
 </head>
 
 <body>
@@ -643,91 +657,92 @@
       <div class="swiper" data-aos="fade-up" data-aos-delay="100">
         <div class="swiper-wrapper">
           <!-- Example Slide -->
-<div class="swiper-slide h-full min-h-[300px]">
-  <div class="flip-card h-full">
-    <div class="flip-card-inner h-full">
-      <!-- Front -->
-      <div class="flip-card-front">
-        <div class="flex justify-center mb-3">
-          <img src="{% static './images/6.heic' %}" class="testimonial-avatar" alt="Film Critic">
-        </div>
-        <div class="rating mb-2">
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star"></i>
-        </div>
-        <p class="fst-italic">“Mesmerizing performance!”</p>
-        <strong>– Film Critic</strong>
-      </div>
-      <!-- Back -->
-      <div class="flip-card-back flex items-center justify-center h-full px-4 py-6 text-center">
-        <p class="text-sm leading-relaxed max-w-md mx-auto">
-          “Saw the private screening—her emotional depth is unforgettable.”
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+          <div class="swiper-slide ">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <!-- front -->
+                <div class="flip-card-front">
+                  <div class="flex justify-center mb-3">
+                  <img src="{% static './images/6.heic' %}" class="testimonial-avatar" alt="Film Critic">
+                  </div>
+                  <div class="rating mb-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <p class="fst-italic">“Mesmerizing performance!”</p>
+                  <strong>– Film Critic</strong>
+                </div>
+                <!-- back -->
+                <div class="flip-card-back">
+                  <p class="small mb-0">
+                    “Saw the private screening—her emotional depth is unforgettable.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- … your other slides … -->
           <!-- Example Slide -->
-<div class="swiper-slide h-full min-h-[300px]">
-  <div class="flip-card h-full">
-    <div class="flip-card-inner h-full">
-      <!-- Front -->
-      <div class="flip-card-front">
-        <div class="flex justify-center mb-3">
-          <img src="{% static './images/6.heic' %}" class="testimonial-avatar" alt="Film Critic">
-        </div>
-        <div class="rating mb-2">
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star"></i>
-        </div>
-        <p class="fst-italic">“Mesmerizing performance!”</p>
-        <strong>– Film Critic</strong>
-      </div>
-      <!-- Back -->
-      <div class="flip-card-back flex items-center justify-center h-full px-4 py-6 text-center">
-        <p class="text-sm leading-relaxed max-w-md mx-auto">
-          “Saw the private screening—her emotional depth is unforgettable.”
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+          <div class="swiper-slide ">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <!-- front -->
+                <div class="flip-card-front">
+                  <div class="flex justify-center mb-3">
+                  <img src="{% static './images/7.heic' %}" class="testimonial-avatar" alt="Film Critic">
+                  </div>
+                  <div class="rating mb-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <p class="fst-italic">“Mesmerizing performance!”</p>
+                  <strong>– Film Critic</strong>
+                </div>
+                <!-- back -->
+                <div class="flip-card-back">
+                  <p class="small mb-0">
+                    “Saw the private screening—her emotional depth is unforgettable.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- … your other slides … -->
+
           <!-- Example Slide -->
-<div class="swiper-slide h-full min-h-[300px]">
-  <div class="flip-card h-full">
-    <div class="flip-card-inner h-full">
-      <!-- Front -->
-      <div class="flip-card-front">
-        <div class="flex justify-center mb-3">
-          <img src="{% static './images/6.heic' %}" class="testimonial-avatar" alt="Film Critic">
-        </div>
-        <div class="rating mb-2">
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star"></i>
-        </div>
-        <p class="fst-italic">“Mesmerizing performance!”</p>
-        <strong>– Film Critic</strong>
-      </div>
-      <!-- Back -->
-      <div class="flip-card-back flex items-center justify-center h-full px-4 py-6 text-center">
-        <p class="text-sm leading-relaxed max-w-md mx-auto">
-          “Saw the private screening—her emotional depth is unforgettable.”
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+          <div class="swiper-slide ">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <!-- front -->
+                <div class="flip-card-front">
+                  <div class="flex justify-center mb-3">
+                  <img src="{% static './images/8.heic' %}" class="testimonial-avatar" alt="Film Critic">
+                  </div>
+                  <div class="rating mb-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <p class="fst-italic">“Mesmerizing performance!”</p>
+                  <strong>– Film Critic</strong>
+                </div>
+                <!-- back -->
+                <div class="flip-card-back">
+                  <p class="small mb-0">
+                    “Saw the private screening—her emotional depth is unforgettable.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- … your other slides … -->
         </div>
         <div class="swiper-pagination"></div>
