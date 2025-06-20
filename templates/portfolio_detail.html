@@ -201,9 +201,9 @@
     // Typed.js Intro
     new Typed('#typed',{
       strings:[
-    "{{ typed1|escapejs }}",
-    "{{ typed2|escapejs }}",
-    "{{ typed3|escapejs }}"
+    "{{ item.typed1|escapejs|safe }}",
+    "{{ item.typed2|escapejs|safe }}",
+    "{{ item.typed3|escapejs|safe }}"
       ],
       typeSpeed:50, backSpeed:30, loop:true
     });
