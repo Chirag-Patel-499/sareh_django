@@ -58,16 +58,13 @@
     /* Cursor Fixes */
     #typed {
       display: inline-block;
-      white-space: nowrap;  /* Prevent text from wrapping */
-      position: relative;   /* Keep the position relative to the container */
+      white-space: nowrap;  /* Ensure text doesn't break into new line */
     }
 
     .typed-cursor {
       opacity: 1;
       animation: blink 1s infinite;
-      display: inline-block;  /* Ensure the cursor is inline with the text */
-      position: absolute;     /* Position the cursor at the end of the text */
-      right: 0;               /* Align the cursor to the right edge of the container */
+      display: inline-block;  /* Ensure cursor stays in line with text */
     }
 
     @keyframes blink {
