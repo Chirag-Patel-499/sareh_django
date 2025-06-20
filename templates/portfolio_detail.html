@@ -115,7 +115,6 @@
 
     #typed {
   display: inline-block;
-  min-width: 240px; /* adjust based on longest line */
 }
 
   </style>
@@ -273,9 +272,9 @@
         // Typed.js Intro
     new Typed('#typed',{
       strings:[
-        'Actress. Author. Dancer.',
-        'Painting the world with words.',
-        'Let’s create something magical.'
+        '{{item.typed1}}',
+        '{{item.typed2}}',
+        '{{item.typed3}}'
       ],
       typeSpeed:50, backSpeed:30, loop:true
     });
