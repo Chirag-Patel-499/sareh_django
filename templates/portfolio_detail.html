@@ -164,11 +164,11 @@
 
     // Counters, Smooth scrolling, and other functionality...
   </script>
-
 <script>
   // Wait for the entire page to load, including dynamic Django variables
   window.onload = function() {
     const typedElement = document.querySelector('#typed');
+    const typedCursor = document.querySelector('.typed-cursor'); // Get cursor element
 
     // Initialize Typed.js only when the content is fully loaded
     new Typed('#typed', {
@@ -181,7 +181,7 @@
       backSpeed: 30,
       backDelay: 1000,
       loop: true,
-      showCursor: false,  // Disable the default cursor from Typed.js
+      showCursor: true,   // Ensure cursor is visible
       cursorChar: '|',    // Customize cursor character
 
       // Function to adjust the cursor position dynamically
@@ -200,9 +200,9 @@
 
     // Function to reposition the cursor after typing or pausing
     function positionCursor() {
-      const cursor = typedElement.querySelector('.typed-cursor');
-      if (cursor && typedElement) {
-        cursor.style.left = `${typedElement.scrollWidth}px`; // Align cursor at the end of the text
+      if (typedCursor && typedElement) {
+        // Adjust cursor position based on the scrollWidth of the text
+        typedCursor.style.left = `${typedElement.scrollWidth}px`; 
       }
     }
   };
