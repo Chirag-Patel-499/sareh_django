@@ -154,31 +154,36 @@
     // AOS initialization
     AOS.init({ once:true, duration:800 });
 
-// Initialize Typed.js after Django variables are rendered
-document.addEventListener("DOMContentLoaded", function() {
-  const typedStrings = [
-    '{{ item.typed1 }}' || 'Default Text',
-    '{{ item.typed2 }}' || 'Default Text',
-    '{{ item.typed3 }}' || 'Default Text'
-  ];
-
-  // Initialize Typed.js with the updated configuration
+// Wait for window to load completely (including Django variables rendering)
+window.onload = function() {
+  // Initialize Typed.js only when the content is fully loaded
   new Typed('#typed', {
-    strings: typedStrings,
+    strings: [
+      '{{ item.typed1 }}',
+      '{{ item.typed2 }}',
+      '{{ item.typed3 }}'
+    ],
     typeSpeed: 50,
     backSpeed: 30,
-    backDelay: 1000, // Delay before starting the backspacing animation
+    backDelay: 1000,
     loop: true,
-    showCursor: true,  // Enable cursor visibility
-    cursorChar: '|',  // Customize cursor character if needed
+    showCursor: true,   // Show cursor
+    cursorChar: '|',    // Customize cursor character
+
+    // Handle cursor positioning dynamically
     onTypingPaused: function() {
-      // Adjust the position of the cursor if needed when typing is paused
       const typedElement = document.querySelector('#typed');
       const cursor = typedElement.querySelector('.typed-cursor');
-      cursor.style.left = `${typedElement.offsetWidth}px`;
+      cursor.style.left = `${typedElement.scrollWidth}px`; // Align cursor at the end of the current text
+    },
+
+    onTypingResumed: function() {
+      const typedElement = document.querySelector('#typed');
+      const cursor = typedElement.querySelector('.typed-cursor');
+      cursor.style.left = `${typedElement.scrollWidth}px`; // Adjust cursor position on resume
     }
   });
-});
+};
 
 
     // Optional: Lazy-load blur-up
