@@ -66,6 +66,9 @@ class PortfolioItem(models.Model):
     image = models.ImageField(upload_to="portfolio/")
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, blank=True)
+    typed1 = models.CharField(max_length=20, blank=True, default="Actress. Author. Dancer.")
+    typed2 = models.CharField(max_length=20, blank=True, default="Painting the world with words.")
+    typed3 = models.CharField(max_length=20, blank=True, default="Let’s create something magical.")
     content = HTMLField()
 
     def save(self, *args, **kwargs):
