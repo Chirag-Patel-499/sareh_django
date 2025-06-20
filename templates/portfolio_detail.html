@@ -67,6 +67,8 @@
       white-space: nowrap;  /* Prevent text from wrapping */
       position: relative;
       overflow: hidden;
+      width: max-content; /* Ensure the width expands with the text */
+
     }
 
     .typed-cursor {
@@ -152,21 +154,32 @@
     // AOS initialization
     AOS.init({ once:true, duration:800 });
 
-    // Initialize Typed.js after Django variables are rendered
-    document.addEventListener("DOMContentLoaded", function() {
-      const typedStrings = [
-        '{{ item.typed1 }}' || 'Default Text',
-        '{{ item.typed2 }}' || 'Default Text',
-        '{{ item.typed3 }}' || 'Default Text'
-      ];
+// Initialize Typed.js after Django variables are rendered
+document.addEventListener("DOMContentLoaded", function() {
+  const typedStrings = [
+    '{{ item.typed1 }}' || 'Default Text',
+    '{{ item.typed2 }}' || 'Default Text',
+    '{{ item.typed3 }}' || 'Default Text'
+  ];
 
-      new Typed('#typed', {
-        strings: typedStrings,
-        typeSpeed: 50,
-        backSpeed: 30,
-        loop: true
-      });
-    });
+  // Initialize Typed.js with the updated configuration
+  new Typed('#typed', {
+    strings: typedStrings,
+    typeSpeed: 50,
+    backSpeed: 30,
+    backDelay: 1000, // Delay before starting the backspacing animation
+    loop: true,
+    showCursor: true,  // Enable cursor visibility
+    cursorChar: '|',  // Customize cursor character if needed
+    onTypingPaused: function() {
+      // Adjust the position of the cursor if needed when typing is paused
+      const typedElement = document.querySelector('#typed');
+      const cursor = typedElement.querySelector('.typed-cursor');
+      cursor.style.left = `${typedElement.offsetWidth}px`;
+    }
+  });
+});
+
 
     // Optional: Lazy-load blur-up
     document.querySelectorAll('img.blur-up').forEach(img=>{
