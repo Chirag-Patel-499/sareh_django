@@ -144,10 +144,7 @@
       <div>
         <h1>{{ item.title }}</h1>
 <p id="typed-container" style="min-height: 2.5rem;">
-          <span id="typed"
-                data-typed1="{{ item.typed1 }}"
-                data-typed2="{{ item.typed2 }}"
-                data-typed3="{{ item.typed3 }}">
+          <span id="typed">
           </span>
         </p>
         <a href="#portfolio" class="btn btn-outline-primary">Explore ↓</a>
@@ -211,19 +208,6 @@
 
     // Typed.js Intro
 
-const el = document.getElementById('typed');
-    new Typed('#typed', {
-      strings: [
-        el.dataset.typed1 || "Hello!",
-        el.dataset.typed2 || "Welcome!",
-        el.dataset.typed3 || "Explore my work."
-      ],
-      typeSpeed: 50,
-      backSpeed: 30,
-      loop: true,
-      showCursor: false,
-      cursorChar: '|'
-    });
 
     // Optional: Smo
     // Lazy-load blur-up
@@ -282,6 +266,20 @@ const el = document.getElementById('typed');
       window.addEventListener("scroll", activateNav);
       activateNav();
     });
+  </script>
+
+  <script>
+     window.onload = function() {
+        // Typed.js Intro
+    new Typed('#typed',{
+      strings:[
+        '{{item.typed1}}',
+        '{{item.typed2}}',
+        '{{item.typed3}}'
+      ],
+      typeSpeed:50, backSpeed:30, loop:true
+    });
+  }
   </script>
 
 
