@@ -211,16 +211,20 @@
 
     // Typed.js Intro
 
-    const el = document.getElementById('typed');
+const el = document.getElementById('typed');
 
-    new Typed('#typed',{
-      strings:[
-    el.dataset.string1,
-    el.dataset.string2,
-    el.dataset.string3
-      ],
-      typeSpeed:50, backSpeed:30, loop:true
-    });
+new Typed('#typed', {
+  strings: [
+    el.dataset.typed1,
+    el.dataset.typed2,
+    el.dataset.typed3
+  ],
+  typeSpeed: 50,
+  backSpeed: 30,
+  loop: true,
+  showCursor: true,
+  cursorChar: '|'
+});
 
     // Lazy-load blur-up
     document.querySelectorAll('img.blur-up').forEach(img=>{
