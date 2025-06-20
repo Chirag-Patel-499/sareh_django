@@ -66,7 +66,7 @@
   white-space: nowrap;  /* Prevent text from wrapping */
   position: relative;
   overflow: hidden;
-  width: max-content; /* Ensures the width expands dynamically with content */
+  /*width: max-content;  Ensures the width expands dynamically with content */
 }
 
 .typed-cursor {
@@ -165,49 +165,48 @@
     // Counters, Smooth scrolling, and other functionality...
   </script>
 
-  <script>
-    // Wait for the entire page to load, including dynamic Django variables
-window.onload = function() {
-  // Initialize Typed.js only when the content is fully loaded
-  const typedElement = document.querySelector('#typed');
+<script>
+  // Wait for the entire page to load, including dynamic Django variables
+  window.onload = function() {
+    const typedElement = document.querySelector('#typed');
 
-  // Initialize Typed.js
-  new Typed('#typed', {
-    strings: [
-      '{{ item.typed1 }}',
-      '{{ item.typed2 }}',
-      '{{ item.typed3 }}'
-    ],
-    typeSpeed: 50,
-    backSpeed: 30,
-    backDelay: 1000,
-    loop: true,
-    showCursor: true,   // Show cursor
-    cursorChar: '|',    // Customize cursor character
+    // Initialize Typed.js only when the content is fully loaded
+    new Typed('#typed', {
+      strings: [
+        '{{ item.typed1 }}',
+        '{{ item.typed2 }}',
+        '{{ item.typed3 }}'
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1000,
+      loop: true,
+      showCursor: false,  // Disable the default cursor from Typed.js
+      cursorChar: '|',    // Customize cursor character
 
-    // Function to adjust the cursor position dynamically
-    onTypingPaused: function() {
-      positionCursor();
-    },
+      // Function to adjust the cursor position dynamically
+      onTypingPaused: function() {
+        positionCursor();
+      },
 
-    onTypingResumed: function() {
-      positionCursor();
-    },
+      onTypingResumed: function() {
+        positionCursor();
+      },
 
-    onStringTyped: function() {
-      positionCursor();
+      onStringTyped: function() {
+        positionCursor();
+      }
+    });
+
+    // Function to reposition the cursor after typing or pausing
+    function positionCursor() {
+      const cursor = typedElement.querySelector('.typed-cursor');
+      if (cursor && typedElement) {
+        cursor.style.left = `${typedElement.scrollWidth}px`; // Align cursor at the end of the text
+      }
     }
-  });
+  };
+</script>
 
-  // Function to reposition the cursor after typing or pausing
-  function positionCursor() {
-    const cursor = typedElement.querySelector('.typed-cursor');
-    if (cursor) {
-      cursor.style.left = `${typedElement.scrollWidth}px`; // Align cursor at the end of the text
-    }
-  }
-};
-
-  </script>
 </body>
 </html>
