@@ -143,13 +143,13 @@
     <div class="hero-left" data-aos="fade-right">
       <div>
         <h1>{{ item.title }}</h1>
-        <p id="typed-container" style="min-height: 2.5rem;">
-  <span id="typed"
-        data-string1="{{ item.typed1 }}"
-        data-string2="{{ item.typed2 }}"
-        data-string3="{{ item.typed3 }}">
-  </span>
-</p>
+<p id="typed-container" style="min-height: 2.5rem;">
+          <span id="typed"
+                data-typed1="{{ item.typed1 }}"
+                data-typed2="{{ item.typed2 }}"
+                data-typed3="{{ item.typed3 }}">
+          </span>
+        </p>
         <a href="#portfolio" class="btn btn-outline-primary">Explore ↓</a>
       </div>
     </div>
@@ -212,20 +212,20 @@
     // Typed.js Intro
 
 const el = document.getElementById('typed');
+    new Typed('#typed', {
+      strings: [
+        el.dataset.typed1 || "Hello!",
+        el.dataset.typed2 || "Welcome!",
+        el.dataset.typed3 || "Explore my work."
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
 
-new Typed('#typed', {
-  strings: [
-    el.dataset.typed1,
-    el.dataset.typed2,
-    el.dataset.typed3
-  ],
-  typeSpeed: 50,
-  backSpeed: 30,
-  loop: true,
-  showCursor: true,
-  cursorChar: '|'
-});
-
+    // Optional: Smo
     // Lazy-load blur-up
     document.querySelectorAll('img.blur-up').forEach(img=>{
       if (img.complete) img.classList.add('lazyloaded');
