@@ -55,34 +55,34 @@
       object-fit:cover; object-position:center center;
     }
 
-    /* Cursor Fixes */
-    #typed-container {
-      display: inline-block;
-      min-width: 240px;  /* Prevent shrinking of the box */
-      position: relative;
-    }
+ #typed-container {
+  display: inline-block;
+  min-width: 240px;  /* Prevent shrinking of the box */
+  position: relative; /* Needed for positioning cursor */
+}
 
-    #typed {
-      display: inline-block;
-      white-space: nowrap;  /* Prevent text from wrapping */
-      position: relative;
-      overflow: hidden;
-      width: max-content; /* Ensure the width expands with the text */
+#typed {
+  display: inline-block;
+  white-space: nowrap;  /* Prevent text from wrapping */
+  position: relative;
+  overflow: hidden;
+  width: max-content; /* Ensures the width expands dynamically with content */
+}
 
-    }
+.typed-cursor {
+  opacity: 1;
+  animation: blink 1s infinite;
+  position: absolute; /* Position the cursor inside the typed text */
+  right: 0;           /* Align the cursor to the end of the text */
+  bottom: 0;          /* Align the cursor at the bottom of the text */
+  pointer-events: none; /* Prevent the cursor from interfering with clicks */
+}
 
-    .typed-cursor {
-      opacity: 1;
-      animation: blink 1s infinite;
-      display: inline-block;  /* Ensure the cursor is inline with the text */
-      position: absolute;     /* Position the cursor at the end of the text */
-      right: 0;               /* Align the cursor to the right edge of the container */
-    }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
 
   </style>
 </head>
@@ -154,9 +154,24 @@
     // AOS initialization
     AOS.init({ once:true, duration:800 });
 
-// Wait for window to load completely (including Django variables rendering)
+
+
+    // Optional: Lazy-load blur-up
+    document.querySelectorAll('img.blur-up').forEach(img=>{
+      if (img.complete) img.classList.add('lazyloaded');
+      else img.addEventListener('load', ()=> img.classList.add('lazyloaded'));
+    });
+
+    // Counters, Smooth scrolling, and other functionality...
+  </script>
+
+  <script>
+    // Wait for the entire page to load, including dynamic Django variables
 window.onload = function() {
   // Initialize Typed.js only when the content is fully loaded
+  const typedElement = document.querySelector('#typed');
+
+  // Initialize Typed.js
   new Typed('#typed', {
     strings: [
       '{{ item.typed1 }}',
@@ -170,29 +185,29 @@ window.onload = function() {
     showCursor: true,   // Show cursor
     cursorChar: '|',    // Customize cursor character
 
-    // Handle cursor positioning dynamically
+    // Function to adjust the cursor position dynamically
     onTypingPaused: function() {
-      const typedElement = document.querySelector('#typed');
-      const cursor = typedElement.querySelector('.typed-cursor');
-      cursor.style.left = `${typedElement.scrollWidth}px`; // Align cursor at the end of the current text
+      positionCursor();
     },
 
     onTypingResumed: function() {
-      const typedElement = document.querySelector('#typed');
-      const cursor = typedElement.querySelector('.typed-cursor');
-      cursor.style.left = `${typedElement.scrollWidth}px`; // Adjust cursor position on resume
+      positionCursor();
+    },
+
+    onStringTyped: function() {
+      positionCursor();
     }
   });
+
+  // Function to reposition the cursor after typing or pausing
+  function positionCursor() {
+    const cursor = typedElement.querySelector('.typed-cursor');
+    if (cursor) {
+      cursor.style.left = `${typedElement.scrollWidth}px`; // Align cursor at the end of the text
+    }
+  }
 };
 
-
-    // Optional: Lazy-load blur-up
-    document.querySelectorAll('img.blur-up').forEach(img=>{
-      if (img.complete) img.classList.add('lazyloaded');
-      else img.addEventListener('load', ()=> img.classList.add('lazyloaded'));
-    });
-
-    // Counters, Smooth scrolling, and other functionality...
   </script>
 </body>
 </html>
