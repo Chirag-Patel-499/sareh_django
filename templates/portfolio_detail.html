@@ -138,7 +138,13 @@
     <div class="hero-left" data-aos="fade-right">
       <div>
         <h1>{{ item.title }}</h1>
-        <p><span id="typed"></span></p>
+        <p id="typed-container" style="min-height: 2.5rem;">
+  <span id="typed"
+        data-string1="{{ item.typed1 }}"
+        data-string2="{{ item.typed2 }}"
+        data-string3="{{ item.typed3 }}">
+  </span>
+</p>
         <a href="#portfolio" class="btn btn-outline-primary">Explore ↓</a>
       </div>
     </div>
@@ -199,11 +205,14 @@
     AOS.init({ once:true, duration:800 });
 
     // Typed.js Intro
+
+    const el = document.getElementById('typed');
+
     new Typed('#typed',{
       strings:[
-        'aaaa',
-        'aaaann',
-        'aaaannnn'
+    el.dataset.string1,
+    el.dataset.string2,
+    el.dataset.string3
       ],
       typeSpeed:50, backSpeed:30, loop:true
     });
