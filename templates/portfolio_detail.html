@@ -45,8 +45,6 @@
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     }
     .hero-left p { font-size:1.2rem; margin-bottom:1.5rem; }
-    .typed-cursor { opacity:1; animation: blink 1s infinite; }
-    @keyframes blink { 0%,100%{opacity:1;}50%{opacity:0;} }
 
     .hero-right {
       flex:1; position:relative; overflow:hidden;
@@ -57,10 +55,23 @@
       object-fit:cover; object-position:center center;
     }
 
+    /* Cursor Fixes */
     #typed {
       display: inline-block;
-      min-width: 240px;  /* adjust based on longest line */
+      white-space: nowrap;  /* Ensure text doesn't break into new line */
     }
+
+    .typed-cursor {
+      opacity: 1;
+      animation: blink 1s infinite;
+      display: inline-block;  /* Ensure cursor stays in line with text */
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
   </style>
 </head>
 
@@ -131,10 +142,10 @@
     // AOS initialization
     AOS.init({ once:true, duration:800 });
 
-    // Initialize Typed.js only after Django variables are rendered
+    // Initialize Typed.js after Django variables are rendered
     document.addEventListener("DOMContentLoaded", function() {
       const typedStrings = [
-        '{{ item.typed1 }}' || 'Default Text',  // Handle empty values
+        '{{ item.typed1 }}' || 'Default Text',
         '{{ item.typed2 }}' || 'Default Text',
         '{{ item.typed3 }}' || 'Default Text'
       ];
@@ -147,14 +158,13 @@
       });
     });
 
-    // Optional: Smo
-    // Lazy-load blur-up
+    // Optional: Lazy-load blur-up
     document.querySelectorAll('img.blur-up').forEach(img=>{
       if (img.complete) img.classList.add('lazyloaded');
       else img.addEventListener('load', ()=> img.classList.add('lazyloaded'));
     });
 
-    // Counters, Smooth scrolling, and other functionality here...
+    // Counters, Smooth scrolling, and other functionality...
   </script>
 </body>
 </html>
