@@ -56,15 +56,25 @@
     }
 
     /* Cursor Fixes */
+    #typed-container {
+      display: inline-block;
+      min-width: 240px;  /* Prevent shrinking of the box */
+      position: relative;
+    }
+
     #typed {
       display: inline-block;
-      white-space: nowrap;  /* Ensure text doesn't break into new line */
+      white-space: nowrap;  /* Prevent text from wrapping */
+      position: relative;
+      overflow: hidden;
     }
 
     .typed-cursor {
       opacity: 1;
       animation: blink 1s infinite;
-      display: inline-block;  /* Ensure cursor stays in line with text */
+      display: inline-block;  /* Ensure the cursor is inline with the text */
+      position: absolute;     /* Position the cursor at the end of the text */
+      right: 0;               /* Align the cursor to the right edge of the container */
     }
 
     @keyframes blink {
@@ -94,7 +104,7 @@
     <div class="hero-left" data-aos="fade-right">
       <div>
         <h1>{{ item.title }}</h1>
-        <p id="typed-container" style="min-height: 2.5rem;">
+        <p id="typed-container">
           <span id="typed"></span>
         </p>
         <a href="#portfolio" class="btn btn-outline-primary">Explore ↓</a>
