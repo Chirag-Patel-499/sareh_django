@@ -57,7 +57,7 @@ class InstagramPost(models.Model):
         return self.permalink
 
 class Video(models.Model):
-    youtube_id = models.CharField(max_length=20)
+    youtube_id = models.CharField(max_length=300)
 
     def _str_(self):
         return self.youtube_id
