@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <main>
+        <!-- BREADCRUMB SECTION START -->
+        <section class="jo-breadcrumb">
+            <div class="container">
+                <h1 class="jo-page-title jo-section-title">Portfolio Detail</h1>
+                <ul class="jo-breadcrumb-nav">
+                    <li><a href="#">{{item.title}}</a></li>
+                    <li><span>/</span></li>
+                    <li class="current-page"> <span id="typed-text"></span></li>
+                </ul>
+
+                <div class="jo-circle-box">
+                    <span class="circle-1"><img src="{% static 'assets/img/social-icon-1.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-2"><img src="{% static 'assets/img/social-icon-2.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-3"><img src="{% static 'assets/img/social-icon-3.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-4"><img src="{% static 'assets/img/social-icon-4.png' %}" alt="Social Media Icon"></span>
+                </div>
+            </div>
+        </section>
+        <!-- BREADCRUMB SECTION END -->
+
+
+        <!-- MAIN CONTENT START -->
+        <div class="jo-inner-blogs">
+            <div class="jo-container">
+                <div class="row gy-4">
+                    <div class="col-lg-12">
+                        <!-- single blog -->
+                         {{ item.content|safe }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MAIN CONTENT END -->
+    </main>
+
+
+    <!-- Typed.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new Typed("#typed-text", {
+      strings: [
+        "{{ item.typed1 }}",
+        "{{ item.typed2 }}",
+        "{{ item.typed3 }}"
+      ],
+      typeSpeed: 60,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
+  });
+</script>
+{% endblock %}

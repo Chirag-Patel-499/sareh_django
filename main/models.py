@@ -7,6 +7,7 @@ from django.utils.text import slugify
 
 
 
+
 class Hero(models.Model):
     title        = models.CharField(max_length=200, default="Hi, I’m Sareeh Far")
     subtitle     = models.CharField(max_length=300, blank=True, default="Actress. Author. Dancer.")
@@ -62,14 +63,58 @@ class Video(models.Model):
     def _str_(self):
         return self.youtube_id
 
+
 class PortfolioItem(models.Model):
     image = models.ImageField(upload_to="portfolio/")
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, blank=True)
-    typed1 = models.CharField(max_length=50, blank=True, default="Actress. Author. Dancer.")
-    typed2 = models.CharField(max_length=50, blank=True, default="Painting the world with words.")
-    typed3 = models.CharField(max_length=50, blank=True, default="Let’s create something magical.")
-    content = HTMLField()
+    typed1 = models.CharField(max_length=50)
+    typed2 = models.CharField(max_length=50)
+    typed3 = models.CharField(max_length=50)
+    content = HTMLField(default="""
+        <div class=\"jo-blog-details\">
+            <div class=\"jo-inner-blog-img jo-blog-details-img\">
+                <img src=\"/static/assets/img/fbl5.png\" alt=\"\">
+            </div>
+            <div class=\"jo-blog-details-txt\">
+                <div class=\"jo-inner-blog-infos\">
+                    <div class=\"author\">Written by: <span class=\"name\">Marry biden</span></div>
+                    <div class=\"date\">14/03/2024</div>
+                </div>
+                <h3 class=\"jo-inner-blog-title\"><a href=\"#\">Life won's one Beast air Over above all</a></h3>
+                <p class=\"jo-inner-blog-descr\">Consectetur adipisicing elit...<br><br>Vivamus condimentum a sem nec vehicula...</p>
+                <ul>
+                    <li>Technology Support Allows Erie non-profit to Serve.</li>
+                    <li>Web design done Delightful Visualization</li>
+                    <li>Software Makes Your Profit Double if You Scale Properly.</li>
+                </ul>
+                <div class=\"jo-blog-details-inner-imgs\">
+                    <img src=\"/static/assets/img/fbl6.png\" alt=\"Inner Image\">
+                    <img src=\"/static/assets/img/fbl7.png\" alt=\"Inner Image\">
+                </div>
+                <blockquote>Pellentesque sollicitudin congue dolor...<img src=\"/static/assets/img/quotation-icon-2.svg\" class=\"quotation-icon\"></blockquote>
+            </div>
+            <div class=\"jo-blog-details-actions\">
+                <div class=\"tags-wrapper\">
+                    <h4 class=\"title\">Tags:</h4>
+                    <div class=\"tags\">
+                        <a href=\"#\">My Profile</a>
+                        <a href=\"#\">My Book</a>
+                        <a href=\"#\">Contact mw</a>
+                    </div>
+                </div>
+                <div class=\"share\">
+                    <h4 class=\"title\">Share:</h4>
+                    <div class=\"share-options\">
+                        <a href=\"#\"><i class=\"flaticon-facebook-1\"></i></a>
+                        <a href=\"#\"><i class=\"flaticon-twitter\"></i></a>
+                        <a href=\"#\"><i class=\"flaticon-social-media\"></i></a>
+                        <a href=\"#\"><i class=\"flaticon-youtube-1\"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    """)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -78,6 +123,7 @@ class PortfolioItem(models.Model):
 
     def __str__(self):
         return self.title
+
 
 
 class BookSection(models.Model):

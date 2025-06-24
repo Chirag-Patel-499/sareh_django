@@ -57,5 +57,5 @@ class BlogDetailsView(TemplateView):
 
 class PortfolioDetailView(DetailView):
     model = PortfolioItem
-    template_name = 'portfolio_detail.html'
+    template_name = 'blog-details_2.html'
     context_object_name = 'item'
