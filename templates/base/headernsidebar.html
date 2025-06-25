@@ -4,11 +4,8 @@
   <div>
     <!-- heading -->
     <div class="jo-sidebar__heading d-flex justify-content-between align-items-center">
-      <!-- logo inside sidebar -->
-      <a href="{% url 'home' %}"><img src="{% static 'assets/img/Hisareeh_logo_cropped (1).webp' %}" alt="logo" class="logo"></a>
       <button type="button" class="jo-sidebar-close-btn"><i class="flaticon-add-plus-button"></i></button>
     </div>
-
     <!-- mobile menu -->
     <div class="jo-header-nav-in-mobile"></div>
   </div>
@@ -27,43 +24,18 @@
 
 <!-- HEADER SECTION START -->
 <header class="jo-header">
-  <div class="jo-header-right" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 10px 0;">
-    
+  <div class="jo-header-right w-100 d-flex align-items-center justify-content-between flex-wrap">
     <!-- Center Nav -->
-    <div class="jo-header-nav" id="main-nav" style="flex: 1;">
-      <div class="to-go-to-sidebar-in-mobile">
-        <nav style="display: flex; justify-content: center; gap: 30px;">
-          <a href="{% url 'home' %}">Home</a>
-          <a href="{% url 'about' %}">About Me</a>
-          <a href="{% url 'work' %}">My Work Profile</a>
-          <a href="{% url 'videos-1' %}">My Videos</a>
-          <div class="has-sub-menu relative">
-            <a role="button">Pages</a>
-            <ul class="jo-header-submenu">
-              <li><a href="video-shop.html">Video Shop</a></li>
-              <li><a href="video-shop-details.html">Video Shop Details</a></li>
-              <li><a href="service.html">Services</a></li>
-              <li><a href="service-details.html">Service Details</a></li>
-              <li><a href="checkout.html">Checkout</a></li>
-              <li><a href="register.html">Sign Up</a></li>
-              <li><a href="login.html">Sign in</a></li>
-              <li><a href="pricing.html">Pricing</a></li>
-            </ul>
-          </div>
-          <div class="has-sub-menu relative">
-            <a role="button">Blog</a>
-            <ul class="jo-header-submenu">
-              <li><a href="{% url 'blog' %}">Blogs</a></li>
-              <li><a href="{% url 'blog-details' %}">Blog Details</a></li>
-            </ul>
-          </div>
-          <a href="{% url 'contact' %}">Contact</a>
-        </nav>
-      </div>
+    <div class="jo-header-nav mx-auto d-none d-lg-block">
+      <nav class="d-flex justify-content-center gap-4">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'work' %}">My Work Profile</a>
+        <a href="{% url 'contact' %}">Contact</a>
+      </nav>
     </div>
 
-    <!-- Follow Me + Burger -->
-    <div class="d-flex gap-2 align-items-center" style="margin-left: 20px;">
+    <!-- Right CTA + burger -->
+    <div class="d-flex gap-2 align-items-center">
       <a href="{% url 'about' %}" class="jo-btn d-none d-lg-inline-block">
         <i class="flaticon-add-plus-button"></i>Follow Me
       </a>
@@ -72,16 +44,16 @@
       </button>
     </div>
   </div>
+
+  <!-- Mobile nav -->
+  <div class="jo-header-nav d-lg-none">
+    <div class="to-go-to-sidebar-in-mobile">
+      <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'work' %}">My Work Profile</a>
+        <a href="{% url 'contact' %}">Contact</a>
+      </nav>
+    </div>
+  </div>
 </header>
 <!-- HEADER SECTION END -->
-
-<!-- JS to copy nav into sidebar -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const nav = document.querySelector("#main-nav nav");
-    const mobileNav = document.querySelector(".jo-header-nav-in-mobile");
-    if (nav && mobileNav) {
-      mobileNav.innerHTML = nav.outerHTML;
-    }
-  });
-</script>
