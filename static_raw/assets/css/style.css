@@ -909,7 +909,7 @@ input {
   position: fixed;
   z-index: 99;
   inset: 0 6.25vw auto;
-  padding: 0 1.563vw;
+  padding: 0 18.563vw;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(75px);
   border-radius: 0px 0px 20px 20px;
