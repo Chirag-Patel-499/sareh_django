@@ -1,5 +1,5 @@
 {% load static %}
-<!-- sidebar -->
+<!-- SIDEBAR -->
 <div class="jo-sidebar">
     <div>
         <!-- heading -->
@@ -7,13 +7,14 @@
             <button type="button" class="jo-sidebar-close-btn"><i class="flaticon-add-plus-button"></i></button>
         </div>
 
-        <!-- mobile menu -->
+        <!-- mobile menu container -->
         <div class="jo-header-nav-in-mobile"></div>
     </div>
 
     <div>
         <a href="{% url 'about' %}" class="jo-btn"><i class="flaticon-add-plus-button"></i>Follow Me</a>
-        <!-- socials -->
+
+        <!-- social icons -->
         <div class="tt-footer-top__socials jo-footer-top__socials jo-sidebar-socials justify-content-start justify-content-sm-end">
             <a href="#"><i class="flaticon-facebook-1"></i></a>
             <a href="#"><i class="flaticon-twitter"></i></a>
@@ -25,40 +26,42 @@
 
 <!-- HEADER SECTION START -->
 <header class="jo-header">
-  <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 10px 0;">
-    
-    <!-- Left (empty to balance layout) -->
-    <div style="width: 20%;" class="d-none d-lg-block"></div>
+    <div class="container-fluid">
+        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 10px 0;">
+            
+            <!-- Left Spacer -->
+            <div class="d-none d-lg-block" style="width: 20%;"></div>
 
-    <!-- Center Nav -->
-    <div class="jo-header-nav d-none d-lg-block" style="width: 60%;">
-        <nav style="display: flex; justify-content: center; gap: 40px;">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'work' %}">My Work Profile</a>
-            <a href="{% url 'contact' %}">Contact</a>
-        </nav>
+            <!-- Center Navigation -->
+            <div class="jo-header-nav d-none d-lg-block" style="width: 60%;">
+                <nav style="display: flex; justify-content: center; gap: 40px;">
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'work' %}">My Work Profile</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </nav>
+            </div>
+
+            <!-- Right CTA + Burger -->
+            <div class="d-flex align-items-center gap-2 justify-content-end" style="width: 20%;">
+                <a href="{% url 'about' %}" class="jo-btn d-none d-lg-inline-block">
+                    <i class="flaticon-add-plus-button"></i>Follow Me
+                </a>
+                <button class="jo-header-sidebar-open-btn jo-btn px-3 d-inline-block d-lg-none">
+                    <i class="flaticon-menu"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div class="jo-header-nav d-lg-none mt-2">
+            <div class="to-go-to-sidebar-in-mobile">
+                <nav style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'work' %}">My Work Profile</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </nav>
+            </div>
+        </div>
     </div>
-
-    <!-- Right: Follow Me + Burger -->
-    <div class="d-flex gap-2 align-items-center justify-content-end" style="width: 20%;">
-        <a href="{% url 'about' %}" class="jo-btn d-none d-lg-inline-block">
-            <i class="flaticon-add-plus-button"></i>Follow Me
-        </a>
-        <button class="jo-header-sidebar-open-btn jo-btn px-3 d-inline-block d-lg-none">
-            <i class="flaticon-menu"></i>
-        </button>
-    </div>
-  </div>
-
-  <!-- Mobile nav (hidden on large screens) -->
-  <div class="jo-header-nav d-lg-none">
-      <div class="to-go-to-sidebar-in-mobile">
-          <nav>
-              <a href="{% url 'home' %}">Home</a>
-              <a href="{% url 'work' %}">My Work Profile</a>
-              <a href="{% url 'contact' %}">Contact</a>
-          </nav>
-      </div>
-  </div>
 </header>
 <!-- HEADER SECTION END -->
