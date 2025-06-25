@@ -66,182 +66,96 @@
             </div>
         </section>
         <!-- ABOUT SECTION END -->
+<!-- VIDEOS SECTION START -->
+<section class="jo-videos jo-inner-videos">
+  <div class="jo-container">
+    <!-- heading -->
+    <div class="jo-videos__heading">
+      <h2 class="jo-section-title">My Latest Work</h2>
+      <a href="videos-1.html" class="jo-btn jo-videos__btn"><i class="flaticon-premium-quality"></i> View All Videos</a>
+    </div>
+  </div>
 
-
-        <!-- VIDEOS SECTION START -->
-        <section class="jo-videos jo-inner-videos">
-            <div class="jo-container">
-                <!-- heading -->
-                <div class="jo-videos__heading">
-                    <h2 class="jo-section-title">My Latest Work</h2>
-                    <a href="videos-1.html" class="jo-btn jo-videos__btn"><i class="flaticon-premium-quality"></i> View All Videos</a>
+  <!-- video cards -->
+  <div class="jo-videos-slider splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for x in portfolio|slice:":3" %}
+          {% with counter=forloop.counter0 %}
+            <li class="splide__slide">
+              <div class="jo-video-card">
+                <img src="{{ x.image.url }}" alt="Video Thumbnail" class="jo-video-card__img" width="690" height="497">
+                <div class="jo-video-card__txt">
+                  <div class="d-flex justify-content-between">
+                    <a href="{% url 'portfolio_detail' slug=x.slug %}" target="_blank" class="jo-video-card__btn">
+                      <i class="flaticon-play"></i>
+                    </a>
+                  </div>
+                  <div class="bottom">
+                    <h5><a href="{% url 'portfolio_detail' slug=x.slug %}" class="jo-video-card__title">{{ x.title }}</a></h5>
+                    <div class="tt-video__infos jo-video-card__infos">
+                      <span class="views" id="views-{{ counter }}"></span>
+                      <span class="time" id="time-{{ counter }}"></span>
+                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+            </li>
+          {% endwith %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 
-            <!-- video cards -->
-            <div class="jo-videos-slider splide">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide">
-                            <div class="jo-video-card">
-                                <img src="{% static 'assets/img/Wpl.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img" width="690" height="497">
-
-                                <div class="jo-video-card__txt">
-                                    <div class="d-flex justify-content-between">
-                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
-                                        <a href="https://www.youtube.com/embed/0ShecoIJ5jc" target="_blank" class="jo-video-card__btn">
-                                            <i class="flaticon-play"></i>
-                                           </a>
-                                    </div>
-
-                                    <div class="bottom">
-                                        <h5><a href="video-details.html" class="jo-video-card__title">Whatsapp love</a></h5>
-                                        <div class="tt-video__infos jo-video-card__infos">
-                                            <span>16M views</span>
-                                            <span>49 minutes ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="splide__slide">
-                            <div class="jo-video-card">
-                                <!-- <img src="{% static 'assets/img/jo-video-2.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
-                                <img src="{% static 'assets/img/shonare.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
-
-
-                                <div class="jo-video-card__txt">
-                                    <div class="d-flex justify-content-between">
-                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
-                                        <a href="https://www.youtube.com/embed/JIzkQGPMT9E" target="_blank" class="jo-video-card__btn">
-                                            <i class="flaticon-play"></i>
-                                           </a>
-                                    </div>
-
-                                    <div class="bottom">
-                                        <h5><a href="video-details.html" class="jo-video-card__title">Shona Re शोना रे</a></h5>
-                                        <div class="tt-video__infos jo-video-card__infos">
-                                            <span>16M views</span>
-                                            <span>49 minutes ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="splide__slide">
-                            <div class="jo-video-card">
-                                <!-- <img src="{% static 'assets/img/jo-video-3.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
-                                <img src="{% static 'assets/img/apnad.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img">
-
-
-                                <div class="jo-video-card__txt">
-                                    <div class="d-flex justify-content-between">
-                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
-                                        <a href="https://www.youtube.com/embed/lxypV_kVito?si=yIoqaDuvtIEXG7Hi" target="_blank" class="jo-video-card__btn">
-                                            <i class="flaticon-play"></i>
-                                           </a>
-                                    </div>
-
-                                    <div class="bottom">
-                                        <h5><a href="video-details.html" class="jo-video-card__title">Hai apna dil toh awara with MJM production</a></h5>
-                                        <div class="tt-video__infos jo-video-card__infos">
-                                            <span>16M views</span>
-                                            <span>49 minutes ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+  <div class="jo-videos-slider-2 splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for x in portfolio|slice:"3:6" %}
+          {% with counter=forloop.counter0|add:"3" %}
+            <li class="splide__slide">
+              <div class="jo-video-card">
+                <img src="{{ x.image.url }}" style="object-position: top;" alt="Video Thumbnail" class="jo-video-card__img">
+                <div class="jo-video-card__txt">
+                  <div class="d-flex justify-content-between">
+                    <a href="{% url 'portfolio_detail' slug=x.slug %}" target="_blank" class="jo-video-card__btn">
+                      <i class="flaticon-play"></i>
+                    </a>
+                  </div>
+                  <div class="bottom">
+                    <span class="price">Free</span>
+                    <h5><a href="{% url 'portfolio_detail' slug=x.slug %}" class="jo-video-card__title">{{ x.title }}</a></h5>
+                    <div class="tt-video__infos jo-video-card__infos">
+                      <span class="views" id="views-{{ counter }}"></span>
+                      <span class="time" id="time-{{ counter }}"></span>
+                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+            </li>
+          {% endwith %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
 
-            <div class="jo-videos-slider-2 splide">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide">
-                            <div class="jo-video-card">
-                                <!-- <img src="{% static 'assets/img/jo-video-4.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
-                                <img src="{% static 'assets/img/scndl.jpg' %}" style="object-position: top;" alt="Video Thumbnail" class="jo-video-card__img">
+<!-- Random View + Time Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const totalItems = {{ portfolio|length }};
+    for (let i = 0; i < totalItems; i++) {
+      const views = (Math.random() * 10).toFixed(1);
+      const minutes = Math.floor(Math.random() * 59) + 1;
 
+      const viewsEl = document.getElementById("views-" + i);
+      const timeEl = document.getElementById("time-" + i);
 
-                                <div class="jo-video-card__txt">
-                                    <div class="d-flex justify-content-between">
-                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
-                                        <a href="https://youtu.be/IOMFNHebwIo?si=pRcnh8-p6Ilb46NV" target="_blank" class="jo-video-card__btn">
-                                            <i class="flaticon-play"></i>
-                                           </a>
-                                    </div>
+      if (viewsEl) viewsEl.innerText = `${views}M views`;
+      if (timeEl) timeEl.innerText = `${minutes} minutes ago`;
+    }
+  });
+</script>
 
-                                    <div class="bottom">
-                                        <span class="price">Free</span>
-                                        <h5><a href="video-details.html" class="jo-video-card__title">A Scandall directed by Ishan trivedi.</a></h5>
-                                        <div class="tt-video__infos jo-video-card__infos">
-                                            <span>16M views</span>
-                                            <span>49 minutes ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="splide__slide">
-                            <div class="jo-video-card">
-                                <!-- <img src="{% static 'assets/img/jo-video-5.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
-                                <img src="{% static 'assets/img/hq720 (1).jpg' %}" style="object-position: top;" alt="Video Thumbnail" class="jo-video-card__img">
-
-
-                                <div class="jo-video-card__txt">
-                                    <div class="d-flex justify-content-between">
-                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
-                                        <a href="https://www.youtube.com/embed/bWZPJQmL_NA?si=nfDaxKqJ76pdQ5TA" target="_blank" class="jo-video-card__btn">
-                                            <i class="flaticon-play"></i>
-                                           </a>
-                                    </div>
-
-                                    <div class="bottom">
-                                        <h5><a href="video-details.html" class="jo-video-card__title">"sab theek hai" directed by raja mukerji</a></h5>
-                                        <div class="tt-video__infos jo-video-card__infos">
-                                            <span>16M views</span>
-                                            <span>49 minutes ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="splide__slide">
-                            <div class="jo-video-card">
-                                <!-- <img src="{% static 'assets/img/jo-video-6.jpg' %}" alt="Video Thumbnail" class="jo-video-card__img"> -->
-                                <img src="{% static 'assets/img/porus.jpg' %}" style="object-position: top;" alt="Video Thumbnail" class="jo-video-card__img">
-
-
-                                <div class="jo-video-card__txt">
-                                    <div class="d-flex justify-content-between">
-                                        <!-- <a href="https://youtu.be/vc3WCrgYpF0?si=W2iFDfdDYsh6spKg" data-fslightbox="videos" class="jo-video-card__btn"><i class="flaticon-play"></i></a> -->
-                                        <a href="https://www.youtube.com/embed/ELYRMedbef8?si=paPNG3jxF4pow6Pt" target="_blank" class="jo-video-card__btn">
-                                            <i class="flaticon-play"></i>
-                                           </a>
-                                        <span class="jo-video-card__premium-tag"><i class="flaticon-premium-quality"></i></span>
-                                    </div>
-
-                                    <div class="bottom">
-                                        <span class="price">$5.00</span>
-                                        <h5><a href="video-details.html" class="jo-video-card__title">Grand historical show PORUS for sony tv as queen philina</a></h5>
-                                        <div class="tt-video__infos jo-video-card__infos">
-                                            <span>16M views</span>
-                                            <span>49 minutes ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
         <!-- VIDEOS SECTION END -->
 
 
