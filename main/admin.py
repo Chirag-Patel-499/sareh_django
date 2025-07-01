@@ -1,5 +1,5 @@
 from django.contrib import admin, messages
-from .models import Hero, InstagramPost, Video, PortfolioItem, BookSection, Stat, Testimonial, Blog, Tag, Category
+from .models import Hero, InstagramPost, Video, PortfolioItem, BookSection, Stat, Testimonial, Blog, Tag, Category, Contact
 
 
 # 🔁 Reusable Singleton Admin
