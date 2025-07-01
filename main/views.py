@@ -10,6 +10,8 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import Blog, Tag, Category, Comment
 from .forms import CommentForm
 from django.db.models import Q
+from django.contrib import messages
+
 
 # HomeView for homepage
 from .models import (
@@ -36,7 +38,7 @@ class HomeView(TemplateView):
 # AboutView for about page
 class AboutView(TemplateView):
     template_name = 'about.html'
-
+    
 # ContactView with form
 class ContactView(FormView):
     template_name = 'contact.html'
@@ -45,6 +47,8 @@ class ContactView(FormView):
     def form_valid(self, form):
         # You can save data or send email here
         form.save()  # Only if your form is linked to a model
+        messages.success(self.request, 'Thank you! Your message has been sent successfully.')
+
         return super().form_valid(form)
     
 class VideoView(TemplateView):
