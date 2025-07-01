@@ -1,5 +1,6 @@
 from django.contrib import admin, messages
-from .models import Hero, InstagramPost, Video, PortfolioItem, BookSection, Stat, Testimonial
+from .models import Hero, InstagramPost, Video, PortfolioItem, BookSection, Stat, Testimonial, Blog, Tag, Category
+
 
 # 🔁 Reusable Singleton Admin
 class SingletonModelAdmin(admin.ModelAdmin):
@@ -11,6 +12,7 @@ class SingletonModelAdmin(admin.ModelAdmin):
             messages.error(request, f"🚫 Only one {self.model.__name__} instance is allowed.")
         else:
             super().save_model(request, obj, form, change)
+
 
 # ✅ Singleton model admins
 @admin.register(Hero)
@@ -27,3 +29,6 @@ admin.site.register(Video)
 admin.site.register(PortfolioItem)
 admin.site.register(Stat)
 admin.site.register(Testimonial)
+admin.site.register(Blog)
+admin.site.register(Tag)
+admin.site.register(Category)

@@ -1,0 +1,249 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <style>
+        .reply-box {
+    margin-left: 50px;
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border-left: 3px solid #ddd;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.replies button.toggle-replies-btn {
+    margin-top: 10px;
+    margin-left: 5px;
+    background: #f1f1f1;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+    </style>
+    <main>
+        <!-- BREADCRUMB SECTION START -->
+        <section class="jo-breadcrumb">
+            <div class="container">
+                <h1 class="jo-page-title jo-section-title">Blog Details</h1>
+                <ul class="jo-breadcrumb-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><span>/</span></li>
+                    <li class="current-page">Blog Details</li>
+                </ul>
+
+                <div class="jo-circle-box">
+                    <span class="circle-1"><img src="{% static 'assets/img/social-icon-1.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-2"><img src="{% static 'assets/img/social-icon-2.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-3"><img src="{% static 'assets/img/social-icon-3.png' %}" alt="Social Media Icon"></span>
+                    <span class="circle-4"><img src="{% static 'assets/img/social-icon-4.png' %}" alt="Social Media Icon"></span>
+                </div>
+            </div>
+        </section>
+        <!-- BREADCRUMB SECTION END -->
+
+
+        <!-- MAIN CONTENT START -->
+        <div class="jo-inner-blogs">
+            <div class="jo-container">
+                <div class="row gy-4">
+                    <div class="col-lg-8">
+                        <!-- single blog -->
+                        <div class="jo-blog-details">
+{{blog.content|safe}}
+
+
+{% for comment in blog.comments.all %}
+    {% if not comment.parent %}
+    <div class="jo-blog-comment">
+        <!-- Parent Comment -->
+        <div class="jo-blog-comment-user-img">
+            <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" alt="User">
+        </div>
+        <div class="jo-blog-comment-txt">
+            <div class="heading">
+                <h5 class="name">{{ comment.name }}</h5>
+                <span class="date">{{ comment.created_at|date:"d M Y" }}</span>
+            </div>
+            <p class="descr">{{ comment.comment }}</p>
+            <button class="reply-btn mb-3" data-comment-id="{{ comment.id }}">Reply</button>
+
+            <!-- Reply Form -->
+            <form action="{% url 'post_comment' blog.id %}" method="post" class="jo-blog-comment-form" id="reply-form-{{ comment.id }}" style="display: none;">
+                {% csrf_token %}
+                <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="comment" placeholder="Write your reply here" required></textarea>
+                <button type="submit">Post Reply</button>
+            </form>
+
+            <!-- Replies -->
+            {% if comment.replies.all %}
+            <div class="replies">
+                <button class="toggle-replies-btn" onclick="toggleReplies({{ comment.id }})">Show Replies ({{ comment.replies.count }})</button>
+                <div id="replies-{{ comment.id }}" style="display: none;">
+                    {% for reply in comment.replies.all %}
+                    <div class="jo-blog-comment reply-box">
+                        <div class="jo-blog-comment-user-img">
+                            <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" alt="Reply">
+                        </div>
+                        <div class="jo-blog-comment-txt">
+                            <div class="heading">
+                                <h5 class="name">{{ reply.name }}</h5>
+                                <span class="date">{{ reply.created_at|date:"d M Y" }}</span>
+                            </div>
+                            <p class="descr">{{ reply.comment }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+{% empty %}
+    <p class="descr">No comments yet.</p>
+{% endfor %}
+
+<script>
+    document.querySelectorAll('.reply-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const form = document.getElementById('reply-form-' + this.dataset.commentId);
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        });
+    });
+
+    function toggleReplies(commentId) {
+        const replyBox = document.getElementById('replies-' + commentId);
+        const visible = replyBox.style.display === 'block';
+        replyBox.style.display = visible ? 'none' : 'block';
+    }
+</script>
+
+
+                            
+ 
+
+                            <!-- comment form -->
+                            <div class="jo-blog-comment-form-wrapper">
+                                <h3 class="jo-blog-comment-form-title">Leave a Comment</h3>
+
+                                <form action="{% url 'post_comment' blog.id %}" method="post" class="jo-blog-comment-form">
+                                    {% csrf_token %}
+                                    <div class="row g-4 row-cols-sm-2">
+                                        <div>
+                                            <label for="jo-blog-comment-name">Your Name*</label>
+                                            <input type="text" name="name" id="jo-blog-comment-name" placeholder="Your Name">
+                                        </div>
+                                        <div>
+                                            <label for="jo-blog-comment-email">Your Email*</label>
+                                            <input type="email" name="email" id="jo-blog-comment-email" placeholder="Your Email">
+                                        </div>
+                                        <div class="col-sm-12 col-12">
+                                            <label for="jo-blog-comment-comment">Write Comment*</label>
+                                            <textarea name="comment" id="jo-blog-comment-comment" placeholder="Write Comment"></textarea>
+                                        </div>
+                                    </div>
+                                        <button type="submit" class="btn btn-primary" >
+                                        Post Reply <i class="flaticon-arrow-right-1"></i>
+                                        </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- right sidebar -->
+                    <div class="col-lg-4">
+                        <div class="jo-inner-blogs-sidebar">
+                            <!-- single widget / search -->
+                            <div class="jo-inner-blogs-sidebar-widget">
+                                <h2 class="jo-inner-blogs-sidebar-widget-title">Search</h2>
+
+                            <form method="GET" action="{% url 'blog' %}" class="jo-inner-blogs-search-form">
+                                <input type="search" name="search" placeholder="Search Here" value="{{ query }}">
+                                <button type="submit" title="Search"><i class="flaticon-search"></i></button>
+                            </form>
+                            </div>
+
+                            <!-- single widget / categories -->
+                            <div class="jo-inner-blogs-sidebar-widget">
+                                <h2 class="jo-inner-blogs-sidebar-widget-title">Categories</h2>
+
+                                <div class="jo-inner-blogs-categories">
+                                {% for cat in categories %}
+                                    <a href="/blog/?category={{ cat.name }}">{{ cat.name }} <span>({{ cat.blog_set.count }})</span></a>
+                                {% endfor %}
+                                </div>
+                            </div>
+
+                            <!-- single widget / posts -->
+                            <div class="jo-inner-blogs-sidebar-widget">
+                                <h2 class="jo-inner-blogs-sidebar-widget-title">Popular Posts</h2>
+
+                                <div class="jo-inner-blogs-sidebar-posts">
+                                    <!-- single post -->
+
+{% for blog in blogs|slice:3 %}
+                                    <!-- single post -->
+                                    <div class="jo-inner-blogs-sidebar-post">
+                                        <div class="img">
+                                            <img src="{{ blog.image.url }}" alt="Post Image">
+                                        </div>
+
+                                        <div class="txt">
+                                            <span class="date">
+                                                <span class="icon"><i class="flaticon-calendar-1"></i></span>
+                                                <span>{{ blog.date }}</span>
+                                            </span>
+
+                                            <h3 class="title"><a href="{% url 'blog-details' blog.slug %}">{{ blog.title }}</a></h3>
+                                        </div>
+                                    </div>
+{% endfor %}
+
+                                </div>
+                            </div>
+
+                            <!-- single widget / tags -->
+                            <div class="jo-inner-blogs-sidebar-widget">
+                                <h2 class="jo-inner-blogs-sidebar-widget-title">Tags</h2>
+
+                                <div class="jo-inner-blogs-tags">
+                                {% for tag in tags %}
+                                    <a href="/blog/?tag={{ tag.name }}">{{ tag.name }}</a>
+                                {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MAIN CONTENT END -->
+    </main>
+
+
+    <script>
+  const currentUrl = encodeURIComponent(window.location.href);
+  document.querySelector(".share-options").innerHTML = `
+    <a href="https://www.facebook.com/sharer/sharer.php?u=${currentUrl}" target="_blank">
+      <i class="flaticon-facebook-1"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=${currentUrl}&text=Check+this+blog!" target="_blank">
+      <i class="flaticon-twitter"></i>
+    </a>
+    <a href="https://www.instagram.com/sarehfar" target="_blank">
+      <i class="flaticon-social-media"></i>
+    </a>
+    <a href="https://www.youtube.com/sarehfar" target="_blank">
+      <i class="flaticon-youtube-1"></i>
+    </a>
+  `;
+</script>
+
+{% endblock %}

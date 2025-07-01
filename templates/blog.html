@@ -2,217 +2,102 @@
 {% load static %}
 
 {% block content %}
+<main>
+    <!-- BREADCRUMB SECTION START -->
+    <section class="jo-breadcrumb">
+        <div class="container">
+            <h1 class="jo-page-title jo-section-title">Latest Blog</h1>
+            <ul class="jo-breadcrumb-nav">
+                <li><a href="/">Home</a></li>
+                <li><span>/</span></li>
+                <li class="current-page">Latest Blog</li>
+            </ul>
 
-   
-
-    <main>
-        <!-- BREADCRUMB SECTION START -->
-        <section class="jo-breadcrumb">
-            <div class="container">
-                <h1 class="jo-page-title jo-section-title">Latest Blog</h1>
-                <ul class="jo-breadcrumb-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><span>/</span></li>
-                    <li class="current-page">Latest Blog</li>
-                </ul>
-
-                <div class="jo-circle-box">
-                    <span class="circle-1"><img src="{% static 'assets/img/social-icon-1.png' %}" alt="Social Media Icon"></span>
-                    <span class="circle-2"><img src="{% static 'assets/img/social-icon-2.png' %}" alt="Social Media Icon"></span>
-                    <span class="circle-3"><img src="{% static 'assets/img/social-icon-3.png' %}" alt="Social Media Icon"></span>
-                    <span class="circle-4"><img src="{% static 'assets/img/social-icon-4.png' %}" alt="Social Media Icon"></span>
-                </div>
+            <div class="jo-circle-box">
+                <span class="circle-1"><img src="{% static 'assets/img/social-icon-1.png' %}" alt="Social Media Icon"></span>
+                <span class="circle-2"><img src="{% static 'assets/img/social-icon-2.png' %}" alt="Social Media Icon"></span>
+                <span class="circle-3"><img src="{% static 'assets/img/social-icon-3.png' %}" alt="Social Media Icon"></span>
+                <span class="circle-4"><img src="{% static 'assets/img/social-icon-4.png' %}" alt="Social Media Icon"></span>
             </div>
-        </section>
-        <!-- BREADCRUMB SECTION END -->
+        </div>
+    </section>
+    <!-- BREADCRUMB SECTION END -->
 
-
-        <!-- MAIN CONTENT START -->
-        <div class="jo-inner-blogs">
-            <div class="jo-container">
-                <div class="row gy-4">
-                    <div class="col-lg-8">
-                        <!-- single blog -->
+    <!-- MAIN CONTENT START -->
+    <div class="jo-inner-blogs">
+        <div class="jo-container">
+            <div class="row gy-4">
+                <div class="col-lg-8">
+                    {% for blog in blogs %}
                         <div class="jo-inner-blog">
                             <div class="jo-inner-blog-img">
-                                <img src="{% static 'assets/img/fbl1.png' %}" alt="">
+                                <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
                             </div>
                             <div class="jo-inner-blog-infos">
-                                <div class="author">Written by: <span class="name">Marry biden</span></div>
-                                <div class="date">14/03/2024</div>
+                                <div class="author">Written by: <span class="name">{{ blog.author }}</span></div>
+                                <div class="date">{{ blog.date }}</div>
                             </div>
-                            <h3 class="jo-inner-blog-title"><a href="{% url 'blog-details' %}">Life won’s one Beast air Over above all</a></h3>
-                            <p class="jo-inner-blog-descr">Consectetur adipisicing elit, sed do eiusmod tempor is incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi.</p>
+                            <h3 class="jo-inner-blog-title">
+                                <a href="{% url 'blog-details' blog.slug %}">{{ blog.title }}</a>
+                            </h3>
+                            <p class="jo-inner-blog-descr">{{ blog.short_description|truncatewords:25 }}</p>
                             <div class="jo-inner-blog-actions">
-                                <a href="{% url 'blog-details' %}"><i class="flaticon-arrow-right-1"></i></a>
+                                <a href="{% url 'blog-details' blog.slug %}"><i class="flaticon-arrow-right-1"></i></a>
                                 <button class="share-btn">Share <i class="flaticon-share"></i></button>
                             </div>
                         </div>
+                    {% empty %}
+                        <p>No blog posts found.</p>
+                    {% endfor %}
 
-                        <!-- single blog -->
-                        <div class="jo-inner-blog">
-                            <div class="jo-inner-blog-img">
-                                <img src="{% static 'assets/img/fbl2.png' %}" alt="">
-                            </div>
-                            <div class="jo-inner-blog-infos">
-                                <div class="author">Written by: <span class="name">Marry biden</span></div>
-                                <div class="date">14/03/2024</div>
-                            </div>
-                            <h3 class="jo-inner-blog-title"><a href="{% url 'blog-details' %}">Life won’s one Beast air Over above all</a></h3>
-                            <p class="jo-inner-blog-descr">Consectetur adipisicing elit, sed do eiusmod tempor is incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi.</p>
-                            <div class="jo-inner-blog-actions">
-                                <a href="{% url 'blog-details' %}"><i class="flaticon-arrow-right-1"></i></a>
-                                <button class="share-btn">Share <i class="flaticon-share"></i></button>
-                            </div>
-                        </div>
+                    <div class="tt-channel-content-pagination d-flex justify-content-start align-items-center gap-2 mt-5">
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}">← Prev</a>
+                        {% endif %}
 
-                        <!-- single blog -->
-                        <div class="jo-inner-blog">
-                            <div class="jo-inner-blog-img">
-                                <img src="{% static 'assets/img/fbl3.png' %}" alt="">
-                            </div>
-                            <div class="jo-inner-blog-infos">
-                                <div class="author">Written by: <span class="name">Marry biden</span></div>
-                                <div class="date">14/03/2024</div>
-                            </div>
-                            <h3 class="jo-inner-blog-title"><a href="{% url 'blog-details' %}">Life won’s one Beast air Over above all</a></h3>
-                            <p class="jo-inner-blog-descr">Consectetur adipisicing elit, sed do eiusmod tempor is incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi.</p>
-                            <div class="jo-inner-blog-actions">
-                                <a href="{% url 'blog-details' %}"><i class="flaticon-arrow-right-1"></i></a>
-                                <button class="share-btn">Share <i class="flaticon-share"></i></button>
-                            </div>
-                        </div>
+                        {% for num in page_obj.paginator.page_range %}
+                            <a href="?page={{ num }}" class="{% if page_obj.number == num %}active{% endif %}">{{ num }}</a>
+                        {% endfor %}
 
-                        <!-- single blog -->
-                        <div class="jo-inner-blog">
-                            <div class="jo-inner-blog-img">
-                                <img src="{% static 'assets/img/fbl4.png' %}" alt="">
-                            </div>
-                            <div class="jo-inner-blog-infos">
-                                <div class="author">Written by: <span class="name">Marry biden</span></div>
-                                <div class="date">14/03/2024</div>
-                            </div>
-                            <h3 class="jo-inner-blog-title"><a href="{% url 'blog-details' %}">Life won’s one Beast air Over above all</a></h3>
-                            <p class="jo-inner-blog-descr">Consectetur adipisicing elit, sed do eiusmod tempor is incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi.</p>
-                            <div class="jo-inner-blog-actions">
-                                <a href="{% url 'blog-details' %}"><i class="flaticon-arrow-right-1"></i></a>
-                                <button class="share-btn">Share <i class="flaticon-share"></i></button>
-                            </div>
-                        </div>
-
-                        <!-- pagination -->
-                        <div class="tt-channel-content-pagination d-flex justify-content-start align-items-center gap-2 mt-5">
-                            <div class="pages">
-                                <a href="#" class="active">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#">5</a>
-                            </div>
-                        </div>
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">Next →</a>
+                        {% endif %}
                     </div>
+                </div>
 
-                    <!-- right sidebar -->
-                    <div class="col-lg-4">
-                        <div class="jo-inner-blogs-sidebar">
-                            <!-- single widget / search -->
-                            <div class="jo-inner-blogs-sidebar-widget">
-                                <h2 class="jo-inner-blogs-sidebar-widget-title">Search</h2>
+                <!-- SIDEBAR -->
+                <div class="col-lg-4">
+                    <div class="jo-inner-blogs-sidebar">
+                        <div class="jo-inner-blogs-sidebar-widget">
+                            <h2 class="jo-inner-blogs-sidebar-widget-title">Search</h2>
+                            <form method="GET" action="{% url 'blog' %}" class="jo-inner-blogs-search-form">
+                                <input type="search" name="search" placeholder="Search Here" value="{{ query }}">
+                                <button type="submit" title="Search"><i class="flaticon-search"></i></button>
+                            </form>
+                        </div>
 
-                                <form action="#" class="jo-inner-blogs-search-form">
-                                    <input type="search" name="search" id="wm-search" placeholder="Search Here">
-                                    <button type="submit" title="Search Form Button"><i class="flaticon-search"></i></button>
-                                </form>
+                        <div class="jo-inner-blogs-sidebar-widget">
+                            <h2 class="jo-inner-blogs-sidebar-widget-title">Categories</h2>
+                            <div class="jo-inner-blogs-categories">
+                                {% for cat in categories %}
+                                    <a href="?category={{ cat.name }}">{{ cat.name }} <span>({{ cat.blog_set.count }})</span></a>
+                                {% endfor %}
                             </div>
+                        </div>
 
-                            <!-- single widget / categories -->
-                            <div class="jo-inner-blogs-sidebar-widget">
-                                <h2 class="jo-inner-blogs-sidebar-widget-title">Categories</h2>
-
-                                <div class="jo-inner-blogs-categories">
-                                    <a href="{% url 'blog' %}">Product Presentation <span>(08)</span></a>
-                                    <a href="{% url 'blog' %}">Dedicated Video Call <span>(11)</span></a>
-                                    <a href="{% url 'blog' %}">Trending Challenge <span>(18)</span></a>
-                                    <a href="{% url 'blog' %}">Dance Awarness <span>(11)</span></a>
-                                    <a href="{% url 'blog' %}">Photography <span>(07)</span></a>
-                                </div>
-                            </div>
-
-                            <!-- single widget / posts -->
-                            <div class="jo-inner-blogs-sidebar-widget">
-                                <h2 class="jo-inner-blogs-sidebar-widget-title">Popular Posts</h2>
-
-                                <div class="jo-inner-blogs-sidebar-posts">
-                                    <!-- single post -->
-                                    <div class="jo-inner-blogs-sidebar-post">
-                                        <div class="img">
-                                            <img src="{% static 'assets/img/bd2.jpg' %}" alt="Post Image">
-                                        </div>
-
-                                        <div class="txt">
-                                            <span class="date">
-                                                <span class="icon"><i class="flaticon-calendar-1"></i></span>
-                                                <span>14/03/2024</span>
-                                            </span>
-
-                                            <h3 class="title"><a href="{% url 'blog-details' %}">How to get the first 100 customers for your business</a></h3>
-                                        </div>
-                                    </div>
-
-                                    <!-- single post -->
-                                    <div class="jo-inner-blogs-sidebar-post">
-                                        <div class="img">
-                                            <img src="{% static 'assets/img/bd10.webp' %}" alt="Post Image">
-                                        </div>
-
-                                        <div class="txt">
-                                            <span class="date">
-                                                <span class="icon"><i class="flaticon-calendar-1"></i></span>
-                                                <span>14/03/2024</span>
-                                            </span>
-
-                                            <h3 class="title"><a href="{% url 'blog-details' %}">How to get the first 100 customers for your business</a></h3>
-                                        </div>
-                                    </div>
-
-                                    <!-- single post -->
-                                    <div class="jo-inner-blogs-sidebar-post">
-                                        <div class="img">
-                                            <img src="{% static 'assets/img/bd8.webp' %}" alt="Post Image">
-                                        </div>
-
-                                        <div class="txt">
-                                            <span class="date">
-                                                <span class="icon"><i class="flaticon-calendar-1"></i></span>
-                                                <span>14/03/2024</span>
-                                            </span>
-
-                                            <h3 class="title"><a href="{% url 'blog-details' %}">How to get the first 100 customers for your business</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- single widget / tags -->
-                            <div class="jo-inner-blogs-sidebar-widget">
-                                <h2 class="jo-inner-blogs-sidebar-widget-title">Tags</h2>
-
-                                <div class="jo-inner-blogs-tags">
-                                    <a href="{% url 'blog' %}">Marketing</a>
-                                    <a href="{% url 'blog' %}">Agency</a>
-                                    <a href="{% url 'blog' %}">Search Engine</a>
-                                    <a href="{% url 'blog' %}">Tech</a>
-                                    <a href="{% url 'blog' %}">Influencer</a>
-                                    <a href="{% url 'blog' %}">Advertising</a>
-                                    <a href="{% url 'blog' %}">Branding</a>
-                                </div>
+                        <div class="jo-inner-blogs-sidebar-widget">
+                            <h2 class="jo-inner-blogs-sidebar-widget-title">Tags</h2>
+                            <div class="jo-inner-blogs-tags">
+                                {% for tag in tags %}
+                                    <a href="?tag={{ tag.name }}">{{ tag.name }}</a>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- MAIN CONTENT END -->
-    </main>
-
+    </div>
+    <!-- MAIN CONTENT END -->
+</main>
 {% endblock %}
