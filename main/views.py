@@ -101,7 +101,7 @@ def blog_detail(request, slug):
     blog = get_object_or_404(Blog, slug=slug)
     
 
-    return render(request, 'blog-details.html', {'blog': blog,'tags': Tag.objects.all(),
+    return render(request, 'blog_details.html', {'blog': blog,'tags': Tag.objects.all(),
     'categories': Category.objects.all(), 'blogs' : Blog.objects.all(),})
 
 
