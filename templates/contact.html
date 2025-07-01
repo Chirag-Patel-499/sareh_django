@@ -120,12 +120,12 @@
 
                             <button type="submit" class="submit-btn">Submit Now <i class="flaticon-arrow-down-sign-to-navigate"></i></button>
                                 {% if messages %}
-                                    <div>
-                                        {% for message in messages %}
-                                            <div class="alert alert-success">{{ message }}</div>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
+    <div>
+        {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
                         </form>
 
 
