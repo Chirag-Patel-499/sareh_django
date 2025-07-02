@@ -101,6 +101,7 @@
                                     <div>
                                         <div class="select-wrapper">
                                             <select name="jo-contact-subject" id="jo-contact-subject">
+                                                <option value="" disabled selected hidden>Subject</option>
                                                 <option value="1">Subject 1</option>
                                                 <option value="2">Subject 2</option>
                                                 <option value="3">Subject 3</option>
@@ -120,7 +121,6 @@
                                 </div>
 
                                 <button type="submit" class="submit-btn"> Submit Now <i class="flaticon-arrow-down-sign-to-navigate"></i></button>
-                                
                             </form>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                
 
                 <!-- Django Contact Form -->
-                <div class="col">
+              <!--  <div class="col">
                     <div class="jo-inner-contact-form-wrapper">
                         <h3 class="jo-inner-contact-form-title">Get in Touch</h3>
 
@@ -173,19 +173,9 @@
                             </div>
 
                             <button type="submit" class="submit-btn"> Submit Now <i class="flaticon-arrow-down-sign-to-navigate"></i></button>
-                            {% if messages %}
-                                    <div class="alert-messages">
-                                        {% for message in messages %}
-                                            <div class="alert alert-success">
-                                                {{ message }}
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-
                         </form>
                     </div>
-                </div> 
+                </div> -->
             </div>
         </div>
     </section>
