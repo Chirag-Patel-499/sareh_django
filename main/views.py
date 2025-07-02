@@ -54,7 +54,12 @@ class VideoView(TemplateView):
     template_name = 'videos-1.html'
 
 class WorkView(TemplateView):
-    template_name = 'work.html'        
+    template_name = 'work.html'
+        
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['portfolio']   = PortfolioItem.objects.all()
+        return ctx        
 
 class BlogView(TemplateView):
     template_name = 'blog.html' 

@@ -209,8 +209,8 @@ class PortfolioItem(models.Model):
                     <h4 class=\"title\">Tags:</h4>
                     <div class=\"tags\">
                         <a href=\"#\">My Profile</a>
-                        <a href=\"#\">My Book</a>
-                        <a href=\"#\">Contact mw</a>
+                        <a href=\"https://www.amazon.in/dp/9370925740\">My Book</a>
+                        <a href=\"https://sarehfar.com/contact/\">Contact me</a>
                     </div>
                 </div>
                 <div class=\"share\">
