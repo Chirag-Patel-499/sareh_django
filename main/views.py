@@ -51,6 +51,23 @@ class ContactView(FormView):
 
         return super().form_valid(form)
     
+
+def ContactView(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Thank you! Your message has been submitted.')
+            return redirect('contact')  # or wherever you want to redirect
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = ContactForm()
+    
+    return render(request, 'contact.html', {'form': form})
+
+
+    
 class VideoView(TemplateView):
     template_name = 'videos-1.html'
 
