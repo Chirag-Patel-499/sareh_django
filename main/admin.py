@@ -24,11 +24,13 @@ class BookSectionAdmin(SingletonModelAdmin):
     pass
 
 
+
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'phone', 'subject', 'created_at']
     search_fields = ['name', 'email', 'subject', 'message']
     list_filter = ['created_at']
+
 
 # ✅ Normal registrations
 admin.site.register(InstagramPost)

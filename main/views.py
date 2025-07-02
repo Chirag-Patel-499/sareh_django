@@ -39,18 +39,15 @@ class HomeView(TemplateView):
 class AboutView(TemplateView):
     template_name = 'about.html'
     
-# ContactView with form
 class ContactView(FormView):
     template_name = 'contact.html'
     form_class = ContactForm
     success_url = reverse_lazy('contact')
-    def form_valid(self, form):
-        # You can save data or send email here
-        form.save()  # Only if your form is linked to a model
-        messages.success(self.request, 'Thank you! Your message has been sent successfully.')
 
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, 'Thank you! Your message has been sent successfully.')
         return super().form_valid(form)
-    
 
     
 class VideoView(TemplateView):
