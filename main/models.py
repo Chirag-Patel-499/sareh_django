@@ -122,6 +122,9 @@ class Comment(models.Model):
 
     def is_reply(self):
         return self.parent is not None
+    
+    def __str__(self):
+        return self.name
 
     
 
