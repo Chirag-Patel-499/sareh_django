@@ -1,5 +1,5 @@
 from django.contrib import admin, messages
-from .models import Hero, InstagramPost, Video, PortfolioItem, BookSection, Stat, Testimonial, Blog, Tag, Categories, Contact, Comment
+from .models import Hero, InstagramPost, Video, PortfolioItem, BookSection, Stat, Testimonial, Blog, Tag, Category, Contact, Comment
 
 
 # 🔁 Reusable Singleton Admin
@@ -40,5 +40,5 @@ admin.site.register(Stat)
 admin.site.register(Testimonial)
 admin.site.register(Blog)
 admin.site.register(Tag)
-admin.site.register(Categories)
+admin.site.register(Category)
 admin.site.register(Comment)

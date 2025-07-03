@@ -38,7 +38,7 @@ class Blog(models.Model):
     author = models.CharField(max_length=100, default="Admin")
     date = models.DateField(auto_now_add=True)
     tags = models.ManyToManyField("Tag", blank=True)
-    Categories = models.ForeignKey("Categories", on_delete=models.SET_NULL, null=True, blank=True)
+    category = models.ForeignKey("Category", on_delete=models.SET_NULL, null=True, blank=True)
 
     content = HTMLField(default="""<div class='jo-inner-blog-img jo-blog-details-img'>
 <img src='/static/assets/img/fbl5.png' alt='Blog cover'>
@@ -99,7 +99,7 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-class Categories(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
