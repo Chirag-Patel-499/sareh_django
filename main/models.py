@@ -6,8 +6,6 @@ from tinymce.models import HTMLField
 from django.utils.text import slugify
 
 
-
-
 class Hero(models.Model):
     title        = models.CharField(max_length=200, default="Hi, I’m Sareeh Far")
     subtitle     = models.CharField(max_length=300, blank=True, default="Actress. Author. Dancer.")
@@ -20,7 +18,6 @@ class Hero(models.Model):
     
 
 
-
 class Contact(models.Model):
     name    = models.CharField(max_length=100)
     email   = models.EmailField()
@@ -28,12 +25,9 @@ class Contact(models.Model):
     subject = models.CharField(max_length=200)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True) 
-    
+
     def __str__(self):
         return f"{self.name} - {self.subject}"
-
-
-    
 
 
 class Blog(models.Model):
@@ -122,56 +116,9 @@ class Comment(models.Model):
 
     def is_reply(self):
         return self.parent is not None
-    
-    def __str__(self):
-        return self.name
 
     
 
-
-# --- IMAGE DELETE HELPERS ---
-
-def delete_file_if_exists(file_field):
-    if file_field and file_field.name:
-        file_path = file_field.path
-        if os.path.isfile(file_path):
-            file_field.delete(save=False)
-
-# --- SIGNALS ---
-
-@receiver(post_delete, sender=Hero)
-def delete_hero_images(sender, instance, **kwargs):
-    delete_file_if_exists(instance.desktop_img)
-    delete_file_if_exists(instance.mobile_img)
-
-@receiver(pre_save, sender=Hero)
-def delete_old_hero_images_on_update(sender, instance, **kwargs):
-    if not instance.pk:
-        return  # New object; nothing to delete
-
-    try:
-        old_instance = Hero.objects.get(pk=instance.pk)
-    except Hero.DoesNotExist:
-        return
-
-    if old_instance.desktop_img and old_instance.desktop_img != instance.desktop_img:
-        delete_file_if_exists(old_instance.desktop_img)
-
-    if old_instance.mobile_img and old_instance.mobile_img != instance.mobile_img:
-        delete_file_if_exists(old_instance.mobile_img)
-
-
-class InstagramPost(models.Model):
-    permalink = models.URLField()
-
-    def __str__(self):
-        return self.permalink
-
-class Video(models.Model):
-    youtube_id = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.youtube_id
 
 
 class PortfolioItem(models.Model):
@@ -235,6 +182,63 @@ class PortfolioItem(models.Model):
         return self.title
 
 
+
+
+# --- IMAGE DELETE HELPERS ---
+
+def delete_file_if_exists(file_field):
+    if file_field and file_field.name:
+        file_path = file_field.path
+        if os.path.isfile(file_path):
+            file_field.delete(save=False)
+
+# --- SIGNALS ---
+
+@receiver(post_delete, sender=Hero)
+@receiver(post_delete, sender=Blog)
+@receiver(post_delete, sender=PortfolioItem)
+def delete_associated_files_on_delete(sender, instance, **kwargs):
+    if isinstance(instance, Hero):
+        delete_file_if_exists(instance.desktop_img)
+        delete_file_if_exists(instance.mobile_img)
+    elif isinstance(instance, Blog):
+        delete_file_if_exists(instance.image)
+    elif isinstance(instance, PortfolioItem):
+        delete_file_if_exists(instance.image)
+
+@receiver(pre_save, sender=Hero)
+@receiver(pre_save, sender=Blog)
+@receiver(pre_save, sender=PortfolioItem)
+def delete_old_files_on_update(sender, instance, **kwargs):
+    if not instance.pk:
+        return  # New object; nothing to delete
+
+    try:
+        old_instance = sender.objects.get(pk=instance.pk)
+    except sender.DoesNotExist:
+        return  # Object is new, so no old file to delete.
+
+    if isinstance(instance, Hero):
+        if old_instance.desktop_img and old_instance.desktop_img != instance.desktop_img:
+            delete_file_if_exists(old_instance.desktop_img)
+        if old_instance.mobile_img and old_instance.mobile_img != instance.mobile_img:
+            delete_file_if_exists(old_instance.mobile_img)
+    elif isinstance(instance, (Blog, PortfolioItem)):
+        if old_instance.image and old_instance.image != instance.image:
+            delete_file_if_exists(old_instance.image)
+
+
+class InstagramPost(models.Model):
+    permalink = models.URLField()
+
+    def __str__(self):
+        return self.permalink
+
+class Video(models.Model):
+    youtube_id = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.youtube_id
 
 class BookSection(models.Model):
     quote       = models.TextField(default="“Every choice we make shapes our path.”")
