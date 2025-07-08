@@ -235,10 +235,10 @@ class InstagramPost(models.Model):
         return self.permalink
 
 class Video(models.Model):
-    youtube_id = models.CharField(max_length=300)
+    youtube_url = models.URLField(max_length=500)
 
     def __str__(self):
-        return self.youtube_id
+        return self.youtube_url
 
 class BookSection(models.Model):
     quote       = models.TextField(default="“Every choice we make shapes our path.”")
