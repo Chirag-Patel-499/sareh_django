@@ -502,7 +502,7 @@
       {% for vid in videos %}
         <div class="col-md-4" data-aos="zoom-in">
           <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/{{ vid.youtube_id }}" allowfullscreen></iframe>
+            <iframe src="{{ vid.youtube_url }}" allowfullscreen></iframe>
           </div>
         </div>
       {% empty %}
