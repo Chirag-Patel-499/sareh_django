@@ -132,10 +132,10 @@ def post_comment(request, post_id):
     return redirect('blog-details', slug=blog.slug)
 
 
-def home(request):
-    ads_reels = AdsReel.objects.all().order_by('-created_at')[:4]  # latest 4 only
-    ctx = {
+
+def home_view(request):
+    ads_reels = AdsReel.objects.all().order_by('-created_at')
+    context = {
         'ads_reels': ads_reels,
-        # other context like testimonials, portfolio etc.
     }
-    return render(request, 'home.html', ctx)
+    return render(request, 'home.html', context)

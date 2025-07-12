@@ -269,18 +269,15 @@ class Testimonial(models.Model):
 class AdsReel(models.Model):
     title = models.CharField(max_length=200)
     reel_url = models.URLField(
-        help_text="Paste full Instagram reel URL like: https://www.instagram.com/reel/C993FaUoiSx/"
+        help_text="Paste Instagram reel URL like: https://www.instagram.com/reel/xyz/"
     )
-    description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
 
+    @property
     def embed_url(self):
-        """
-        Convert regular reel URL to embeddable iframe URL.
-        """
         if self.reel_url.endswith('/'):
             return self.reel_url + "embed/"
         return self.reel_url + "/embed/"
