@@ -33,6 +33,8 @@ class HomeView(TemplateView):
         ctx['booksec']     = BookSection.objects.first()
         ctx['stats']       = Stat.objects.all()
         ctx['testis']      = Testimonial.objects.all()
+        ctx['ads_reels'] = AdsReel.objects.all().order_by('-created_at')
+
         return ctx
 
 # AboutView for about page
@@ -130,11 +132,3 @@ def post_comment(request, post_id):
             comment.save()
 
     return redirect('blog-details', slug=blog.slug)
-
-class HomeView(TemplateView):
-    template_name = 'home.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['ads_reels'] = AdsReel.objects.all().order_by('-created_at')
-        return context
