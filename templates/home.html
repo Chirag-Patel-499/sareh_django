@@ -642,9 +642,9 @@
       {% for ad in ads_reels %}
       <div class="swiper-slide flex justify-center w-full max-w-md">
         <blockquote 
-          class="instagram-media" 
-          data-instgrm-permalink="{{ ad.reel_url }}" 
-          data-instgrm-version="14" 
+          class="instagram-media"
+          data-instgrm-permalink="{{ ad.reel_url }}"
+          data-instgrm-version="14"
           style="width: 100%; min-height: 400px;">
         </blockquote>
       </div>
@@ -653,6 +653,7 @@
       {% endfor %}
     </div>
 
+    <!-- Navigation -->
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
@@ -661,6 +662,11 @@
 
 <!-- Instagram Embed JS -->
 <script async defer src="https://www.instagram.com/embed.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<!-- Swiper Init -->
 <script>
   const adsSwiper = new Swiper('.ads-reel-swiper', {
     loop: true,

@@ -135,7 +135,6 @@ def post_comment(request, post_id):
 
 def home_view(request):
     ads_reels = AdsReel.objects.all().order_by('-created_at')
-    context = {
+    return render(request, 'home.html', {
         'ads_reels': ads_reels,
-    }
-    return render(request, 'home.html', context)
+    })
