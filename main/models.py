@@ -265,7 +265,6 @@ class Testimonial(models.Model):
     def _str_(self):
         return f"{self.author} ({self.rating}★)"
     
-
 class AdsReel(models.Model):
     title = models.CharField(max_length=200)
     reel_url = models.URLField(
@@ -275,9 +274,3 @@ class AdsReel(models.Model):
 
     def __str__(self):
         return self.title
-
-    @property
-    def embed_url(self):
-        if self.reel_url.endswith('/'):
-            return self.reel_url + "embed/"
-        return self.reel_url + "/embed/"

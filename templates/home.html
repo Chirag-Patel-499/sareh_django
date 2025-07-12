@@ -637,41 +637,30 @@
 <section class="container mx-auto py-12 px-4" id="ads-reels" data-aos="fade-up">
   <h2 class="text-center text-3xl md:text-4xl font-semibold mb-8">Advertising Highlights</h2>
 
-  <!-- Swiper -->
   <div class="swiper ads-reel-swiper">
     <div class="swiper-wrapper">
       {% for ad in ads_reels %}
-      <div class="swiper-slide">
-        <div class="rounded overflow-hidden shadow-lg">
-          <div class="relative aspect-w-16 aspect-h-9">
-            <iframe 
-                src="https://www.instagram.com/reel/C993FaUoiSx/embed/" 
-                width="400" 
-                height="480" 
-                frameborder="0" 
-                allowfullscreen>
-              </iframe>
-          </div>
-          <div class="p-4">
-            <h3 class="text-lg font-semibold">{{ ad.title }}</h3>
-          </div>
-        </div>
+      <div class="swiper-slide flex justify-center w-full max-w-md">
+        <blockquote 
+          class="instagram-media" 
+          data-instgrm-permalink="{{ ad.reel_url }}" 
+          data-instgrm-version="14" 
+          style="width: 100%; min-height: 400px;">
+        </blockquote>
       </div>
       {% empty %}
       <div class="swiper-slide text-center text-gray-500">No Ads Reels available yet.</div>
       {% endfor %}
     </div>
 
-    <!-- Navigation -->
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
   </div>
 </section>
-<!-- Swiper JS CDN -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-<!-- Swiper Init Script -->
+<!-- Instagram Embed JS -->
+<script async defer src="https://www.instagram.com/embed.js"></script>
 <script>
   const adsSwiper = new Swiper('.ads-reel-swiper', {
     loop: true,
@@ -690,10 +679,18 @@
       640: { slidesPerView: 1 },
       768: { slidesPerView: 2 },
       1024: { slidesPerView: 3 }
+    },
+    on: {
+      slideChangeTransitionEnd: () => {
+        if (window.instgrm) instgrm.Embeds.process();
+      }
     }
   });
-</script>
 
+  window.addEventListener('load', function () {
+    if (window.instgrm) instgrm.Embeds.process();
+  });
+</script>
 
 
 
