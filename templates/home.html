@@ -669,6 +669,33 @@
     <div class="swiper-pagination"></div>
   </div>
 </section>
+<!-- Swiper JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<!-- Swiper Init Script -->
+<script>
+  const adsSwiper = new Swiper('.ads-reel-swiper', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    autoHeight: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+</script>
+
+
 
 
   <div class="separator"></div>
@@ -936,32 +963,6 @@
       setTimeout(()=> card.classList.remove('hovered'), 3400);
     }
     card.addEventListener('mouseenter', onEnter);
-  });
-</script>
-
-<!-- Swiper JS CDN -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-<!-- Swiper Init Script -->
-<script>
-  const adsSwiper = new Swiper('.ads-reel-swiper', {
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 20,
-    autoHeight: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    breakpoints: {
-      640: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 }
-    }
   });
 </script>
 
