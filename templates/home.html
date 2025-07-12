@@ -638,11 +638,11 @@
 
   <div class="swiper ads-reel-swiper">
     <div class="swiper-wrapper">
-      {% for post in insta_posts %}
+      {% for post in ads_reel %}
           <div class="swiper-slide flex justify-center w-full max-w-md">
             <blockquote
               class="instagram-media"
-              data-instgrm-permalink="{{ post.permalink }}"
+              data-instgrm-permalink="{{ post.reel_url }}"
               data-instgrm-version="14"
               style="width:100%; min-height: 400px;"></blockquote>
           </div>
