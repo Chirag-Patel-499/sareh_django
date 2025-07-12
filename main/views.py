@@ -131,9 +131,10 @@ def post_comment(request, post_id):
 
     return redirect('blog-details', slug=blog.slug)
 
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
-def home(request):
-    ads_reels = AdsReel.objects.all().order_by('-created_at')
-    return render(request, 'home.html', {
-        'ads_reels': ads_reels,
-    })
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['ads_reels'] = AdsReel.objects.all().order_by('-created_at')
+        return context
