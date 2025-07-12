@@ -132,8 +132,7 @@ def post_comment(request, post_id):
     return redirect('blog-details', slug=blog.slug)
 
 
-
-def home_view(request):
+def home(request):
     ads_reels = AdsReel.objects.all().order_by('-created_at')
     return render(request, 'home.html', {
         'ads_reels': ads_reels,
