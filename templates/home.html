@@ -637,6 +637,15 @@
 <section class="container mx-auto py-12 px-4" id="ads-reels" data-aos="fade-up">
   <h2 class="text-center text-3xl md:text-4xl font-semibold mb-8">Advertising Highlights</h2>
 
+  <!-- DEBUG: Show data coming or not -->
+  <div class="text-center mb-6 text-sm text-red-600">
+    {% if ads_reels %}
+      ✅ {{ ads_reels|length }} reel(s) loaded
+    {% else %}
+      ❌ No reels loaded – check your database or context
+    {% endif %}
+  </div>
+
   <div class="swiper ads-reel-swiper">
     <div class="swiper-wrapper">
       {% for ad in ads_reels %}
@@ -697,7 +706,6 @@
     if (window.instgrm) instgrm.Embeds.process();
   });
 </script>
-
 
 
   <div class="separator"></div>
