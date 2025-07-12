@@ -638,58 +638,17 @@
 
   <div class="swiper ads-reel-swiper">
     <div class="swiper-wrapper">
-      {% for post in insta_posts %}
-          <div class="swiper-slide flex justify-center w-full max-w-md">
+      {% for ad in ads_reels %}
+       <div class="swiper-slide flex justify-center w-full max-w-md">
             <blockquote
               class="instagram-media"
               data-instgrm-permalink="{{ post.permalink }}"
               data-instgrm-version="14"
               style="width:100%; min-height: 400px;"></blockquote>
           </div>
-        {% empty %}
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DKCY8Dzslld/"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DGN6AU8M8Pg/"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/reel/DIGfijGsqM0/"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DKXUibWsXEn/?hl=en"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DKhNMYFI7Z3/?hl=en"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-          <div class="swiper-slide flex justify-center w-full max-w-md">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/p/DKUVza2svLF/?hl=en"
-              data-instgrm-version="14"
-              style="width:100%; min-height: 400px;"></blockquote>
-          </div>
-        {% endfor %}
+      {% empty %}
+      <div class="swiper-slide text-center text-gray-500">No Ads Reels available yet.</div>
+      {% endfor %}
     </div>
 
     <!-- Navigation -->
