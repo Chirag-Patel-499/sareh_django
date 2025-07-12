@@ -33,8 +33,9 @@ class ContactAdmin(admin.ModelAdmin):
 
 @admin.register(AdsReel)
 class AdsReelAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at')
-    search_fields = ('title',)    
+    list_display = ('title', 'reel_url', 'created_at')
+    search_fields = ('title',)
+    ordering = ('-created_at',)  
 
 
 # ✅ Normal registrations
