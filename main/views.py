@@ -7,7 +7,7 @@ from .models import PortfolioItem
 
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render, get_object_or_404
-from .models import Blog, Tag, Category, Comment
+from .models import Blog, Tag, Category, Comment, AdsReel
 from .forms import CommentForm
 from django.db.models import Q
 from django.contrib import messages
@@ -130,3 +130,12 @@ def post_comment(request, post_id):
             comment.save()
 
     return redirect('blog-details', slug=blog.slug)
+
+
+def home(request):
+    ads_reels = AdsReel.objects.all().order_by('-created_at')[:4]  # latest 4 only
+    ctx = {
+        'ads_reels': ads_reels,
+        # other context like testimonials, portfolio etc.
+    }
+    return render(request, 'home.html', ctx)

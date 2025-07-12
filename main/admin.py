@@ -1,5 +1,5 @@
 from django.contrib import admin, messages
-from .models import Hero, InstagramPost, Video, PortfolioItem, BookSection, Stat, Testimonial, Blog, Tag, Category, Contact, Comment
+from .models import Hero, InstagramPost, Video, PortfolioItem, BookSection, Stat, Testimonial, Blog, Tag, Category, Contact, Comment, AdsReel
 
 
 # 🔁 Reusable Singleton Admin
@@ -30,6 +30,11 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'phone', 'subject', 'created_at']
     search_fields = ['name', 'email', 'subject', 'message']
     list_filter = ['created_at']
+
+@admin.register(AdsReel)
+class AdsReelAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at')
+    search_fields = ('title',)    
 
 
 # ✅ Normal registrations

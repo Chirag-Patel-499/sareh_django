@@ -264,3 +264,15 @@ class Testimonial(models.Model):
 
     def _str_(self):
         return f"{self.author} ({self.rating}★)"
+    
+
+
+class AdsReel(models.Model):
+    title = models.CharField(max_length=200)
+    embed_url = models.URLField(
+        help_text="Paste Instagram embed URL like: https://www.instagram.com/reel/xyz/embed/"
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

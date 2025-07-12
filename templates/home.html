@@ -630,6 +630,48 @@
   </div>
 </section>
 
+  <div class="separator"></div>
+
+
+  <!-- Ads Reel Section -->
+<section class="container mx-auto py-12 px-4" id="ads-reels" data-aos="fade-up">
+  <h2 class="text-center text-3xl md:text-4xl font-semibold mb-8">Ads Reel</h2>
+
+  <!-- Swiper -->
+  <div class="swiper ads-reel-swiper">
+    <div class="swiper-wrapper">
+      {% for ad in ads_reels %}
+      <div class="swiper-slide">
+        <div class="rounded overflow-hidden shadow-lg">
+          <div class="relative aspect-w-16 aspect-h-9">
+            <iframe class="w-full h-full" 
+              src="{{ ad.embed_url }}" 
+              title="{{ ad.title }}" 
+              frameborder="0" 
+              allowfullscreen
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"></iframe>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">{{ ad.title }}</h3>
+            {% if ad.description %}
+              <p class="text-sm text-gray-600">{{ ad.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="swiper-slide text-center text-gray-500">No Ads Reels available yet.</div>
+      {% endfor %}
+    </div>
+
+    <!-- Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
 
   <div class="separator"></div>
 
@@ -898,6 +940,30 @@
     card.addEventListener('mouseenter', onEnter);
   });
 </script>
+
+<script>
+  const adsSwiper = new Swiper('.ads-reel-swiper', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    autoHeight: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+</script>
+
+
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
