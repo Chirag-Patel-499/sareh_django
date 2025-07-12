@@ -638,17 +638,65 @@
 
   <div class="swiper ads-reel-swiper">
     <div class="swiper-wrapper">
-      {% for ad in ads_reels %}
-       <div class="swiper-slide flex justify-center w-full max-w-md">
+      {% for post in insta_posts %}
+          <div class="swiper-slide flex justify-center w-full max-w-md">
             <blockquote
               class="instagram-media"
               data-instgrm-permalink="{{ post.permalink }}"
               data-instgrm-version="14"
               style="width:100%; min-height: 400px;"></blockquote>
           </div>
-      {% empty %}
-      <div class="swiper-slide text-center text-gray-500">No Ads Reels available yet.</div>
-      {% endfor %}
+        {% empty %}
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/DI_RwzRI-jq/?igsh=OWEyb2lxbXpjY2M3/"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/DGDSXvss3WE/?igsh=MXMwNG1oeHUyaTdmeQ==/"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/DFAGinSMOHi/?igsh=MWh3MDNwdTBqd2I0aw==/"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/C_lDa3IIahK/?igsh=MXYyOHUzZW1qc3AxbQ==/"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/C993FaUoiSx/?igsh=MTZraTZreDVleHJtMA==/"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/C-iB_HhIhI5/?igsh=Z3FjeGN6ZnZ1OGV3/"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
+          <div class="swiper-slide flex justify-center w-full max-w-md">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/C9jwaAYoGL3/?igsh=Z2RhdzlyMjVqNWVs/"
+              data-instgrm-version="14"
+              style="width:100%; min-height: 400px;"></blockquote>
+          </div>
+        {% endfor %}
     </div>
 
     <!-- Navigation -->
