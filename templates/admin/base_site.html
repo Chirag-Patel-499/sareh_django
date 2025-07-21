@@ -2,23 +2,15 @@
 
 {% block extrastyle %}
   {{ block.super }}
+  <!-- Intro.js CSS -->
   <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
 {% endblock %}
 
 {% block extrahead %}
   {{ block.super }}
+  <!-- Intro.js Script -->
   <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
-{% endblock %}
 
-{% block branding %}
-  {{ block.super }}
-  <button onclick="startTour()" style="margin-left: 20px; padding: 5px 10px; background:#0c4b33; color:white; border:none; border-radius:4px; cursor:pointer;">
-    🎯 Start Tour
-  </button>
-{% endblock %}
-
-{% block extrahead %}
-  {{ block.super }}
   <script>
     function startTour() {
       introJs().setOptions({
@@ -28,34 +20,50 @@
           },
           {
             element: document.querySelector('.model-hero'),
-            intro: "This is the Hero section — manage homepage headline & banner here.",
+            intro: "📸 Hero section — manage homepage headline & banner here.",
             position: 'right'
           },
           {
             element: document.querySelector('.model-blog'),
-            intro: "Here’s where you write and manage your blog content.",
+            intro: "📝 Blog section — manage articles and posts.",
             position: 'right'
           },
           {
             element: document.querySelector('.model-portfolioitem'),
-            intro: "Your creative portfolio lives here.",
+            intro: "🎨 Portfolio — showcase projects here.",
             position: 'right'
           },
           {
             element: document.querySelector('.model-contact'),
-            intro: "This section stores user inquiries from the contact form.",
+            intro: "📬 Contact — view form submissions.",
             position: 'right'
           },
           {
             element: document.querySelector('.model-adsreel'),
-            intro: "Instagram reels embedded for promotional purposes.",
+            intro: "📱 Ads Reel — manage Instagram promotions.",
             position: 'right'
           },
           {
-            intro: "🎉 That’s it! Now you're ready to explore."
+            intro: "✅ That’s your admin tour — feel free to explore!"
           }
         ]
       }).start();
     }
   </script>
+{% endblock %}
+
+{% block branding %}
+  {{ block.super }}
+  <button onclick="startTour()" style="
+      margin-left: 20px;
+      padding: 6px 12px;
+      background: #0c4b33;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    ">
+    🎯 Start Tour
+  </button>
 {% endblock %}
