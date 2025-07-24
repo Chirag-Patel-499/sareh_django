@@ -1,45 +1,42 @@
-{% extends "admin/base_site.html" %}
-
-{% block extrastyle %}
-  {{ block.super }}
-  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
-{% endblock %}
+{% extends "jazzmin/base.html" %}
 
 {% block extrahead %}
   {{ block.super }}
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
   <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
 {% endblock %}
 
 {% block content %}
-  <div style="text-align:right; margin-bottom:10px;">
-    <button onclick="startTour()" class="button btn btn-success">Start Tour</button>
-  </div>
   {{ block.super }}
-{% endblock %}
 
-{% block extra_js %}
+  {% if user.is_superuser %}
+    <div style="margin: 15px 0;">
+      <button onclick="startTour()" class="btn btn-primary">Start Admin Tour</button>
+    </div>
+  {% endif %}
+
   <script>
     function startTour() {
       introJs().setOptions({
         steps: [
           {
-            intro: "Welcome to the Sareh Far Admin Panel Tour!"
+            intro: "Welcome to the Sareh Far Admin Panel!"
           },
           {
-            element: document.querySelector('#site-name'),
-            intro: "This is your site name. Click here to go to the main site."
-          },
-          {
-            element: document.querySelector('#user-tools'),
-            intro: "These are your user account tools."
+            element: document.querySelector('#nav-sidebar'),
+            intro: "This is the side navigation to manage all models."
           },
           {
             element: document.querySelector('.model-hero'),
-            intro: "This is the Hero section – manage your homepage content here."
+            intro: "Click here to manage the Hero section on your website."
           },
           {
             element: document.querySelector('.model-portfolioitem'),
-            intro: "Manage your portfolio items here."
+            intro: "This section manages Portfolio items displayed on site."
+          },
+          {
+            element: document.querySelector('#user-tools'),
+            intro: "Use this to change password, view site or logout."
           }
         ]
       }).start();
