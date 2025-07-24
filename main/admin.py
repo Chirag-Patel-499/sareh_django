@@ -1,5 +1,6 @@
 from django.contrib import admin, messages
 from .models import Hero, InstagramPost, Video, PortfolioItem, BookSection, Stat, Testimonial, Blog, Tag, Category, Contact, Comment, AdsReel
+from django.contrib.admin import AdminSite
 
 
 # 🔁 Reusable Singleton Admin
@@ -12,6 +13,16 @@ class SingletonModelAdmin(admin.ModelAdmin):
             messages.error(request, f"🚫 Only one {self.model.__name__} instance is allowed.")
         else:
             super().save_model(request, obj, form, change)
+
+
+class CustomAdminSite(AdminSite):
+    site_header = "Sareeh Far Admin"
+    site_title = "Sareeh Far Admin Portal"
+    index_title = "Welcome to Sareeh Far Admin"
+    # Use custom template
+    index_template = "admin_site.html"  # Your custom tour template
+
+custom_admin_site = CustomAdminSite(name='custom_admin')
 
 
 # ✅ Singleton model admins
