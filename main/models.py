@@ -274,11 +274,3 @@ class AdsReel(models.Model):
 
     def __str__(self):
         return self.title
-    
-
-
-custom_admin_site.register(Hero)
-custom_admin_site.register(Blog)
-custom_admin_site.register(PortfolioItem)
-custom_admin_site.register(Contact)
-custom_admin_site.register(AdsReel)    

@@ -5,9 +5,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from main.views import post_comment,HomeView, AboutView, ContactView, VideoView, WorkView, BlogView, PortfolioDetailView, blog_detail
 from main import views
-from main.admin import custom_admin_site
-
-
 
 
 urlpatterns = [
@@ -26,8 +23,6 @@ urlpatterns = [
     path('blog/', views.blog_list, name='blog'),
     path('blog/<slug:slug>/', views.blog_detail, name='blog-details'),
     path('comment/<int:post_id>/', views.post_comment, name='post_comment'),
-    path('admin/', custom_admin_site.urls),
-
 
 
 
