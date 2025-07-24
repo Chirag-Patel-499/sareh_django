@@ -2,68 +2,47 @@
 
 {% block extrastyle %}
   {{ block.super }}
-  <!-- Intro.js CSS -->
   <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
 {% endblock %}
 
 {% block extrahead %}
   {{ block.super }}
-  <!-- Intro.js Script -->
   <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+{% endblock %}
 
+{% block content %}
+  <div style="text-align:right; margin-bottom:10px;">
+    <button onclick="startTour()" class="button btn btn-success">Start Tour</button>
+  </div>
+  {{ block.super }}
+{% endblock %}
+
+{% block extra_js %}
   <script>
     function startTour() {
       introJs().setOptions({
         steps: [
           {
-            intro: "👋 Welcome to the Sareeh Far Admin Panel! Let's take a quick tour."
+            intro: "Welcome to the Sareh Far Admin Panel Tour!"
+          },
+          {
+            element: document.querySelector('#site-name'),
+            intro: "This is your site name. Click here to go to the main site."
+          },
+          {
+            element: document.querySelector('#user-tools'),
+            intro: "These are your user account tools."
           },
           {
             element: document.querySelector('.model-hero'),
-            intro: "📸 Hero section — manage homepage headline & banner here.",
-            position: 'right'
-          },
-          {
-            element: document.querySelector('.model-blog'),
-            intro: "📝 Blog section — manage articles and posts.",
-            position: 'right'
+            intro: "This is the Hero section – manage your homepage content here."
           },
           {
             element: document.querySelector('.model-portfolioitem'),
-            intro: "🎨 Portfolio — showcase projects here.",
-            position: 'right'
-          },
-          {
-            element: document.querySelector('.model-contact'),
-            intro: "📬 Contact — view form submissions.",
-            position: 'right'
-          },
-          {
-            element: document.querySelector('.model-adsreel'),
-            intro: "📱 Ads Reel — manage Instagram promotions.",
-            position: 'right'
-          },
-          {
-            intro: "✅ That’s your admin tour — feel free to explore!"
+            intro: "Manage your portfolio items here."
           }
         ]
       }).start();
     }
   </script>
-{% endblock %}
-
-{% block branding %}
-  {{ block.super }}
-  <button onclick="startTour()" style="
-      margin-left: 20px;
-      padding: 6px 12px;
-      background: #0c4b33;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      cursor: pointer;
-    ">
-    🎯 Start Tour
-  </button>
 {% endblock %}
