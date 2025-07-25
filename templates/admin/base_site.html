@@ -1,49 +1,59 @@
-{% extends "admin/base_site.html" %}
+{% extends "admin/base.html" %}
 
-{% block extrastyle %}
-  {{ block.super }}
-  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+{% extends "jazzmin/base.html" %}
+
+
+{% block nav-global %}
+    {{ block.super }}
+    <li>
+        <a href="#" onclick="startAdminTour()" style="padding: 8px; color: #007bff;">🚀 Start Tour</a>
+    </li>
 {% endblock %}
 
 {% block extrahead %}
-  {{ block.super }}
-  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+    {{ block.super }}
+    <!-- Intro.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
 {% endblock %}
 
-{% block content %}
-  <div class="text-end mb-2">
-    <button onclick="startTour()" class="btn btn-success">Start Admin Tour</button>
-  </div>
-  {{ block.super }}
+{% block extrastyle %}
+    {{ block.super }}
+    <style>
+        .introjs-tooltiptext {
+            font-size: 14px;
+        }
+    </style>
 {% endblock %}
 
-{% block extra_js %}
-  {{ block.super }}
-  <script>
-    function startTour() {
-      introJs().setOptions({
-        steps: [
-          {
-            intro: "Welcome to the Sareh Far Admin Panel!"
-          },
-          {
-            element: document.querySelector('.brand-link'),
-            intro: "This is your admin logo and dashboard home link."
-          },
-          {
-            element: document.querySelector('.nav-sidebar'),
-            intro: "This is your main menu — manage all your content here."
-          },
-          {
-            element: document.querySelector('.model-hero'),
-            intro: "This is the Hero section — update your homepage banner."
-          },
-          {
-            element: document.querySelector('.model-portfolioitem'),
-            intro: "Manage your Portfolio section here."
-          }
-        ]
-      }).start();
-    }
-  </script>
+{% block footer %}
+    {{ block.super }}
+    <!-- Intro.js Script -->
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+    <script>
+        function startAdminTour() {
+            introJs().setOptions({
+                steps: [
+                    {
+                        intro: "Welcome to Sareh Far Admin Panel!"
+                    },
+                    {
+                        element: document.querySelector(".model-hero"),
+                        intro: "Here you can manage your Hero section."
+                    },
+                    {
+                        element: document.querySelector(".model-portfolioitem"),
+                        intro: "This section is for managing Portfolio Items."
+                    },
+                    {
+                        element: document.querySelector(".model-instagrampost"),
+                        intro: "Upload your Instagram content here."
+                    },
+                    {
+                        element: document.querySelector(".nav-item.dropdown.user-menu"),
+                        intro: "You can manage your account from here."
+                    }
+                ]
+            }).start();
+        }
+    </script>
 {% endblock %}
