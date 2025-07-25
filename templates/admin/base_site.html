@@ -1,55 +1,33 @@
 {% extends "admin/base_site.html" %}
 
-{% block nav-global %}
-    {{ block.super }}
-    <li>
-        <a href="#" onclick="startAdminTour()" style="padding: 8px; color: #007bff;">🚀 Start Tour</a>
-    </li>
+{% block content_title %}
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h1>{{ title }}</h1>
+    <button onclick="startAdminTour()" style="background:#007bff; color:#fff; padding:6px 12px; border:none; border-radius:4px;">
+      🚀 Start Tour
+    </button>
+  </div>
 {% endblock %}
 
 {% block extrahead %}
-    {{ block.super }}
-    <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
-{% endblock %}
-
-{% block extrastyle %}
-    {{ block.super }}
-    <style>
-        .introjs-tooltiptext {
-            font-size: 14px;
-        }
-    </style>
+  {{ block.super }}
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
 {% endblock %}
 
 {% block footer %}
-    {{ block.super }}
-    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
-    <script>
+  {{ block.super }}
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+  <script>
     function startAdminTour() {
         introJs().setOptions({
             steps: [
-                {
-                    intro: "👋 Welcome to the Sareh Far Admin Panel! Here's a quick tour of your dashboard."
-                },
-                {
-                    element: document.querySelector("a[href*='heros']"),
-                    intro: "Manage your Hero section here."
-                },
-                {
-                    element: document.querySelector("a[href*='portfolioitem']"),
-                    intro: "Manage your Portfolio Items here."
-                },
-                {
-                    element: document.querySelector("a[href*='instagrampost']"),
-                    intro: "Upload your Instagram content from here."
-                },
-                {
-                    element: document.querySelector(".user-menu"),
-                    intro: "Manage your account here."
-                }
+                { intro: "Welcome to Sareh Far Admin Panel!" },
+                { element: document.querySelector("a[href*='heros']"), intro: "Manage Hero section here." },
+                { element: document.querySelector("a[href*='portfolioitem']"), intro: "Manage Portfolio Items here." },
+                { element: document.querySelector("a[href*='instagrampost']"), intro: "Upload Instagram content here." },
+                { element: document.querySelector(".user-menu"), intro: "Manage your account here." }
             ]
         }).start();
     }
-</script>
-
+  </script>
 {% endblock %}
