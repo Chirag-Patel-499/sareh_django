@@ -25,30 +25,31 @@
     {{ block.super }}
     <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
     <script>
-        function startAdminTour() {
-            introJs().setOptions({
-                steps: [
-                    {
-                        intro: "Welcome to Sareh Far Admin Panel!"
-                    },
-                    {
-                        element: document.querySelector(".model-hero"),
-                        intro: "Here you can manage your Hero section."
-                    },
-                    {
-                        element: document.querySelector(".model-portfolioitem"),
-                        intro: "This section is for managing Portfolio Items."
-                    },
-                    {
-                        element: document.querySelector(".model-instagrampost"),
-                        intro: "Upload your Instagram content here."
-                    },
-                    {
-                        element: document.querySelector(".nav-item.dropdown.user-menu"),
-                        intro: "You can manage your account from here."
-                    }
-                ]
-            }).start();
-        }
-    </script>
+    function startAdminTour() {
+        introJs().setOptions({
+            steps: [
+                {
+                    intro: "👋 Welcome to the Sareh Far Admin Panel! Here's a quick tour of your dashboard."
+                },
+                {
+                    element: document.querySelector("a[href*='heros']"),
+                    intro: "Manage your Hero section here."
+                },
+                {
+                    element: document.querySelector("a[href*='portfolioitem']"),
+                    intro: "Manage your Portfolio Items here."
+                },
+                {
+                    element: document.querySelector("a[href*='instagrampost']"),
+                    intro: "Upload your Instagram content from here."
+                },
+                {
+                    element: document.querySelector(".user-menu"),
+                    intro: "Manage your account here."
+                }
+            ]
+        }).start();
+    }
+</script>
+
 {% endblock %}
