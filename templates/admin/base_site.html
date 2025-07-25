@@ -1,4 +1,4 @@
-{% extends "jazzmin/base.html" %}
+{% extends "admin/base_site.html" %}
 
 {% block nav-global %}
     {{ block.super }}
@@ -9,7 +9,6 @@
 
 {% block extrahead %}
     {{ block.super }}
-    <!-- Intro.js CSS -->
     <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
 {% endblock %}
 
@@ -24,7 +23,6 @@
 
 {% block footer %}
     {{ block.super }}
-    <!-- Intro.js Script -->
     <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
     <script>
         function startAdminTour() {
