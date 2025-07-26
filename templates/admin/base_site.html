@@ -7,6 +7,13 @@
     <!-- Intro.js CSS -->
     <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
 
+    {% block nav-global %}
+    {{ block.super }}
+    <li>
+        <a href="#" onclick="startAdminTour()" style="padding: 8px; color: #007bff;">🚀 Help Tour</a>
+    </li>
+    {% endblock %}
+
     <style>
         /* Tooltip box ni size moti kari */
         .introjs-tooltip {
@@ -35,12 +42,7 @@
     </style>
 {% endblock %}
 
-{% block nav-global %}
-  {{ block.super }}
-  <li>
-    <a href="#" onclick="startAdminTour()" style="padding: 8px; color: #007bff;">🚀 Help Tour</a>
-  </li>
-{% endblock %}
+
 
 {% block footer %}
     {{ block.super }}
