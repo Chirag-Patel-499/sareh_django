@@ -6,6 +6,33 @@
     {{ block.super }}
     <!-- Intro.js CSS -->
     <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
+
+    <style>
+        /* Tooltip box ni size moti kari */
+        .introjs-tooltip {
+            max-width: 600px !important;
+            width: auto !important;
+            padding: 20px !important;
+        }
+
+        /* Text formatting */
+        .introjs-tooltiptext {
+            text-align: left;
+            word-wrap: break-word;
+        }
+
+        /* Button area spacing */
+        .introjs-tooltipbuttons {
+            margin-top: 20px !important;
+        }
+
+        /* Mobile responsive fix */
+        @media (max-width: 640px) {
+            .introjs-tooltip {
+                max-width: 90vw !important;
+            }
+        }
+    </style>
 {% endblock %}
 
 {% block branding %}
