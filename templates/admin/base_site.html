@@ -1,8 +1,76 @@
-{% extends "admin/base.html" %}
+<!-- main/templates/admin/base_site.html -->
+{% extends "admin/base_site.html" %}
+{% load static %}
 
-{% block nav-global %}
+{% block extrahead %}
     {{ block.super }}
-    <li>
-        <a href="#" onclick="startAdminTour()" style="padding: 8px; color: #007bff;">🚀 Start Tour</a>
-    </li>
+    <!-- Intro.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block branding %}
+    {{ block.super }}
+    <!-- Manual trigger button -->
+    <button onclick="startAdminTour()" style="position: absolute; top: 10px; right: 20px; z-index: 9999; background: #6366f1; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
+        ❓ Help
+    </button>
+{% endblock %}
+
+{% block footer %}
+    {{ block.super }}
+    <!-- Intro.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
+
+    <script>
+        function startAdminTour() {
+            introJs().setOptions({
+                steps: [
+                    {
+                        intro: "👋 Welcome, Sareeh! Here's a quick tour of your website admin panel."
+                    },
+                    {
+                        element: document.querySelector('[href*="/admin/main/hero/"]'),
+                        intro: "✨ This is the Hero section. Edit homepage headlines and images here."
+                    },
+                    {
+                        element: document.querySelector('[href*="/admin/main/blog/"]'),
+                        intro: "📝 This is where you manage your blog posts."
+                    },
+                    {
+                        element: document.querySelector('[href*="/admin/main/portfolioitem/"]'),
+                        intro: "🎨 Manage your Portfolio projects here."
+                    },
+                    {
+                        element: document.querySelector('[href*="/admin/main/contact/"]'),
+                        intro: "📬 View contact form submissions here."
+                    },
+                    {
+                        element: document.querySelector('[href*="/admin/main/comment/"]'),
+                        intro: "💬 Manage blog comments and replies."
+                    },
+                    {
+                        element: document.querySelector('[href*="/admin/main/testimonial/"]'),
+                        intro: "🌟 Edit testimonials shown on your site."
+                    },
+                    {
+                        element: document.querySelector('[href*="/admin/main/adsreel/"]'),
+                        intro: "📹 Add Instagram Reels or promotional video links here."
+                    },
+                    {
+                        intro: "✅ That's it! You can always click the ❓ button above to replay this tour."
+                    }
+                ],
+                nextLabel: "Next →",
+                prevLabel: "← Back",
+                skipLabel: "Skip",
+                doneLabel: "Finish"
+            }).start();
+        }
+
+        // Run tour only once per browser using localStorage
+        if (!localStorage.getItem('adminTourSeen')) {
+            startAdminTour();
+            localStorage.setItem('adminTourSeen', 'true');
+        }
+    </script>
 {% endblock %}
