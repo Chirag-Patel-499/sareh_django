@@ -1,0 +1,63 @@
+
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block footer %}
+    {{ block.super }}
+    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
+
+    <script>
+        function startBlogEditTour() {
+            introJs().setOptions({
+                steps: [
+                    {
+                        intro: "📝 This is where you edit a Blog Post. Let's walk through it!"
+                    },
+                    {
+                        element: document.querySelector('#id_title'),
+                        intro: "This is the blog title. Keep it clear and SEO-friendly."
+                    },
+                    {
+                        element: document.querySelector('#id_short_description'),
+                        intro: "Short description — a quick summary for previews."
+                    },
+                    {
+                        element: document.querySelector('#id_image'),
+                        intro: "Upload the blog's main image here."
+                    },
+                    {
+                        element: document.querySelector('#id_content_ifr'),
+                        intro: "This is the TinyMCE editor. Click inside to start editing."
+                    },
+                    {
+                        intro: `
+                            <b>🖼 How to Edit TinyMCE Content</b><br><br>
+                            • <b>Edit text</b> by clicking and typing.<br>
+                            • <b>Replace images</b>: Right-click on an image → select "Image Properties" → Replace URL.<br>
+                            • To edit HTML: Click the "<>" icon (usually top-right) in the editor toolbar.<br><br>
+                            🔁 You can also paste your own HTML block if needed.
+                        `
+                    },
+                    {
+                        intro: "✅ All set! Scroll down to save when you're done editing."
+                    }
+                ],
+                nextLabel: "Next →",
+                prevLabel: "← Back",
+                skipLabel: "Skip",
+                doneLabel: "Finish"
+            }).start();
+        }
+
+        // Auto-run only once per session
+        if (!sessionStorage.getItem('blogTourSeen')) {
+            startBlogEditTour();
+            sessionStorage.setItem('blogTourSeen', 'true');
+        }
+    </script>
+{% endblock %}
