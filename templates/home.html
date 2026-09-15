@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Sareeh Portfolio</title>
 
   <!-- Fonts -->
@@ -405,23 +406,23 @@
         {% for vid in videos %}
           <div class="col-md-4" data-aos="zoom-in">
             <div class="ratio ratio-16x9">
-              <iframe src="{{ vid.youtube_url }}" loading="lazy" allowfullscreen></iframe>
+              <iframe src="{{ vid.embed_url|default:vid.youtube_url }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
         {% empty %}
           <div class="col-md-4" data-aos="zoom-in">
             <div class="ratio ratio-16x9">
-              <iframe src="https://www.youtube.com/embed/JIzkQGPMT9E" loading="lazy" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/JIzkQGPMT9E?origin=https://www.travelbiz.biz499.com" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
           <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
             <div class="ratio ratio-16x9">
-              <iframe src="https://www.youtube.com/embed/0ShecoIJ5jc" loading="lazy" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/0ShecoIJ5jc?origin=https://www.travelbiz.biz499.com" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
           <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
             <div class="ratio ratio-16x9">
-              <iframe src="https://www.youtube.com/embed/bWZPJQmL_NA" loading="lazy" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/bWZPJQmL_NA?origin=https://www.travelbiz.biz499.com" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
         {% endfor %}

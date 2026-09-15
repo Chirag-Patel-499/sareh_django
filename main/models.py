@@ -1,7 +1,10 @@
 from django.db import models
 from django.db.models.signals import post_delete, pre_save, pre_delete
 from django.dispatch import receiver
+from django.utils.safestring import mark_safe
 import os
+import re
+import urllib.parse
 from tinymce.models import HTMLField
 from django.utils.text import slugify
 
@@ -239,6 +242,39 @@ class Video(models.Model):
 
     def __str__(self):
         return self.youtube_url
+
+    @property
+    def embed_url(self):
+        if not self.youtube_url:
+            return ""
+        url = self.youtube_url.strip()
+        parsed = urllib.parse.urlparse(url)
+        query_params = dict(urllib.parse.parse_qsl(parsed.query))
+
+        video_id = None
+        if "youtu.be" in parsed.netloc:
+            video_id = parsed.path.lstrip("/").split("/")[0]
+        elif "youtube.com" in parsed.netloc:
+            if parsed.path.startswith("/embed/"):
+                video_id = parsed.path.split("/embed/")[1].split("/")[0]
+            elif parsed.path.startswith("/shorts/"):
+                video_id = parsed.path.split("/shorts/")[1].split("/")[0]
+            elif "v" in query_params:
+                video_id = query_params.pop("v")
+        elif not parsed.netloc and re.match(r"^[a-zA-Z0-9_-]{11}$", url):
+            video_id = url
+
+        query_params["origin"] = "https://www.travelbiz.biz499.com"
+        query_string = urllib.parse.urlencode(query_params, safe="/:")
+
+        if video_id:
+            return mark_safe(f"https://www.youtube.com/embed/{video_id}?{query_string}")
+        elif "/embed/" in url:
+            sep = "&" if "?" in url else "?"
+            if "origin=" not in url:
+                return mark_safe(f"{url}{sep}origin=https://www.travelbiz.biz499.com")
+            return mark_safe(url)
+        return mark_safe(url)
 
 class BookSection(models.Model):
     quote       = models.TextField(default="“Every choice we make shapes our path.”")
